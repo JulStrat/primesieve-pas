@@ -4,7 +4,6 @@ dist: bionic
 os:
   - linux
   - osx
-  - windows
 
 before_install:
     - if [[ $TRAVIS_OS_NAME == linux ]]; then
