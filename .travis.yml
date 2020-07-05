@@ -19,7 +19,7 @@ before_install:
         echo $DYLD_LIBRARY_PATH;
         sudo update_dyld_shared_cache;
       else
-        choco install freepascal;
+        choco install lazarus;
         choco install mingw;
         cmd.exe //c "RefreshEnv.cmd"; 
         export PATH=$PATH:/C/lazarus/fpc/3.0.4/bin/x86_64-win64;
