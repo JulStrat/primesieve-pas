@@ -283,12 +283,15 @@ uses SysUtils{$ifdef FPC}, dynlibs{$endif};
 
 const
 {$IF Defined(Linux)}
+  {$MESSAGE HINT 'Linux platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.so';
-{$ELSEIF Defined(Darwin) and not Defined(IOS)}
+{$ELSEIF Defined(Darwin)}
+  {$MESSAGE HINT 'Darwin platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.dylib';
 {$ELSEIF Defined(Windows)}
+  {$MESSAGE HINT 'Windows platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.dll';
 {$ELSE}
@@ -352,35 +355,62 @@ initialization
   if libHandle = NilHandle then
     Halt(1);
 
-  GetAddr(@primesieve_generate_primes, 'primesieve_generate_primes');
-  GetAddr(@primesieve_generate_n_primes, 'primesieve_generate_n_primes');
-  GetAddr(@primesieve_nth_prime, 'primesieve_nth_prime');
-  GetAddr(@primesieve_count_primes, 'primesieve_count_primes');
-  GetAddr(@primesieve_count_twins, 'primesieve_count_twins');
-  GetAddr(@primesieve_count_triplets, 'primesieve_count_triplets');
-  GetAddr(@primesieve_count_quadruplets, 'primesieve_count_quadruplets');
-  GetAddr(@primesieve_count_quintuplets, 'primesieve_count_quintuplets');
-  GetAddr(@primesieve_count_sextuplets, 'primesieve_count_sextuplets');
-  GetAddr(@primesieve_print_primes, 'primesieve_print_primes');
-  GetAddr(@primesieve_print_twins, 'primesieve_print_twins');
-  GetAddr(@primesieve_print_triplets, 'primesieve_print_triplets');
-  GetAddr(@primesieve_print_quadruplets, 'primesieve_print_quadruplets');
-  GetAddr(@primesieve_print_quintuplets, 'primesieve_print_quintuplets');
-  GetAddr(@primesieve_print_sextuplets, 'primesieve_print_sextuplets');
-  GetAddr(@primesieve_get_max_stop, 'primesieve_get_max_stop');
-  GetAddr(@primesieve_get_sieve_size, 'primesieve_get_sieve_size');
-  GetAddr(@primesieve_get_num_threads, 'primesieve_get_num_threads');
-  GetAddr(@primesieve_set_sieve_size, 'primesieve_set_sieve_size');
-  GetAddr(@primesieve_set_num_threads, 'primesieve_set_num_threads');
-  GetAddr(@primesieve_free, 'primesieve_free');
-  GetAddr(@primesieve_version, 'primesieve_version');
+  GetAddr(@primesieve_generate_primes, 
+    LIB_FNPFX + 'primesieve_generate_primes');
+  GetAddr(@primesieve_generate_n_primes, 
+    LIB_FNPFX + 'primesieve_generate_n_primes');
+  GetAddr(@primesieve_nth_prime, 
+    LIB_FNPFX + 'primesieve_nth_prime');
+  GetAddr(@primesieve_count_primes, 
+    LIB_FNPFX + 'primesieve_count_primes');
+  GetAddr(@primesieve_count_twins, 
+    LIB_FNPFX + 'primesieve_count_twins');
+  GetAddr(@primesieve_count_triplets, 
+    LIB_FNPFX + 'primesieve_count_triplets');
+  GetAddr(@primesieve_count_quadruplets, 
+    LIB_FNPFX + 'primesieve_count_quadruplets');
+  GetAddr(@primesieve_count_quintuplets, 
+    LIB_FNPFX + 'primesieve_count_quintuplets');
+  GetAddr(@primesieve_count_sextuplets, 
+    LIB_FNPFX + 'primesieve_count_sextuplets');
+  GetAddr(@primesieve_print_primes, 
+    LIB_FNPFX + 'primesieve_print_primes');
+  GetAddr(@primesieve_print_twins, 
+    LIB_FNPFX + 'primesieve_print_twins');
+  GetAddr(@primesieve_print_triplets, 
+    LIB_FNPFX + 'primesieve_print_triplets');
+  GetAddr(@primesieve_print_quadruplets, 
+    LIB_FNPFX + 'primesieve_print_quadruplets');
+  GetAddr(@primesieve_print_quintuplets, 
+    LIB_FNPFX + 'primesieve_print_quintuplets');
+  GetAddr(@primesieve_print_sextuplets, 
+    LIB_FNPFX + 'primesieve_print_sextuplets');
+  GetAddr(@primesieve_get_max_stop, 
+    LIB_FNPFX + 'primesieve_get_max_stop');
+  GetAddr(@primesieve_get_sieve_size, 
+    LIB_FNPFX + 'primesieve_get_sieve_size');
+  GetAddr(@primesieve_get_num_threads, 
+    LIB_FNPFX + 'primesieve_get_num_threads');
+  GetAddr(@primesieve_set_sieve_size, 
+    LIB_FNPFX + 'primesieve_set_sieve_size');
+  GetAddr(@primesieve_set_num_threads, 
+    LIB_FNPFX + 'primesieve_set_num_threads');
+  GetAddr(@primesieve_free, 
+    LIB_FNPFX + 'primesieve_free');
+  GetAddr(@primesieve_version, 
+    LIB_FNPFX + 'primesieve_version');
 
-  GetAddr(@primesieve_init, 'primesieve_init');
-  GetAddr(@primesieve_free_iterator, 'primesieve_free_iterator');
-  GetAddr(@primesieve_skipto, 'primesieve_skipto');
+  GetAddr(@primesieve_init, 
+    LIB_FNPFX + 'primesieve_init');
+  GetAddr(@primesieve_free_iterator, 
+    LIB_FNPFX + 'primesieve_free_iterator');
+  GetAddr(@primesieve_skipto, 
+    LIB_FNPFX + 'primesieve_skipto');
 
-  GetAddr(@primesieve_generate_next_primes, 'primesieve_generate_next_primes');
-  GetAddr(@primesieve_generate_prev_primes, 'primesieve_generate_prev_primes');
+  GetAddr(@primesieve_generate_next_primes, 
+    LIB_FNPFX + 'primesieve_generate_next_primes');
+  GetAddr(@primesieve_generate_prev_primes, 
+    LIB_FNPFX + 'primesieve_generate_prev_primes');
 
 finalization
   FreeLibrary(libHandle);
