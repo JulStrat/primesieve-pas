@@ -19,14 +19,16 @@ before_install:
         echo $DYLD_LIBRARY_PATH;
         sudo update_dyld_shared_cache;
       else
-        choco install lazarus;
+        choco install freepascal;
         choco install mingw;
-        cmd.exe //c "RefreshEnv.cmd";
-        echo $PATH;         
+        cmd.exe //c "RefreshEnv.cmd"; 
+        export PATH=$PATH:/C/lazarus/fpc/3.0.4/bin/x86_64-win64;
+        ls /C/lazarus/fpc/3.0.4/bin;
+        ls /C/lazarus/fpc/3.0.4/bin/x86_64-win64;         
       fi
 
 install:
-
+  
 script:
   - cd libprimesieve
   - fpc -B -vh -O3 -CX -XX ../primesieve_info.pas
