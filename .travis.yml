@@ -21,7 +21,7 @@ before_install:
       else
         choco install freepascal;
         choco install mingw;
-        refreshenv;         
+        cmd.exe //c "RefreshEnv.cmd";         
       fi
 
 install:
