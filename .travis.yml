@@ -20,22 +20,18 @@ before_install:
         sudo update_dyld_shared_cache;
       else
         choco install lazarus;
-        choco install mingw;
-        cmd.exe //c "RefreshEnv.cmd"; 
-        export PATH=$PATH:/C/lazarus/fpc/3.0.4/bin/x86_64-win64;
-        ls /C/lazarus/fpc/3.0.4/bin;
-        ls /C/lazarus/fpc/3.0.4/bin/x86_64-win64;         
+        export PATH="$PATH":"/C/lazarus/fpc/3.0.4/bin/x86_64-win64";
       fi
 
 install:
+  - cd libprimesieve
+  - fpc -B -vh -Fu../ ../primesieve_info.pas
+  - fpc -B -vh -Fu../ ../examples/count_primes.pas
+  - fpc -B -vh -Fu../ ../examples/nth_prime.pas  
+  - fpc -B -vh -Fu../ ../examples/store_primes_in_array.pas  
   
 script:
-  - cd libprimesieve
-  - fpc -B -vh -O3 -CX -XX ../primesieve_info.pas
   - ../primesieve_info
-  - fpc -B -vh -Fu../ -O3 -CX -XX ../examples/count_primes.pas
-  - fpc -B -vh -Fu../ -O3 -CX -XX ../examples/nth_prime.pas  
-  - fpc -B -vh -Fu../ -O3 -CX -XX ../examples/store_primes_in_array.pas  
   - ../examples/count_primes
   - ../examples/nth_prime  
   - ../examples/store_primes_in_array  
