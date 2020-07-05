@@ -279,7 +279,7 @@ var
 
 implementation
 
-uses dynlibs, SysUtils;
+uses SysUtils{$ifdef FPC}, dynlibs{$endif};
 
 const
 {$IF Defined(Linux)}
@@ -290,11 +290,10 @@ const
   LIB_PRIMESIEVE = 'libprimesieve.dylib';
 {$ELSEIF Defined(Windows)}
   LIB_FNPFX = '';
-  LIB_PRIMESIEVE = 'primesieve.dll';
+  LIB_PRIMESIEVE = 'libprimesieve.dll';
 {$ELSE}
   {$MESSAGE Fatal 'Unsupported platform'}
 {$ENDIF}
-
 
 var
   (** Internal use *)
@@ -384,5 +383,5 @@ initialization
   GetAddr(@primesieve_generate_prev_primes, 'primesieve_generate_prev_primes');
 
 finalization
-  UnloadLibrary(libHandle);
+  FreeLibrary(libHandle);
 end.
