@@ -3,6 +3,7 @@ dist: bionic
 
 os:
   - linux
+  - osx
 
 before_install:
     - if [[ $TRAVIS_OS_NAME == linux ]]; then
@@ -16,24 +17,19 @@ before_install:
         export DYLD_LIBRARY_PATH=.:$DYLD_LIBRARY_PATH:/usr/local/lib;
         echo $DYLD_LIBRARY_PATH;
         sudo update_dyld_shared_cache;
-        nm /usr/local/lib/libprimesieve.dylib;
-        file /usr/local/lib/libprimesieve.dylib;
-        cp /usr/local/lib/libprimesieve.dylib .;
-        otool -L libprimesieve.dylib;
-        fpc test.pas;
       fi
 
 install:
   
 script:
-  - fpc -B -O3 -CX -XX primesieve_info.pas
+  - fpc -vh -B -O3 -CX -XX primesieve_info.pas
   - ./primesieve_info
   - cd examples
-  - fpc -B -Fu../ -O3 -CX -XX count_primes.pas
-  - fpc -B -Fu../ -O3 -CX -XX nth_prime.pas  
-  - fpc -B -Fu../ -O3 -CX -XX -dUSE_ABI6 prev_prime.pas
-  - fpc -B -Fu../ -O3 -CX -XX -dUSE_ABI6 primesieve_iterator.pas
-  - fpc -B -Fu../ -O3 -CX -XX store_primes_in_array.pas  
+  - fpc -vh -B -Fu../ -O3 -CX -XX count_primes.pas
+  - fpc -vh -B -Fu../ -O3 -CX -XX nth_prime.pas  
+  - fpc -vh -B -Fu../ -O3 -CX -XX -dUSE_ABI6 prev_prime.pas
+  - fpc -vh -B -Fu../ -O3 -CX -XX -dUSE_ABI6 primesieve_iterator.pas
+  - fpc -vh -B -Fu../ -O3 -CX -XX store_primes_in_array.pas  
   - ./count_primes
   - ./nth_prime  
   - ./prev_prime

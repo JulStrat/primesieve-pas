@@ -4,7 +4,7 @@ unit primesieve;
 {$endif}
 
 {$IFDEF USE_ABI6}
-{$MESSAGE Warn 'Using ABI6'}
+{$MESSAGE HINT 'Using ABI6'}
 {$ENDIF}
 // Debug
 // {$DEFINE USE_ABI6}
@@ -13,11 +13,13 @@ interface
 
 const
   {$IF Defined(Linux)}
+  {$MESSAGE HINT 'LINUX platform'}
   LIB_FNPFX = '';
-  LIB_PRIMESIEVE = 'libprimesieve.so';
-  {$ELSEIF Defined(Darwin) and not Defined(IOS)}
+  LIB_PRIMESIEVE = 'primesieve';
+  {$ELSEIF Defined(Darwin)}
+  {$MESSAGE HINT 'DARWIN platform'}
   LIB_FNPFX = '';
-  LIB_PRIMESIEVE = 'libprimesieve.dylib';
+  LIB_PRIMESIEVE = 'primesieve';
   {$ELSE}
     {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
