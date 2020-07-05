@@ -20,7 +20,8 @@ before_install:
         sudo update_dyld_shared_cache;
       else
         choco install freepascal;
-        choco install mingw;         
+        choco install mingw;
+        refreshenv;         
       fi
 
 install:
