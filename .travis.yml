@@ -29,7 +29,7 @@ install:
   - fpc -B -vh examples/store_primes_in_array.pas  
   
 script:
-  - primesieve_info
+  - ./primesieve_info
   - examples/count_primes
   - examples/nth_prime  
   - examples/store_primes_in_array  
