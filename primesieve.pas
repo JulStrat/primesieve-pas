@@ -15,7 +15,7 @@ const
   _PRIMESIEVE_VERSION_MAJOR = 7;
   _PRIMESIEVE_VERSION_MINOR = 5;
 
-  _PRIMESIEVE_PAS_VERSION = '0.1';
+  _PRIMESIEVE_PAS_VERSION = '0.2';
 
   (**
    * primesieve functions return PRIMESIEVE_ERROR
@@ -87,7 +87,7 @@ var
  * @param size  The size of the returned primes array.
  * @param type  The type of the primes to generate, e.g. INT_PRIMES.
  *)
-  primesieve_generate_primes: function(start: UInt64; stop: UInt64; size: PNativeUInt; &type: Integer): Pointer; cdecl;
+  primesieve_generate_primes: function(start: UInt64; stop: UInt64; var size: NativeUInt; &type: Integer): Pointer; cdecl;
 
 (**
  * Get an array with the first n primes >= start.
@@ -277,6 +277,9 @@ var
  *)
   function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
 
+  function load_libprimesieve: integer;
+  function unload_libprimesieve: integer;
+  
 implementation
 
 uses SysUtils{$ifdef FPC}, dynlibs{$endif};
@@ -342,19 +345,25 @@ end;
 var
   libHandle: TLibHandle;
 
-procedure GetAddr(var procAddr: Pointer; procName: string; assertCheck: Boolean=True);
-begin
-  procAddr := GetProcAddress(libHandle, procName);
-  if assertCheck then
-    Assert(procAddr <> nil,
-      Format('%s procedure not found in "%s"!', [procName, LIB_PRIMESIEVE]));
-end;
+function load_libprimesieve();
 
-initialization
+  procedure GetAddr(var procAddr: Pointer; procName: string);
+  begin
+    procAddr := GetProcAddress(libHandle, procName);
+	if procAddr = nil then
+	begin
+      WriteLn(Format('%s procedure not found in "%s"!', 
+	    [procName, LIB_PRIMESIEVE]));
+	end;  
+  end;
+
+begin
   libHandle := LoadLibrary(LIB_PRIMESIEVE);
   if libHandle = NilHandle then
-    Halt(1);
-
+  begin
+    WriteLn(Format('Error loading %s', [LIB_PRIMESIEVE]));
+    Exit(-1);
+  end;
   GetAddr(@primesieve_generate_primes, 
     LIB_FNPFX + 'primesieve_generate_primes');
   GetAddr(@primesieve_generate_n_primes, 
@@ -412,6 +421,17 @@ initialization
   GetAddr(@primesieve_generate_prev_primes, 
     LIB_FNPFX + 'primesieve_generate_prev_primes');
 
-finalization
+  Result := 0;
+end;
+
+function unload_libprimesieve(): integer;
+begin
   FreeLibrary(libHandle);
+  Result := 0;  
+end;
+
+initialization
+
+finalization
+
 end.

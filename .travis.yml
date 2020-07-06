@@ -23,14 +23,13 @@ before_install:
       fi
 
 install:
-  - cd libprimesieve
-  - fpc -B -vh -Fu../ ../primesieve_info.pas
-  - fpc -B -vh -Fu../ ../examples/count_primes.pas
-  - fpc -B -vh -Fu../ ../examples/nth_prime.pas  
-  - fpc -B -vh -Fu../ ../examples/store_primes_in_array.pas  
+  - fpc -B -vh primesieve_info.pas
+  - fpc -B -vh examples/count_primes.pas
+  - fpc -B -vh examples/nth_prime.pas  
+  - fpc -B -vh examples/store_primes_in_array.pas  
   
 script:
-  - ../primesieve_info
-  - ../examples/count_primes
-  - ../examples/nth_prime  
-  - ../examples/store_primes_in_array  
+  - primesieve_info
+  - examples/count_primes
+  - examples/nth_prime  
+  - examples/store_primes_in_array  

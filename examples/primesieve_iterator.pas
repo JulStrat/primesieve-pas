@@ -17,7 +17,7 @@ var
 begin
   sum := 0;
   prime := 0;
-  
+  load_libprimesieve();
   primesieve_init(it);
   (* iterate over the primes below 10^9 *)
   prime := primesieve_next_prime(it);
@@ -37,4 +37,5 @@ begin
     prime := primesieve_next_prime(it);
   end;
   primesieve_free_iterator(it);
+  unload_libprimesieve();
 end.
