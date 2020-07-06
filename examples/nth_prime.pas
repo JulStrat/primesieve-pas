@@ -13,8 +13,10 @@ var
 
 begin
   n := 1000;
+  load_libprimesieve();
   if ParamCount > 0 then
     TryStrToInt64(ParamStr(1), n);
   prime := primesieve_nth_prime(n, 0);
   WriteLn(Format('%dth prime = %d', [n, prime]));
+  unload_libprimesieve();
 end.

@@ -15,8 +15,9 @@ begin
   start := 0;
   stop := 1000;
 
+  load_libprimesieve();
   (* store the primes below 1000 *)
-  primes := primesieve_generate_primes(start, stop, @size, INT_PRIMES);
+  primes := primesieve_generate_primes(start, stop, size, INT_PRIMES);
 
   for i := 0 to size-1 do
     WriteLn(primes[i]);
@@ -31,4 +32,6 @@ begin
     WriteLn(primes[i]);
 
   primesieve_free(primes);
+  
+  unload_libprimesieve();
 end.

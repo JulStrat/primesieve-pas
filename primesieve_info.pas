@@ -6,6 +6,8 @@ program primesieve_info;
 uses SysUtils, primesieve;
 
 begin
+  load_libprimesieve();
+  
   WriteLn('PrimeSieve information');
   WriteLn('----------------------');  
   WriteLn(Format('Library version: %s', [primesieve_version()]));
@@ -14,4 +16,6 @@ begin
   WriteLn(Format('Largest valid stop number: %x', [primesieve_get_max_stop()]));
   WriteLn(Format('Current sieve size in KiB: %d', [primesieve_get_sieve_size()]));  
   WriteLn(Format('Current number of threads: %d', [primesieve_get_num_threads()]));    
+  
+  unload_libprimesieve();  
 end.

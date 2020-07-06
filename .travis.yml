@@ -17,17 +17,19 @@ before_install:
         export DYLD_LIBRARY_PATH=.:$DYLD_LIBRARY_PATH:/usr/local/lib;
         echo $DYLD_LIBRARY_PATH;
         sudo update_dyld_shared_cache;
+      else
+        choco install lazarus;
+        export PATH="$PATH":"/C/lazarus/fpc/3.0.4/bin/x86_64-win64";
       fi
 
 install:
+  - fpc -B -vh primesieve_info.pas
+  - fpc -B -vh examples/count_primes.pas
+  - fpc -B -vh examples/nth_prime.pas  
+  - fpc -B -vh examples/store_primes_in_array.pas  
   
 script:
-  - fpc -B -O3 -CX -XX primesieve_info.pas
   - ./primesieve_info
-  - cd examples
-  - fpc -B -Fu../ -O3 -CX -XX count_primes.pas
-  - fpc -B -Fu../ -O3 -CX -XX nth_prime.pas  
-  - fpc -B -Fu../ -O3 -CX -XX store_primes_in_array.pas  
-  - ./count_primes
-  - ./nth_prime  
-  - ./store_primes_in_array  
+  - examples/count_primes
+  - examples/nth_prime  
+  - examples/store_primes_in_array  

@@ -22,6 +22,7 @@ var
   prime: UInt64;
 
 begin
+  load_libprimesieve();
   primesieve_init(it);
 
   (* primesieve_skipto(it, start_number, stop_hint) *)
@@ -36,4 +37,5 @@ begin
   end;
   
   primesieve_free_iterator(it);
+  unload_libprimesieve();
 end.
