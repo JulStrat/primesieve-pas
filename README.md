@@ -4,16 +4,22 @@
 
 Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) library.
 
-# Requirements
+## Pascal API documentation
+
+https://julstrat.github.io/primesieve-pas/
+
+Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+
+## Requirements
 
 Install ```primesieve``` library.
 
 - Ubuntu - ```sudo apt install libprimesieve-dev```.
 - MacOS - ```brew install primesieve```.
-- Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve).
+- Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve) built with MinGW.
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
 
-# Usage
+## Usage
 ```
 (** @example store_primes_in_array.pas
  *  Store primes in a array. *)
