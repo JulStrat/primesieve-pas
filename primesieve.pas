@@ -28,12 +28,13 @@ const
   _PRIMESIEVE_VERSION = '7.5';
   _PRIMESIEVE_VERSION_MAJOR = 7;
   _PRIMESIEVE_VERSION_MINOR = 5;
-
+  
+  (* Pascal API version *)
   _PRIMESIEVE_PAS_VERSION = '0.2';
 
   (*
-    primesieve functions return PRIMESIEVE_ERROR 
-    (UINT64_MAX) if any error occurs.
+    primesieve functions return @italic(PRIMESIEVE_ERROR 
+    (UINT64_MAX)) if any error occurs.
    *)  
   _PRIMESIEVE_ERROR = not UInt64(0);
 
@@ -53,21 +54,36 @@ const
   LONGLONG_PRIMES = 6;
   (* Generate primes of unsigned long long type *)
   ULONGLONG_PRIMES = 7;
-  (* Generate primes of int16_t type *)
+  (* Generate primes of Int16 (c int16_t) type *)
   INT16_PRIMES = 8;
-  (* Generate primes of uint16_t type *)
+  (* Generate primes of UInt16 (c uint16_t) type *)
   UINT16_PRIMES = 9;
-  (* Generate primes of int32_t type *)
+  (* Generate primes of Int32 (c int32_t) type *)
   INT32_PRIMES = 10;
-  (* Generate primes of uint32_t type *)
+  (* Generate primes of UInt32 (c uint32_t) type *)
   UINT32_PRIMES = 11;
-  (* Generate primes of int64_t type *)
+  (* Generate primes of Int64 (c int64_t) type *)
   INT64_PRIMES = 12;
-  (* Generate primes of uint64_t type *)
+  (* Generate primes of UInt64 (c uint64_t) type *)
   UINT64_PRIMES = 13;
 
 type
-  
+
+(*
+  @italic(primesieve_iterator) allows to easily iterate over primes
+  both forwards and backwards. Generating the first prime
+  has a complexity of @italic(O(r log log r)) operations with
+  @italic(r = n^0.5), after that any additional prime is generated in
+  amortized @italic(O(log n log log n)) operations. The memory usage
+  is about @italic(PrimePi(n^0.5) * 8) bytes.
+
+  The @italic(primesieve_iterator.pas)
+  example shows how to use @italic(primesieve_iterator).
+  If any error occurs @italic(primesieve_next_prime()) and
+  @italic(primesieve_prev_prime()) return @italic(PRIMESIEVE_ERROR).
+  Furthermore @italic(primesieve_iterator.is_error) is initialized
+  to 0 and set to 1 if any error occurs.
+ *)
   {$IF Defined(USE_ABI6)}
   primesieve_iterator = record
     i_: NativeUInt;
@@ -100,47 +116,47 @@ var
   Get an array with the primes inside the interval @italic([start, stop]).
   
   @code(size) - The size of the returned primes array.@br
-  @code(ptype) - The type of the primes to generate, e.g. INT_PRIMES.
+  @code(ptype) - The type of the primes to generate, e.g. @italic(INT_PRIMES).
  *)
   primesieve_generate_primes: function(start: UInt64; stop: UInt64; var size: NativeUInt; ptype: Integer): Pointer; cdecl;
 
 (*
-  Get an array with the first n primes >= start.
+  Get an array with the first @italic(n primes >= start).
   
-  @code(ptype) - The type of the primes to generate, e.g. INT_PRIMES.
+  @code(ptype) - The type of the primes to generate, e.g. @italic(INT_PRIMES).
  *)
   primesieve_generate_n_primes: function(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl;
 
 (*
   Find the nth prime.
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  
-  Note that each call to primesieve_nth_prime(n, start) incurs an
-  initialization overhead of O(sqrt(start)) even if n is tiny.
-  Hence it is not a good idea to use primesieve_nth_prime()
+  Note that each call to @italic(primesieve_nth_prime(n, start)) incurs an
+  initialization overhead of @italic(O(sqrt(start))) even if n is tiny.
+  Hence it is not a good idea to use @italic(primesieve_nth_prime())
   repeatedly in a loop to get the next (or previous) prime. For
-  this use case it is better to use a primesieve::iterator which
+  this use case it is better to use a @italic(primesieve_iterator) which
   needs to be initialized only once.
  
-  if n = 0 finds the 1st prime >= start,@br
-  if n > 0 finds the nth prime > start,@br
-  if n < 0 finds the nth prime < start (backwards).
+  if @italic(n = 0) finds the @italic(1st prime >= start),@br
+  if @italic(n > 0) finds the @italic(nth prime > start),@br
+  if @italic(n < 0) finds the @italic(nth prime < start) (backwards).
  *)
   primesieve_nth_prime: function(n: Int64; start: UInt64): UInt64; cdecl;
 
 (*
   Count the primes within the interval @italic([start, stop]).
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  
-  Note that each call to primesieve_count_primes() incurs an
-  initialization overhead of O(sqrt(stop)) even if the interval
+  Note that each call to @italic(primesieve_count_primes()) incurs an
+  initialization overhead of @italic(O(sqrt(stop))) even if the interval
   @italic([start, stop]) is tiny. Hence if you have written an algorithm
-  that makes many calls to primesieve_count_primes() it may be
-  preferable to use a primesieve::iterator which needs to be
+  that makes many calls to @italic(primesieve_count_primes()) it may be
+  preferable to use a @italic(primesieve_iterator) which needs to be
   initialized only once.
  *)
   primesieve_count_primes: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -148,7 +164,7 @@ var
 (*
   Count the twin primes within the interval @italic([start, stop]).
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  *)
   primesieve_count_twins: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -157,7 +173,7 @@ var
   Count the prime triplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  *)
   primesieve_count_triplets: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -166,7 +182,7 @@ var
   Count the prime quadruplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  *)
   primesieve_count_quadruplets: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -175,7 +191,7 @@ var
   Count the prime quintuplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  *)
   primesieve_count_quintuplets: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -184,7 +200,7 @@ var
   Count the prime sextuplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
-  primesieve_set_num_threads(int threads) to change the
+  @italic(primesieve_set_num_threads(int threads)) to change the
   number of threads.
  *)
   primesieve_count_sextuplets: function(start: UInt64; stop: UInt64): UInt64; cdecl;
@@ -228,7 +244,7 @@ var
 (*
   Returns the largest valid stop number for primesieve.
   
-  @preformatted(2^64-1 (UINT64_MAX))
+  @italic(2^64-1 (UINT64_MAX))
  *)
   primesieve_get_max_stop: function(): UInt64; cdecl;
 
@@ -242,20 +258,20 @@ var
   Set the sieve size in KiB (kibibyte).
   The best sieving performance is achieved with a sieve size
   of your CPU's L1 or L2 cache size (per core).
-  @preformatted(sieve_size >= 8 && <= 4096)
+  @italic(sieve_size >= 8 && <= 4096)
  *)
   primesieve_set_sieve_size: procedure(sieve_size: Integer); cdecl;
 
 (*
   Set the number of threads for use in
-  primesieve_count_*() and primesieve_nth_prime().
+  @italic(primesieve_count_*()) and @italic(primesieve_nth_prime()).
   By default all CPU cores are used.
  *)
   primesieve_set_num_threads: procedure(num_threads: Integer); cdecl;
 
 (*
   Deallocate a primes array created using the
-  primesieve_generate_primes() or primesieve_generate_n_primes()
+  @italic(primesieve_generate_primes()) or @italic(primesieve_generate_n_primes())
   functions.
  *)
   primesieve_free: procedure(primes: Pointer); cdecl;
@@ -274,12 +290,12 @@ var
 (*
   Reset the primesieve iterator to start.
   
-  @code(start) - Generate primes > start (or < start).
+  @code(start) - Generate @italic(primes > start (or < start)).
   
   @code(stop_hint) - Stop number optimization hint. E.g. if you want
                      to generate the primes below 1000 use
-                     stop_hint = 1000, if you don't know use
-                     primesieve_get_max_stop().
+                     @italic(stop_hint = 1000), if you don't know use
+                     @italic(primesieve_get_max_stop()).
  *)
   primesieve_skipto: procedure(var it: primesieve_iterator; start: UInt64;
     stop_hint: UInt64); cdecl;
@@ -287,18 +303,18 @@ var
 (*
   Get the next prime.
   
-  Returns UINT64_MAX if next prime > 2^64.
+  Returns @italic(UINT64_MAX) if next @italic(prime > 2^64).
  *)
   function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
 
 (*
   Get the previous prime.
   
-  primesieve_prev_prime(n) returns 0 for n <= 2.
-  Note that primesieve_next_prime() runs up to 2x faster than
-  primesieve_prev_prime(). Hence if the same algorithm can be written
-  using either primesieve_prev_prime() or primesieve_next_prime()
-  it is preferable to use primesieve_next_prime().
+  @italic(primesieve_prev_prime(n)) returns 0 for @italic(n <= 2).
+  Note that @italic(primesieve_next_prime()) runs up to 2x faster than
+  @italic(primesieve_prev_prime()). Hence if the same algorithm can be written
+  using either @italic(primesieve_prev_prime()) or @italic(primesieve_next_prime())
+  it is preferable to use @italic(primesieve_next_prime()).
  *)
   function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
 
@@ -317,15 +333,19 @@ uses SysUtils
 
 const
 {$IF Defined(Linux)}
-  {$MESSAGE Hint 'Linux platform'}
+  {$MESSAGE Hint 'FPC/Delphi Linux platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.so';
 {$ELSEIF Defined(Darwin)}
-  {$MESSAGE Hint 'Darwin platform'}
+  {$MESSAGE Hint 'FPC Darwin platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.dylib';
+{$ELSEIF not Defined(FPC) and Defined(MacOS) and not Defined(IOS)}
+  {$MESSAGE Hint 'Delphi MacOS platform'}
+  LIB_FNPFX = '';
+  LIB_PRIMESIEVE = 'libprimesieve.dylib';  
 {$ELSEIF Defined(MSWindows)}
-  {$MESSAGE Hint 'MSWindows platform'}
+  {$MESSAGE Hint 'FPC/Delphi MSWindows platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.dll';
 {$ELSE}
@@ -384,7 +404,11 @@ function load_libprimesieve();
 
   procedure GetAddr(var procAddr: Pointer; procName: string);
   begin
+    {$IF Defined(FPC)}
+    procAddr := GetProcedureAddress(libHandle, procName);
+	{$ELSE}
     procAddr := GetProcAddress(libHandle, procName);
+	{$ENDIF}
 	if procAddr = nil then
 	begin
       WriteLn(Format('%s procedure not found in "%s"!', 
@@ -394,7 +418,11 @@ function load_libprimesieve();
 
 begin
   libHandle := LoadLibrary(LIB_PRIMESIEVE);
+  {$IF Defined(FPC)}
   if libHandle = NilHandle then
+  {$ELSE}
+  if libHandle = 0 then
+  {$ENDIF}  
   begin
     WriteLn(Format('Error loading %s', [LIB_PRIMESIEVE]));
     Exit(-1);
@@ -461,7 +489,11 @@ end;
 
 function unload_libprimesieve(): integer;
 begin
+  {$IF Defined(FPC)}
+  UnloadLibrary(libHandle);  
+  {$ELSE}
   FreeLibrary(libHandle);
+  {$ENDIF}
   Result := 0;  
 end;
 

@@ -20,47 +20,47 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_primes">primesieve_count_primes</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Count the primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.
+<td class="itemdesc"><p>Count the primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
 
-<p>Note that each call to primesieve_count_primes() incurs an initialization overhead of O(sqrt(stop)) even if the interval <i>[start, stop]</i> is tiny. Hence if you have written an algorithm that makes many calls to primesieve_count_primes() it may be preferable to use a primesieve::iterator which needs to be initialized only once.</p></td>
+<p>Note that each call to <i>primesieve_count_primes()</i> incurs an initialization overhead of <i>O(sqrt(stop))</i> even if the interval <i>[start, stop]</i> is tiny. Hence if you have written an algorithm that makes many calls to <i>primesieve_count_primes()</i> it may be preferable to use a <i>primesieve_iterator</i> which needs to be initialized only once.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_quadruplets">primesieve_count_quadruplets</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Count the prime quadruplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p></td>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_quintuplets">primesieve_count_quintuplets</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Count the prime quintuplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p></td>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_sextuplets">primesieve_count_sextuplets</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Count the prime sextuplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p></td>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_triplets">primesieve_count_triplets</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Count the prime triplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p></td>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_count_twins">primesieve_count_twins</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Count the twin primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p></td>
+<td class="itemdesc"><p>Count the twin primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_free">primesieve_free</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Deallocate a primes array created using the primesieve_generate_primes() or primesieve_generate_n_primes() functions.</p></td>
+<td class="itemdesc"><p>Deallocate a primes array created using the <i>primesieve_generate_primes()</i> or <i>primesieve_generate_n_primes()</i> functions.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_free_iterator">primesieve_free_iterator</a></td>
@@ -70,27 +70,23 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_generate_n_primes">primesieve_generate_n_primes</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Get an array with the first n primes &gt;= start.
+<td class="itemdesc"><p>Get an array with the first <i>n primes &gt;= start</i>.
 
-<p><code>ptype</code> - The type of the primes to generate, e.g. INT_PRIMES.</p></td>
+<p><code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_generate_primes">primesieve_generate_primes</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Get an array with the primes inside the interval <i>[start, stop]</i>.
 
-<p><code>size</code> - The size of the returned primes array.<br> <code>ptype</code> - The type of the primes to generate, e.g. INT_PRIMES.</p></td>
+<p><code>size</code> - The size of the returned primes array.<br> <code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_get_max_stop">primesieve_get_max_stop</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Returns the largest valid stop number for primesieve.
 
-<p></p>
-
-<pre class="preformatted">2&circ;64-1 (UINT64_MAX)</pre>
-
-<p></p></td>
+<p><i>2&circ;64-1 (UINT64_MAX)</i></p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_get_num_threads">primesieve_get_num_threads</a></td>
@@ -110,11 +106,11 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Find the nth prime. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.
+<td class="itemdesc"><p>Find the nth prime. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
 
-<p>Note that each call to primesieve_nth_prime(n, start) incurs an initialization overhead of O(sqrt(start)) even if n is tiny. Hence it is not a good idea to use primesieve_nth_prime() repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a primesieve::iterator which needs to be initialized only once.
+<p>Note that each call to <i>primesieve_nth_prime(n, start)</i> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <i>primesieve_nth_prime()</i> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <i>primesieve_iterator</i> which needs to be initialized only once.
 
-<p>if n = 0 finds the 1st prime &gt;= start,<br> if n &gt; 0 finds the nth prime &gt; start,<br> if n &lt; 0 finds the nth prime &lt; start (backwards).</p></td>
+<p>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_print_primes">primesieve_print_primes</a></td>
@@ -149,25 +145,21 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_set_num_threads">primesieve_set_num_threads</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Set the number of threads for use in primesieve_count_*() and primesieve_nth_prime(). By default all CPU cores are used.</p></td>
+<td class="itemdesc"><p>Set the number of threads for use in <i>primesieve_count_*()</i> and <i>primesieve_nth_prime()</i>. By default all CPU cores are used.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_set_sieve_size">primesieve_set_sieve_size</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). </p>
-
-<pre class="preformatted">sieve_size &gt;= 8 &amp;&amp; &lt;= 4096</pre>
-
-<p></p></td>
+<td class="itemdesc"><p>Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). <i>sieve_size &gt;= 8 &amp;&amp; &lt;= 4096</i></p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_skipto">primesieve_skipto</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Reset the primesieve iterator to start.
 
-<p><code>start</code> - Generate primes &gt; start (or &lt; start).
+<p><code>start</code> - Generate <i>primes &gt; start (or &lt; start)</i>.
 
-<p><code>stop_hint</code> - Stop number optimization hint. E.g. if you want to generate the primes below 1000 use stop_hint = 1000, if you don't know use primesieve_get_max_stop().</p></td>
+<p><code>stop_hint</code> - Stop number optimization hint. E.g. if you want to generate the primes below 1000 use <i>stop_hint = 1000</i>, if you don't know use <i>primesieve_get_max_stop()</i>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_version">primesieve_version</a></td>
