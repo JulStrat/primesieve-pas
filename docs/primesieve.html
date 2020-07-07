@@ -197,7 +197,7 @@ Pascal bindings for primesieve library.
 <p>
 Get the next prime.
 
-<p>Returns UINT64_MAX if next prime &gt; 2&circ;64.</p>
+<p>Returns <i>UINT64_MAX</i> if next <i>prime &gt; 2&circ;64</i>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -208,7 +208,7 @@ Get the next prime.
 <p>
 Get the previous prime.
 
-<p>primesieve_prev_prime(n) returns 0 for n &lt;= 2. Note that primesieve_next_prime() runs up to 2x faster than primesieve_prev_prime(). Hence if the same algorithm can be written using either primesieve_prev_prime() or primesieve_next_prime() it is preferable to use primesieve_next_prime().</p>
+<p><i>primesieve_prev_prime(n)</i> returns 0 for <i>n &lt;= 2</i>. Note that <i>primesieve_next_prime()</i> runs up to 2x faster than <i>primesieve_prev_prime()</i>. Hence if the same algorithm can be written using either <i>primesieve_prev_prime()</i> or <i>primesieve_next_prime()</i> it is preferable to use <i>primesieve_next_prime()</i>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -256,7 +256,9 @@ Unoads primesieve library.</p>
 <td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><b>_PRIMESIEVE_PAS_VERSION</b> = '0.2';</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p>
+Pascal API version</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -264,7 +266,7 @@ Unoads primesieve library.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-primesieve functions return PRIMESIEVE_ERROR (UINT64_MAX) if any error occurs.</p>
+primesieve functions return <i>PRIMESIEVE_ERROR (UINT64_MAX)</i> if any error occurs.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -345,7 +347,7 @@ Generate primes of unsigned long long type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of int16_t type</p>
+Generate primes of Int16 (c int16_t) type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -354,7 +356,7 @@ Generate primes of int16_t type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of uint16_t type</p>
+Generate primes of UInt16 (c uint16_t) type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -363,7 +365,7 @@ Generate primes of uint16_t type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of int32_t type</p>
+Generate primes of Int32 (c int32_t) type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -372,7 +374,7 @@ Generate primes of int32_t type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of uint32_t type</p>
+Generate primes of UInt32 (c uint32_t) type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -381,7 +383,7 @@ Generate primes of uint32_t type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of int64_t type</p>
+Generate primes of Int64 (c int64_t) type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -390,7 +392,7 @@ Generate primes of int64_t type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of uint64_t type</p>
+Generate primes of UInt64 (c uint64_t) type</p>
 </td></tr>
 </table>
 <h3 class="detail">Variables</h3>
@@ -402,7 +404,7 @@ Generate primes of uint64_t type</p>
 <p>
 Get an array with the primes inside the interval <i>[start, stop]</i>.
 
-<p><code>size</code> - The size of the returned primes array.<br> <code>ptype</code> - The type of the primes to generate, e.g. INT_PRIMES.</p>
+<p><code>size</code> - The size of the returned primes array.<br> <code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -411,9 +413,9 @@ Get an array with the primes inside the interval <i>[start, stop]</i>.
 </tr>
 <tr><td colspan="1">
 <p>
-Get an array with the first n primes &gt;= start.
+Get an array with the first <i>n primes &gt;= start</i>.
 
-<p><code>ptype</code> - The type of the primes to generate, e.g. INT_PRIMES.</p>
+<p><code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -422,11 +424,11 @@ Get an array with the first n primes &gt;= start.
 </tr>
 <tr><td colspan="1">
 <p>
-Find the nth prime. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.
+Find the nth prime. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
 
-<p>Note that each call to primesieve_nth_prime(n, start) incurs an initialization overhead of O(sqrt(start)) even if n is tiny. Hence it is not a good idea to use primesieve_nth_prime() repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a primesieve::iterator which needs to be initialized only once.
+<p>Note that each call to <i>primesieve_nth_prime(n, start)</i> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <i>primesieve_nth_prime()</i> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <i>primesieve_iterator</i> which needs to be initialized only once.
 
-<p>if n = 0 finds the 1st prime &gt;= start,<br> if n &gt; 0 finds the nth prime &gt; start,<br> if n &lt; 0 finds the nth prime &lt; start (backwards).</p>
+<p>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -435,9 +437,9 @@ Find the nth prime. By default all CPU cores are used, use primesieve_set_num_th
 </tr>
 <tr><td colspan="1">
 <p>
-Count the primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.
+Count the primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
 
-<p>Note that each call to primesieve_count_primes() incurs an initialization overhead of O(sqrt(stop)) even if the interval <i>[start, stop]</i> is tiny. Hence if you have written an algorithm that makes many calls to primesieve_count_primes() it may be preferable to use a primesieve::iterator which needs to be initialized only once.</p>
+<p>Note that each call to <i>primesieve_count_primes()</i> incurs an initialization overhead of <i>O(sqrt(stop))</i> even if the interval <i>[start, stop]</i> is tiny. Hence if you have written an algorithm that makes many calls to <i>primesieve_count_primes()</i> it may be preferable to use a <i>primesieve_iterator</i> which needs to be initialized only once.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -446,7 +448,7 @@ Count the primes within the interval <i>[start, stop]</i>. By default all CPU co
 </tr>
 <tr><td colspan="1">
 <p>
-Count the twin primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p>
+Count the twin primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -457,7 +459,7 @@ Count the twin primes within the interval <i>[start, stop]</i>. By default all C
 <p>
 Count the prime triplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -468,7 +470,7 @@ Count the prime triplets within the interval <i>[start, stop]</i>.
 <p>
 Count the prime quadruplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -479,7 +481,7 @@ Count the prime quadruplets within the interval <i>[start, stop]</i>.
 <p>
 Count the prime quintuplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -490,7 +492,7 @@ Count the prime quintuplets within the interval <i>[start, stop]</i>.
 <p>
 Count the prime sextuplets within the interval <i>[start, stop]</i>.
 
-<p>By default all CPU cores are used, use primesieve_set_num_threads(int threads) to change the number of threads.</p>
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -555,11 +557,7 @@ Print the prime sextuplets within the interval <i>[start, stop]</i> to the stand
 <p>
 Returns the largest valid stop number for primesieve.
 
-<p></p>
-
-<pre class="preformatted">2&circ;64-1 (UINT64_MAX)</pre>
-
-<p></p>
+<p><i>2&circ;64-1 (UINT64_MAX)</i></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -586,11 +584,7 @@ Get the current set number of threads</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). </p>
-
-<pre class="preformatted">sieve_size &gt;= 8 &amp;&amp; &lt;= 4096</pre>
-
-<p></p>
+Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). <i>sieve_size &gt;= 8 &amp;&amp; &lt;= 4096</i></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -599,7 +593,7 @@ Set the sieve size in KiB (kibibyte). The best sieving performance is achieved w
 </tr>
 <tr><td colspan="1">
 <p>
-Set the number of threads for use in primesieve_count_*() and primesieve_nth_prime(). By default all CPU cores are used.</p>
+Set the number of threads for use in <i>primesieve_count_*()</i> and <i>primesieve_nth_prime()</i>. By default all CPU cores are used.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -608,7 +602,7 @@ Set the number of threads for use in primesieve_count_*() and primesieve_nth_pri
 </tr>
 <tr><td colspan="1">
 <p>
-Deallocate a primes array created using the primesieve_generate_primes() or primesieve_generate_n_primes() functions.</p>
+Deallocate a primes array created using the <i>primesieve_generate_primes()</i> or <i>primesieve_generate_n_primes()</i> functions.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -646,9 +640,9 @@ Free all memory</p>
 <p>
 Reset the primesieve iterator to start.
 
-<p><code>start</code> - Generate primes &gt; start (or &lt; start).
+<p><code>start</code> - Generate <i>primes &gt; start (or &lt; start)</i>.
 
-<p><code>stop_hint</code> - Stop number optimization hint. E.g. if you want to generate the primes below 1000 use stop_hint = 1000, if you don't know use primesieve_get_max_stop().</p>
+<p><code>stop_hint</code> - Stop number optimization hint. E.g. if you want to generate the primes below 1000 use <i>stop_hint = 1000</i>, if you don't know use <i>primesieve_get_max_stop()</i>.</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a  href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
