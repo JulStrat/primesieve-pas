@@ -19,8 +19,8 @@ const
   {$ELSEIF Defined(Darwin)}
   {$MESSAGE HINT 'DARWIN platform'}
   LIB_FNPFX = '';
-  LIB_PRIMESIEVE = 'libprimesieve.dylib';
-  {$linklib primesieve}
+  LIB_PRIMESIEVE = 'primesieve';
+  //{$linklib primesieve}
   {$ELSE}
     {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
