@@ -20,7 +20,7 @@ const
   {$MESSAGE HINT 'DARWIN platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'libprimesieve.dylib';
-  {$linklib libprimesieve.dylib}
+  //{$linklib libprimesieve.dylib}
   {$ELSE}
     {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
