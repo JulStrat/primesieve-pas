@@ -1,4 +1,4 @@
-(** @example store_primes_in_array.pas
+(*  @example store_primes_in_array.pas
  *  Store primes in a array. *)
 program store_primes_in_array;
 {$IFDEF FPC}

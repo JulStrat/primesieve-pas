@@ -1,4 +1,4 @@
-(** @example primesieve_iterator.pas
+(*  @example primesieve_iterator.pas
  *  Iterate over primes using primesieve_iterator. *)
 
 program prime_iterator;

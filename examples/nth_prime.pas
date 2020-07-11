@@ -1,4 +1,4 @@
-(** @example nth_prime.pas
+(*  @example nth_prime.pas
  *  Pascal program that finds the nth prime. *)
 program nth_prime;
 {$IFDEF FPC}

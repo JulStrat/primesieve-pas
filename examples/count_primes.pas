@@ -1,10 +1,10 @@
-(** @example count_primes.pas
+(*  @example count_primes.pas
  *  Pascal program that shows how to count primes. *)
 
 program count_primes;
 {$IFDEF FPC}
 {$MODE Delphi}
-{$ENDIR}
+{$ENDIF}
 
 {$APPTYPE CONSOLE}
 
