@@ -18,9 +18,6 @@ before_install:
         brew install primesieve;
         export DYLD_LIBRARY_PATH=.:$DYLD_LIBRARY_PATH:/usr/local/lib;
         export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:/usr/local/lib;        
-        echo $DYLD_LIBRARY_PATH;
-        echo $LD_LIBRARY_PATH;        
-        echo $DYLD_FALLBACK_LIBRARY_PATH;        
         sudo update_dyld_shared_cache;
         echo $DYLD_LIBRARY_PATH;
         echo $LD_LIBRARY_PATH;        
@@ -28,18 +25,13 @@ before_install:
       fi
 
 install:
+  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
+  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/count_primes.pas
+  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/nth_prime.pas  
+  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas  
   
 script:
-  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
   - ./primesieve_info
-  - cd examples
-  - fpc -vh -B -Fu../ -O3 -CX -XX count_primes.pas
-  - fpc -vh -B -Fu../ -O3 -CX -XX nth_prime.pas  
-  - fpc -vh -B -Fu../ -O3 -CX -XX -dUSE_ABI6 prev_prime.pas
-  - fpc -vh -B -Fu../ -O3 -CX -XX -dUSE_ABI6 primesieve_iterator.pas
-  - fpc -vh -B -Fu../ -O3 -CX -XX store_primes_in_array.pas  
-  - ./count_primes
-  - ./nth_prime  
-  - ./prev_prime
-  - ./primesieve_iterator
-  - ./store_primes_in_array  
+  - examples/count_primes
+  - examples/nth_prime  
+  - examples/store_primes_in_array  
