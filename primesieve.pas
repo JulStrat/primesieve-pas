@@ -20,7 +20,7 @@ const
   {$MESSAGE HINT 'DARWIN platform'}
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'primesieve';
-  //{$linklib primesieve}
+  {$linklib primesieve}
   {$ELSE}
     {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
