@@ -17,7 +17,9 @@ before_install:
         brew install fpc > /dev/null;
         brew install primesieve;
         export DYLD_LIBRARY_PATH=.:$DYLD_LIBRARY_PATH:/usr/local/lib;
+        export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:/usr/local/lib;        
         echo $DYLD_LIBRARY_PATH;
+        echo $LD_LIBRARY_PATH;        
         sudo update_dyld_shared_cache;
       fi
 
