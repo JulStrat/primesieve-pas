@@ -20,7 +20,11 @@ before_install:
         export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH:/usr/local/lib;        
         echo $DYLD_LIBRARY_PATH;
         echo $LD_LIBRARY_PATH;        
+        echo $DYLD_FALLBACK_LIBRARY_PATH;        
         sudo update_dyld_shared_cache;
+        echo $DYLD_LIBRARY_PATH;
+        echo $LD_LIBRARY_PATH;        
+        echo $DYLD_FALLBACK_LIBRARY_PATH;                
       fi
 
 install:
