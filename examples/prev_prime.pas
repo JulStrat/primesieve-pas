@@ -10,10 +10,12 @@
  *)
 
 program prev_prime;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
-{$inline on}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+{$INLINE ON}
+
+{$APPTYPE CONSOLE}
 
 uses primesieve;
 

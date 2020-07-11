@@ -1,9 +1,11 @@
 (** @example nth_prime.pas
  *  Pascal program that finds the nth prime. *)
 program nth_prime;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+
+{$APPTYPE CONSOLE}
 
 uses SysUtils, primesieve;
 

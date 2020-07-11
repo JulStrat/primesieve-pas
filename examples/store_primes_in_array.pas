@@ -1,9 +1,12 @@
 (** @example store_primes_in_array.pas
  *  Store primes in a array. *)
 program store_primes_in_array;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+
+{$APPTYPE CONSOLE}
+
 uses primesieve;
 
 var 
@@ -16,7 +19,7 @@ begin
   stop := 1000;
 
   (* store the primes below 1000 *)
-  primes := primesieve_generate_primes(start, stop, @size, INT_PRIMES);
+  primes := primesieve_generate_primes(start, stop, size, INT_PRIMES);
 
   for i := 0 to size-1 do
     WriteLn(primes[i]);

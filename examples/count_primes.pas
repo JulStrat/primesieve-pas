@@ -2,9 +2,11 @@
  *  Pascal program that shows how to count primes. *)
 
 program count_primes;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIR}
+
+{$APPTYPE CONSOLE}
 
 uses SysUtils, primesieve;
 

@@ -2,10 +2,12 @@
  *  Iterate over primes using primesieve_iterator. *)
 
 program prime_iterator;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
-{$inline on}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+{$INLINE ON}
+
+{$APPTYPE CONSOLE}
 
 uses SysUtils, primesieve;
 
