@@ -35,6 +35,10 @@ const
   LIB_FNPFX = '';
   LIB_PRIMESIEVE = 'primesieve';
   {$linklib primesieve}
+  {$ELSEIF Defined(MSWindows)}
+  {$MESSAGE HINT 'Windows platform'}
+  LIB_FNPFX = '';
+  LIB_PRIMESIEVE = 'libprimesieve.dll';
   {$ELSE}
     {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
@@ -44,7 +48,7 @@ const
   _PRIMESIEVE_VERSION_MINOR = 5;
 
   (* Pascal API version *)
-  _PRIMESIEVE_PAS_VERSION = '0.2';
+  _PRIMESIEVE_PAS_VERSION = '0.3';
 
   (*
     primesieve functions return @italic(PRIMESIEVE_ERROR 
