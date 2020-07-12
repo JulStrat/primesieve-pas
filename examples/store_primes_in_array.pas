@@ -6,6 +6,7 @@ program store_primes_in_array;
 {$ENDIF}
 
 {$APPTYPE CONSOLE}
+{$POINTERMATH ON}
 
 uses primesieve;
 

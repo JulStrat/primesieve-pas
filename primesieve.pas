@@ -20,8 +20,6 @@ unit primesieve;
 {$IFDEF USE_ABI6}
 {$MESSAGE HINT 'Using ABI6'}
 {$ENDIF}
-// Debug
-// {$DEFINE USE_ABI6}
 
 interface
 
@@ -346,7 +344,8 @@ procedure primesieve_skipto(var it: primesieve_iterator; start: UInt64;
   
   Returns @italic(UINT64_MAX) if next @italic(prime > 2^64).
  *)
-function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
+function primesieve_next_prime(var it: primesieve_iterator): UInt64;
+{$IFDEF FPC} inline; {$ENDIF}
 
 (*
   Get the previous prime.
@@ -357,9 +356,12 @@ function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
   using either @italic(primesieve_prev_prime()) or @italic(primesieve_next_prime())
   it is preferable to use @italic(primesieve_next_prime()).
  *)
-function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
+function primesieve_prev_prime(var it: primesieve_iterator): UInt64;
+{$IFDEF FPC} inline; {$ENDIF}
 
 implementation
+
+{$POINTERMATH ON}
 
 (** Internal use *)
 procedure primesieve_generate_next_primes(var it: primesieve_iterator); cdecl;
@@ -369,7 +371,11 @@ procedure primesieve_generate_next_primes(var it: primesieve_iterator); cdecl;
 procedure primesieve_generate_prev_primes(var it: primesieve_iterator); cdecl;
   external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_prev_primes';
 
-function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
+{ Delphi compiler v33.0 
+  E2441 Inline function declared in interface section 
+  must not use local symbol 'primesieve_generate_next_primes' }
+function primesieve_next_prime(var it: primesieve_iterator): UInt64;
+{$IFDEF FPC} inline; {$ENDIF}
 begin
   {$IFDEF USE_ABI6}
   if it.i_ = it.last_idx_ then  
@@ -386,7 +392,11 @@ begin
   {$ENDIF}  
 end;
 
-function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
+{ Delphi compiler v33.0 
+  E2441 Inline function declared in interface section 
+  must not use local symbol 'primesieve_generate_next_primes' }
+function primesieve_prev_prime(var it: primesieve_iterator): UInt64;
+{$IFDEF FPC} inline; {$ENDIF}
 begin
   {$IFDEF USE_ABI6}
   if it.i_ = 0 then  

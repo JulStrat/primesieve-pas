@@ -20,13 +20,18 @@ Install ```primesieve``` library.
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
 
 ## Usage
+
 ```
-(** @example store_primes_in_array.pas
+(*  @example store_primes_in_array.pas
  *  Store primes in a array. *)
 program store_primes_in_array;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+
+{$APPTYPE CONSOLE}
+{$POINTERMATH ON}
+
 uses primesieve;
 
 var 
@@ -55,4 +60,16 @@ begin
 
   primesieve_free(primes);
 end.
+```
+
+## Building example
+
+Free Pascal compiler - 
+```
+fpc -B -O3 -CX -XX examples/store_primes_in_array.pas
+```
+
+Embarcadero Delphi compiler - 
+```
+dcc64 -B -O+ -NSSystem examples/store_primes_in_array.pas
 ```

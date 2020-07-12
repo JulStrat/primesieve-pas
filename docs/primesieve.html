@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>primesieve-pas: primesieve</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>primesieve-pas</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<h1 class="unit">Unit primesieve</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Pascal bindings for primesieve library.
+
+<p>primesieve - library for fast prime number generation.<br> Copyright (C) 2019 Kim Walisch, &lt;kim.walisch@gmail.com&gt;<br> <a  href="https://github.com/kimwalisch/primesieve">https://github.com/kimwalisch/primesieve</a>
+
+<p>primesieve-pas - FPC/Delphi API for primesieve library.<br> Copyright (C) 2020 I. Kakoulidis, &lt;ioulianos.kakoulidis@hotmail.com&gt;<br> <a  href="https://github.com/JulStrat/primesieve-pas">https://github.com/JulStrat/primesieve-pas</a>
+
+<p>This file is distributed under the BSD 2-Clause License.</p>
+<span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="primesieve.primesieve_iterator.html"><code>primesieve_iterator</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_generate_primes">primesieve_generate_primes</a></b>(start: UInt64; stop: UInt64; var size: NativeUInt; ptype: Integer): Pointer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_generate_primes';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_generate_n_primes">primesieve_generate_n_primes</a></b>(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_generate_n_primes';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a></b>(n: Int64; start: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_nth_prime';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_primes">primesieve_count_primes</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_primes';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_twins">primesieve_count_twins</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_twins';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_triplets">primesieve_count_triplets</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_triplets';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_quadruplets">primesieve_count_quadruplets</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_quadruplets';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_quintuplets">primesieve_count_quintuplets</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_quintuplets';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_count_sextuplets">primesieve_count_sextuplets</a></b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_sextuplets';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_primes">primesieve_print_primes</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_primes';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_twins">primesieve_print_twins</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_twins';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_triplets">primesieve_print_triplets</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_triplets';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_quadruplets">primesieve_print_quadruplets</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_quadruplets';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_quintuplets">primesieve_print_quintuplets</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_quintuplets';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_print_sextuplets">primesieve_print_sextuplets</a></b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_sextuplets';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_get_max_stop">primesieve_get_max_stop</a></b>(): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_max_stop';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_get_sieve_size">primesieve_get_sieve_size</a></b>(): Integer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_sieve_size';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_get_num_threads">primesieve_get_num_threads</a></b>(): Integer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_num_threads';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_set_sieve_size">primesieve_set_sieve_size</a></b>(sieve_size: Integer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_set_sieve_size';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_set_num_threads">primesieve_set_num_threads</a></b>(num_threads: Integer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_set_num_threads';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_free">primesieve_free</a></b>(primes: Pointer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_free';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_version">primesieve_version</a></b>(): PAnsiChar; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_version';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_init">primesieve_init</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_init';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_free_iterator">primesieve_free_iterator</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_free_iterator';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#primesieve_skipto">primesieve_skipto</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>; start: UInt64; stop_hint: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_skipto';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_FNPFX">LIB_FNPFX</a></b> = '';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a></b> = 'primesieve';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_FNPFX">LIB_FNPFX</a></b> = '';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a></b> = 'primesieve';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_FNPFX">LIB_FNPFX</a></b> = '';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a></b> = 'libprimesieve.dll';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_VERSION">_PRIMESIEVE_VERSION</a></b> = '7.5';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_VERSION_MAJOR">_PRIMESIEVE_VERSION_MAJOR</a></b> = 7;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_VERSION_MINOR">_PRIMESIEVE_VERSION_MINOR</a></b> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></b> = '0.3';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a></b> = not UInt64(0);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#SHORT_PRIMES">SHORT_PRIMES</a></b> = 0;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#USHORT_PRIMES">USHORT_PRIMES</a></b> = 1;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#INT_PRIMES">INT_PRIMES</a></b> = 2;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#UINT_PRIMES">UINT_PRIMES</a></b> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#LONG_PRIMES">LONG_PRIMES</a></b> = 4;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#ULONG_PRIMES">ULONG_PRIMES</a></b> = 5;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#LONGLONG_PRIMES">LONGLONG_PRIMES</a></b> = 6;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#ULONGLONG_PRIMES">ULONGLONG_PRIMES</a></b> = 7;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#INT16_PRIMES">INT16_PRIMES</a></b> = 8;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#UINT16_PRIMES">UINT16_PRIMES</a></b> = 9;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#INT32_PRIMES">INT32_PRIMES</a></b> = 10;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#UINT32_PRIMES">UINT32_PRIMES</a></b> = 11;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#INT64_PRIMES">INT64_PRIMES</a></b> = 12;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#UINT64_PRIMES">UINT64_PRIMES</a></b> = 13;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_generate_primes"></span><code>function <b>primesieve_generate_primes</b>(start: UInt64; stop: UInt64; var size: NativeUInt; ptype: Integer): Pointer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_generate_primes';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get an array with the primes inside the interval <i>[start, stop]</i>.
+
+<p><code>size</code> - The size of the returned primes array.<br> <code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_generate_n_primes"></span><code>function <b>primesieve_generate_n_primes</b>(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_generate_n_primes';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get an array with the first <i>n primes &gt;= start</i>.
+
+<p><code>ptype</code> - The type of the primes to generate, e.g. <i>INT_PRIMES</i>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_nth_prime"></span><code>function <b>primesieve_nth_prime</b>(n: Int64; start: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_nth_prime';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Find the nth prime. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
+
+<p>Note that each call to <i>primesieve_nth_prime(n, start)</i> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <i>primesieve_nth_prime()</i> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <i>primesieve_iterator</i> which needs to be initialized only once.
+
+<p>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_primes"></span><code>function <b>primesieve_count_primes</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_primes';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.
+
+<p>Note that each call to <i>primesieve_count_primes()</i> incurs an initialization overhead of <i>O(sqrt(stop))</i> even if the interval <i>[start, stop]</i> is tiny. Hence if you have written an algorithm that makes many calls to <i>primesieve_count_primes()</i> it may be preferable to use a <i>primesieve_iterator</i> which needs to be initialized only once.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_twins"></span><code>function <b>primesieve_count_twins</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_twins';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the twin primes within the interval <i>[start, stop]</i>. By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_triplets"></span><code>function <b>primesieve_count_triplets</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_triplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the prime triplets within the interval <i>[start, stop]</i>.
+
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_quadruplets"></span><code>function <b>primesieve_count_quadruplets</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_quadruplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the prime quadruplets within the interval <i>[start, stop]</i>.
+
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_quintuplets"></span><code>function <b>primesieve_count_quintuplets</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_quintuplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the prime quintuplets within the interval <i>[start, stop]</i>.
+
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_count_sextuplets"></span><code>function <b>primesieve_count_sextuplets</b>(start: UInt64; stop: UInt64): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_count_sextuplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Count the prime sextuplets within the interval <i>[start, stop]</i>.
+
+<p>By default all CPU cores are used, use <i>primesieve_set_num_threads(int threads)</i> to change the number of threads.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_primes"></span><code>procedure <b>primesieve_print_primes</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_primes';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the primes within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_twins"></span><code>procedure <b>primesieve_print_twins</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_twins';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the twin primes within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_triplets"></span><code>procedure <b>primesieve_print_triplets</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_triplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the prime triplets within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_quadruplets"></span><code>procedure <b>primesieve_print_quadruplets</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_quadruplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the prime quadruplets within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_quintuplets"></span><code>procedure <b>primesieve_print_quintuplets</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_quintuplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the prime quintuplets within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_print_sextuplets"></span><code>procedure <b>primesieve_print_sextuplets</b>(start: UInt64; stop: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_print_sextuplets';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Print the prime sextuplets within the interval <i>[start, stop]</i> to the standard output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_get_max_stop"></span><code>function <b>primesieve_get_max_stop</b>(): UInt64; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_max_stop';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns the largest valid stop number for primesieve.
+
+<p><i>2&circ;64-1 (UINT64_MAX)</i></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_get_sieve_size"></span><code>function <b>primesieve_get_sieve_size</b>(): Integer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_sieve_size';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get the current set sieve size in KiB</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_get_num_threads"></span><code>function <b>primesieve_get_num_threads</b>(): Integer; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_get_num_threads';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get the current set number of threads</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_set_sieve_size"></span><code>procedure <b>primesieve_set_sieve_size</b>(sieve_size: Integer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_set_sieve_size';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). <i>sieve_size &gt;= 8 &amp;&amp; &lt;= 4096</i></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_set_num_threads"></span><code>procedure <b>primesieve_set_num_threads</b>(num_threads: Integer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_set_num_threads';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Set the number of threads for use in <i>primesieve_count_*()</i> and <i>primesieve_nth_prime()</i>. By default all CPU cores are used.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_free"></span><code>procedure <b>primesieve_free</b>(primes: Pointer); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_free';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Deallocate a primes array created using the <i>primesieve_generate_primes()</i> or <i>primesieve_generate_n_primes()</i> functions.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_version"></span><code>function <b>primesieve_version</b>(): PAnsiChar; cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_version';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get the primesieve version number, in the form “i.j”</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_init"></span><code>procedure <b>primesieve_init</b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_init';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Initialize the primesieve iterator before first using it</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_free_iterator"></span><code>procedure <b>primesieve_free_iterator</b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_free_iterator';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Free all memory</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_skipto"></span><code>procedure <b>primesieve_skipto</b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>; start: UInt64; stop_hint: UInt64); cdecl; external <a  href="primesieve.html#LIB_PRIMESIEVE">LIB_PRIMESIEVE</a> name LIB_FNPFX + 'primesieve_skipto';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Reset the primesieve iterator to start.
+
+<p><code>start</code> - Generate <i>primes &gt; start (or &lt; start)</i>.
+
+<p><code>stop_hint</code> - Stop number optimization hint. E.g. if you want to generate the primes below 1000 use <i>stop_hint = 1000</i>, if you don't know use <i>primesieve_get_max_stop()</i>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_next_prime"></span><code>function <b>primesieve_next_prime</b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get the next prime.
+
+<p>Returns <i>UINT64_MAX</i> if next <i>prime &gt; 2&circ;64</i>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="primesieve_prev_prime"></span><code>function <b>primesieve_prev_prime</b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get the previous prime.
+
+<p><i>primesieve_prev_prime(n)</i> returns 0 for <i>n &lt;= 2</i>. Note that <i>primesieve_next_prime()</i> runs up to 2x faster than <i>primesieve_prev_prime()</i>. Hence if the same algorithm can be written using either <i>primesieve_prev_prime()</i> or <i>primesieve_next_prime()</i> it is preferable to use <i>primesieve_next_prime()</i>.</p>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_FNPFX"></span><code><b>LIB_FNPFX</b> = '';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_PRIMESIEVE"></span><code><b>LIB_PRIMESIEVE</b> = 'primesieve';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_FNPFX"></span><code><b>LIB_FNPFX</b> = '';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_PRIMESIEVE"></span><code><b>LIB_PRIMESIEVE</b> = 'primesieve';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_FNPFX"></span><code><b>LIB_FNPFX</b> = '';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LIB_PRIMESIEVE"></span><code><b>LIB_PRIMESIEVE</b> = 'libprimesieve.dll';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_VERSION"></span><code><b>_PRIMESIEVE_VERSION</b> = '7.5';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_VERSION_MAJOR"></span><code><b>_PRIMESIEVE_VERSION_MAJOR</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_VERSION_MINOR"></span><code><b>_PRIMESIEVE_VERSION_MINOR</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><b>_PRIMESIEVE_PAS_VERSION</b> = '0.3';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Pascal API version</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_ERROR"></span><code><b>_PRIMESIEVE_ERROR</b> = not UInt64(0);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+primesieve functions return <i>PRIMESIEVE_ERROR (UINT64_MAX)</i> if any error occurs.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SHORT_PRIMES"></span><code><b>SHORT_PRIMES</b> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of short type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="USHORT_PRIMES"></span><code><b>USHORT_PRIMES</b> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of unsigned short type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="INT_PRIMES"></span><code><b>INT_PRIMES</b> = 2;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of int type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UINT_PRIMES"></span><code><b>UINT_PRIMES</b> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of unsigned int type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LONG_PRIMES"></span><code><b>LONG_PRIMES</b> = 4;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of long type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ULONG_PRIMES"></span><code><b>ULONG_PRIMES</b> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of unsigned long type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LONGLONG_PRIMES"></span><code><b>LONGLONG_PRIMES</b> = 6;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of long long type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ULONGLONG_PRIMES"></span><code><b>ULONGLONG_PRIMES</b> = 7;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of unsigned long long type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="INT16_PRIMES"></span><code><b>INT16_PRIMES</b> = 8;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of Int16 (c int16_t) type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UINT16_PRIMES"></span><code><b>UINT16_PRIMES</b> = 9;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of UInt16 (c uint16_t) type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="INT32_PRIMES"></span><code><b>INT32_PRIMES</b> = 10;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of Int32 (c int32_t) type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UINT32_PRIMES"></span><code><b>UINT32_PRIMES</b> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of UInt32 (c uint32_t) type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="INT64_PRIMES"></span><code><b>INT64_PRIMES</b> = 12;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of Int64 (c int64_t) type</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UINT64_PRIMES"></span><code><b>UINT64_PRIMES</b> = 13;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Generate primes of UInt64 (c uint64_t) type</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a  href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

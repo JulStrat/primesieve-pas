@@ -1,7 +1,9 @@
 program primesieve_info;
-{$ifdef FPC}
-{$mode Delphi}
-{$endif}
+{$IFDEF FPC}
+{$MODE Delphi}
+{$ENDIF}
+
+{$APPTYPE Console}
 
 uses SysUtils, primesieve;
 
