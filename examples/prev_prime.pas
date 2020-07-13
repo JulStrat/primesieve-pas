@@ -13,8 +13,8 @@ program prev_prime;
 {$IFDEF FPC}
 {$MODE Delphi}
 {$ENDIF}
-{$INLINE ON}
 
+{$INLINE ON}
 {$APPTYPE CONSOLE}
 
 uses primesieve;

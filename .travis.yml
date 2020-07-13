@@ -32,6 +32,12 @@ install:
   
 script:
   - ./primesieve_info
-  - examples/count_primes
-  - examples/nth_prime  
-  - examples/store_primes_in_array  
+  - examples/count_primes > examples/count_primes.fpc.out 
+  - diff -w examples/count_primes.fpc.out examples/count_primes_c.out
+  - diff -w examples/count_primes.dcc64.out examples/count_primes_c.out  
+  - examples/nth_prime > examples/nth_prime.fpc.out
+  - diff -w examples/nth_prime.fpc.out examples/nth_prime_c.out  
+  - diff -w examples/nth_prime.dcc64.out examples/nth_prime_c.out    
+  - examples/store_primes_in_array > examples/store_primes_in_array.fpc.out 
+  - diff -w examples/store_primes_in_array.fpc.out examples/store_primes_in_array_c.out  
+  - diff -w examples/store_primes_in_array.dcc64.out examples/store_primes_in_array_c.out  

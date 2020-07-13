@@ -371,10 +371,10 @@ procedure primesieve_generate_next_primes(var it: primesieve_iterator); cdecl;
 procedure primesieve_generate_prev_primes(var it: primesieve_iterator); cdecl;
   external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_prev_primes';
 
+function primesieve_next_prime(var it: primesieve_iterator): UInt64;
 { Delphi compiler v33.0 
   E2441 Inline function declared in interface section 
   must not use local symbol 'primesieve_generate_next_primes' }
-function primesieve_next_prime(var it: primesieve_iterator): UInt64;
 {$IFDEF FPC} inline; {$ENDIF}
 begin
   {$IFDEF USE_ABI6}
@@ -392,10 +392,10 @@ begin
   {$ENDIF}  
 end;
 
+function primesieve_prev_prime(var it: primesieve_iterator): UInt64;
 { Delphi compiler v33.0 
   E2441 Inline function declared in interface section 
-  must not use local symbol 'primesieve_generate_next_primes' }
-function primesieve_prev_prime(var it: primesieve_iterator): UInt64;
+  must not use local symbol 'primesieve_generate_prev_primes' }
 {$IFDEF FPC} inline; {$ENDIF}
 begin
   {$IFDEF USE_ABI6}

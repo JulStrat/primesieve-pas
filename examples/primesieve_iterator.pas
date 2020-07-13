@@ -5,8 +5,8 @@ program prime_iterator;
 {$IFDEF FPC}
 {$MODE Delphi}
 {$ENDIF}
-{$INLINE ON}
 
+{$INLINE ON}
 {$APPTYPE CONSOLE}
 
 uses SysUtils, primesieve;
