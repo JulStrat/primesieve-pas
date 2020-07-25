@@ -10,7 +10,7 @@
  *)
 
 program prev_prime;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 

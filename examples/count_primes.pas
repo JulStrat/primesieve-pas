@@ -2,7 +2,7 @@
  *  Pascal program that shows how to count primes. *)
 
 program count_primes;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 

@@ -2,7 +2,7 @@
  *  Iterate over primes using primesieve_iterator. *)
 
 program prime_iterator;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 

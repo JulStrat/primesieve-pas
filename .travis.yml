@@ -32,6 +32,7 @@ install:
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/nth_prime.pas  
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas  
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/printlets.pas    
+  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/countlets.pas    
   
 script:
   - ./primesieve_info
@@ -45,3 +46,4 @@ script:
   - diff -w examples/store_primes_in_array.fpc.out examples/store_primes_in_array_c.out  
   - diff -w examples/store_primes_in_array.dcc64.out examples/store_primes_in_array_c.out  
   - time examples/printlets 6 0 1000000
+  - time examples/countlets 6 0 1000000000

@@ -1,5 +1,5 @@
 program primesieve_info;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 

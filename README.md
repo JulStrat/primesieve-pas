@@ -74,6 +74,7 @@ Embarcadero Delphi compiler -
 dcc64 -B -O+ -NSSystem examples/store_primes_in_array.pas
 ...
 dcc64 -B -O+ -NSSystem examples/printlets.pas
+dcc64 -B -O+ -NSSystem examples/countlets.pas
 ```
 
 Run - 
@@ -86,6 +87,13 @@ $ time ./examples/printlets.exe 6 0 1000000
 (43777, 43781, 43783, 43787, 43789, 43793)
 
 real    0m0.038s
+user    0m0.000s
+sys     0m0.031s
+
+$ time examples/countlets.exe 6 0 1000000000
+317
+
+real    0m0.184s
 user    0m0.000s
 sys     0m0.031s
 ```

@@ -1,7 +1,7 @@
 (*  @example nth_prime.pas
  *  Pascal program that finds the nth prime. *)
 program nth_prime;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 
