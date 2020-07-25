@@ -72,4 +72,20 @@ fpc -B -O3 -CX -XX examples/store_primes_in_array.pas
 Embarcadero Delphi compiler - 
 ```
 dcc64 -B -O+ -NSSystem examples/store_primes_in_array.pas
+...
+dcc64 -B -O+ -NSSystem examples/printlets.pas
+```
+
+Run - 
+```
+$ time ./examples/printlets.exe 6 0 1000000
+(7, 11, 13, 17, 19, 23)
+(97, 101, 103, 107, 109, 113)
+(16057, 16061, 16063, 16067, 16069, 16073)
+(19417, 19421, 19423, 19427, 19429, 19433)
+(43777, 43781, 43783, 43787, 43789, 43793)
+
+real    0m0.038s
+user    0m0.000s
+sys     0m0.031s
 ```
