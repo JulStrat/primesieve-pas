@@ -22,10 +22,8 @@ Install ```primesieve``` library.
 ## Usage
 
 ```
-(*  @example store_primes_in_array.pas
- *  Store primes in a array. *)
 program store_primes_in_array;
-{$IFDEF FPC}
+{$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
 
@@ -34,17 +32,20 @@ program store_primes_in_array;
 
 uses primesieve;
 
+type
+  PInt32 = ^Int32;
+
 var 
   start, stop, n: UInt64;
   i, size: NativeUInt;
-  primes: PInteger;
+  primes: PInt32;
 
 begin
   start := 0;
   stop := 1000;
 
   (* store the primes below 1000 *)
-  primes := primesieve_generate_primes(start, stop, size, INT_PRIMES);
+  primes := primesieve_generate_primes(start, stop, size, INT32_PRIMES);
 
   for i := 0 to size-1 do
     WriteLn(primes[i]);
