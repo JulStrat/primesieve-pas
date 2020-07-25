@@ -25,7 +25,9 @@ before_install:
       fi
 
 install:
-  - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
+  - fpc -B -Cn primesieve_info.pas
+  - cat link.res
+  - fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/count_primes.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/nth_prime.pas  
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas  
