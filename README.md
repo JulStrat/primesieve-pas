@@ -98,3 +98,18 @@ real    0m0.184s
 user    0m0.000s
 sys     0m0.031s
 ```
+
+## Links
+
+### General information about prime numbers
+
+- [Prime number](https://en.wikipedia.org/wiki/Prime_number)
+- [Twin prime](https://en.wikipedia.org/wiki/Twin_prime)
+- [Prime triplet](https://en.wikipedia.org/wiki/Prime_triplet)
+- [Prime quadruplet](https://en.wikipedia.org/wiki/Prime_quadruplet)
+
+### Prime sieve
+
+- [Segmented sieve of Eratosthenes](https://github.com/kimwalisch/primesieve/wiki/Segmented-sieve-of-Eratosthenes), by Kim Walisch
+- [PrimeSieve links](https://github.com/kimwalisch/primesieve/wiki/Links)
+- [The Genuine Sieve of Eratosthenes](https://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf)
