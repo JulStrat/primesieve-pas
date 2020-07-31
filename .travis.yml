@@ -1,6 +1,10 @@
 language: c
 dist: bionic
 
+arch:
+  - amd64
+  - s390x
+
 os:
   - linux
   - osx
