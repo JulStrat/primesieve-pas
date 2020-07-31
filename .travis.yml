@@ -15,7 +15,7 @@ before_install:
         sudo apt-get update;
         sudo apt -q install fpc;
         sudo apt -q install libprimesieve-dev;
-        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib prev_prime.pas;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/prev_prime.pas;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
         brew update > /dev/null;
         brew install fpc > /dev/null;
