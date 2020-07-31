@@ -16,6 +16,7 @@ before_install:
         sudo apt -q install fpc;
         sudo apt -q install libprimesieve-dev;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/prev_prime.pas;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/primesieve_iterator.pas;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
         brew update > /dev/null;
         brew install fpc > /dev/null;
@@ -26,6 +27,8 @@ before_install:
         echo $DYLD_LIBRARY_PATH;
         echo $LD_LIBRARY_PATH;        
         echo $DYLD_FALLBACK_LIBRARY_PATH;                
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/prev_prime.pas;        
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;          
       fi
 
 install:
@@ -52,5 +55,8 @@ script:
   - examples/prev_prime > examples/prev_prime.fpc.out 
   - diff -w examples/prev_prime.fpc.out examples/prev_prime_c.out  
   - diff -w examples/prev_prime.dcc64.out examples/prev_prime_c.out  
+  - examples/primesieve_iterator > examples/primesieve_iterator.fpc.out 
+  - diff -w examples/primesieve_iterator.fpc.out examples/primesieve_iterator_c.out  
+  - diff -w examples/primesieve_iterator.dcc64.out examples/primesieve_iterator_c.out    
   - time examples/printlets 6 0 1000000
   - time examples/countlets 6 0 1000000000
