@@ -15,6 +15,9 @@ before_install:
         sudo apt-get update;
         sudo apt -q install fpc;
         sudo apt -q install libprimesieve-dev;
+        fpc -B -Cn -dUSE_ABI6 primesieve_info.pas;
+        cat link.res;
+        fpc -va -B -dUSE_ABI6 -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/prev_prime.pas;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/primesieve_iterator.pas;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
@@ -27,14 +30,14 @@ before_install:
         echo $DYLD_LIBRARY_PATH;
         echo $LD_LIBRARY_PATH;        
         echo $DYLD_FALLBACK_LIBRARY_PATH;                
+        fpc -B -Cn primesieve_info.pas;
+        cat link.res;
+        fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/prev_prime.pas;        
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;          
       fi
 
 install:
-  - fpc -B -Cn primesieve_info.pas
-  - cat link.res
-  - fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/count_primes.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/nth_prime.pas  
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas  
