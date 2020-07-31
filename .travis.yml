@@ -3,8 +3,8 @@ dist: bionic
 
 arch:
   - amd64
-  - s390x
-
+  - ppc64le
+  - arm64
 os:
   - linux
   - osx
