@@ -3,7 +3,6 @@ dist: bionic
 
 arch:
   - amd64
-  - ppc64le
   - arm64
 os:
   - linux
@@ -16,6 +15,7 @@ before_install:
         sudo apt-get update;
         sudo apt -q install fpc;
         sudo apt -q install libprimesieve-dev;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib prev_prime.pas        
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
         brew update > /dev/null;
         brew install fpc > /dev/null;
@@ -49,5 +49,8 @@ script:
   - examples/store_primes_in_array > examples/store_primes_in_array.fpc.out 
   - diff -w examples/store_primes_in_array.fpc.out examples/store_primes_in_array_c.out  
   - diff -w examples/store_primes_in_array.dcc64.out examples/store_primes_in_array_c.out  
+  - examples/prev_prime > examples/prev_prime.fpc.out 
+  - diff -w examples/prev_prime.fpc.out examples/prev_prime_c.out  
+  - diff -w examples/prev_prime.dcc64.out examples/prev_prime_c.out  
   - time examples/printlets 6 0 1000000
   - time examples/countlets 6 0 1000000000
