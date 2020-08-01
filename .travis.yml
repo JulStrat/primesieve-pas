@@ -1,6 +1,9 @@
 language: c
 dist: bionic
 
+arch:
+  - amd64
+  - arm64
 os:
   - linux
   - osx
@@ -12,6 +15,12 @@ before_install:
         sudo apt-get update;
         sudo apt -q install fpc;
         sudo apt -q install libprimesieve-dev;
+        fpc -B -Cn -dUSE_ABI6 primesieve_info.pas;
+        cat link.res;
+        fpc -va -B -dUSE_ABI6 -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/prev_prime.pas;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/primesieve_iterator.pas;
+        cc primesieve_info.c -o primesieve_info_c -lprimesieve;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
         brew update > /dev/null;
         brew install fpc > /dev/null;
@@ -22,12 +31,15 @@ before_install:
         echo $DYLD_LIBRARY_PATH;
         echo $LD_LIBRARY_PATH;        
         echo $DYLD_FALLBACK_LIBRARY_PATH;                
+        fpc -B -Cn primesieve_info.pas;
+        cat link.res;
+        fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/prev_prime.pas;        
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;
+        cc primesieve_info.c -o primesieve_info_c -lprimesieve;
       fi
 
 install:
-  - fpc -B -Cn primesieve_info.pas
-  - cat link.res
-  - fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/count_primes.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/nth_prime.pas  
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas  
@@ -36,6 +48,7 @@ install:
   
 script:
   - ./primesieve_info
+  - ./primesieve_info_c
   - examples/count_primes > examples/count_primes.fpc.out 
   - diff -w examples/count_primes.fpc.out examples/count_primes_c.out
   - diff -w examples/count_primes.dcc64.out examples/count_primes_c.out  
@@ -45,5 +58,11 @@ script:
   - examples/store_primes_in_array > examples/store_primes_in_array.fpc.out 
   - diff -w examples/store_primes_in_array.fpc.out examples/store_primes_in_array_c.out  
   - diff -w examples/store_primes_in_array.dcc64.out examples/store_primes_in_array_c.out  
+  - examples/prev_prime > examples/prev_prime.fpc.out 
+  - diff -w examples/prev_prime.fpc.out examples/prev_prime_c.out  
+  - diff -w examples/prev_prime.dcc64.out examples/prev_prime_c.out  
+  - examples/primesieve_iterator > examples/primesieve_iterator.fpc.out 
+  - diff -w examples/primesieve_iterator.fpc.out examples/primesieve_iterator_c.out  
+  - diff -w examples/primesieve_iterator.dcc64.out examples/primesieve_iterator_c.out    
   - time examples/printlets 6 0 1000000
   - time examples/countlets 6 0 1000000000
