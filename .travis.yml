@@ -20,6 +20,7 @@ before_install:
         fpc -va -B -dUSE_ABI6 -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/prev_prime.pas;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib examples/primesieve_iterator.pas;
+        cc primesieve_info.c -o primesieve_info_c -lprimesieve;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then 
         brew update > /dev/null;
         brew install fpc > /dev/null;
@@ -34,7 +35,8 @@ before_install:
         cat link.res;
         fpc -va -B -O3 -CX -XX -Fl/usr/local/lib primesieve_info.pas;
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/prev_prime.pas;        
-        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;          
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;
+        cc primesieve_info.c -o primesieve_info_c -lprimesieve;
       fi
 
 install:
@@ -46,6 +48,7 @@ install:
   
 script:
   - ./primesieve_info
+  - ./primesieve_info_c
   - examples/count_primes > examples/count_primes.fpc.out 
   - diff -w examples/count_primes.fpc.out examples/count_primes_c.out
   - diff -w examples/count_primes.dcc64.out examples/count_primes_c.out  
