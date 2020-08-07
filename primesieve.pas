@@ -126,48 +126,6 @@ const
   (* Generate primes of UInt64 (c uint64_t) type *)
   UINT64_PRIMES = 13;
 
-(*
-  @link(primesieve_iterator) allows to easily iterate over primes
-  both forwards and backwards. Generating the first prime
-  has a complexity of @italic(O(r log log r)) operations with
-  @italic(r = n^0.5), after that any additional prime is generated in
-  amortized @italic(O(log n log log n)) operations. The memory usage
-  is about @italic(PrimePi(n^0.5) * 8) bytes.
-
-  The @italic(primesieve_iterator.pas)
-  example shows how to use @link(primesieve_iterator).
-  If any error occurs @link(primesieve_next_prime) and 
-  @limk(primesieve_prev_prime) return @link(_PRIMESIEVE_ERROR).
-  Furthermore @italic(primesieve_iterator.is_error) is initialized
-  to 0 and set to 1 if any error occurs.
- *)
-type 
-  {$IF Defined(USE_ABI6)}
-  primesieve_iterator = record
-    i_: NativeUInt;
-    last_idx_: NativeUInt;
-    primes_: PUInt64;
-    primes_pimpl_: PUInt64;
-    start_: UInt64;
-    stop_: UInt64;
-    stop_hint_: UInt64;
-    tiny_cache_size_: UInt64;
-    is_error_: integer;
-  end;
-  {$ELSE}  
-  primesieve_iterator = record
-    i: NativeUInt;
-    last_idx: NativeUInt;
-    start: UInt64;
-    stop: UInt64;
-    stop_hint: UInt64;
-    dist: UInt64;
-    primes: PUInt64;
-    vector: Pointer;
-    primeGenerator: Pointer;
-    is_error: integer;
-  end; 
-  {$ENDIF}  
 
 (*
   Get an array with the primes inside the interval @italic([start, stop]).
@@ -181,7 +139,7 @@ function primesieve_generate_primes(start: UInt64; stop: UInt64; var size: Nativ
 (*
   Get an array with the first @italic(n primes >= start).
   
-  @paran(ptype The type of the primes to generate, e.g. @link(INT_PRIMES32))
+  @param(ptype The type of the primes to generate, e.g. @link(INT_PRIMES32))
  *)
 function primesieve_generate_n_primes(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl;
   external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_n_primes';
@@ -198,9 +156,9 @@ function primesieve_generate_n_primes(n: UInt64; start: UInt64; ptype: Integer):
   this use case it is better to use a @link(primesieve_iterator) which
   needs to be initialized only once.
  
-  if @italic(n = 0) finds the @italic(1st prime >= start),@br
-  if @italic(n > 0) finds the @italic(nth prime > start),@br
-  if @italic(n < 0) finds the @italic(nth prime < start) (backwards).
+  @param(n if @italic(n = 0) finds the @italic(1st prime >= start),@br
+           if @italic(n > 0) finds the @italic(nth prime > start),@br
+           if @italic(n < 0) finds the @italic(nth prime < start) (backwards).)
  *)
 function primesieve_nth_prime(n: Int64; start: UInt64): UInt64; cdecl;
   external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_nth_prime';
@@ -353,6 +311,48 @@ function primesieve_version(): PAnsiChar; cdecl;
   external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_version';
 
 {$REGION 'iterator.h'}
+(*
+  @link(primesieve_iterator) allows to easily iterate over primes
+  both forwards and backwards. Generating the first prime
+  has a complexity of @italic(O(r log log r)) operations with
+  @italic(r = n^0.5), after that any additional prime is generated in
+  amortized @italic(O(log n log log n)) operations. The memory usage
+  is about @italic(PrimePi(n^0.5) * 8) bytes.
+
+  The @italic(primesieve_iterator.pas)
+  example shows how to use @link(primesieve_iterator).
+  If any error occurs @link(primesieve_next_prime) and 
+  @limk(primesieve_prev_prime) return @link(_PRIMESIEVE_ERROR).
+  Furthermore @italic(primesieve_iterator.is_error) is initialized
+  to 0 and set to 1 if any error occurs.
+ *)
+type 
+  {$IF Defined(USE_ABI6)}
+  primesieve_iterator = record
+    i_: NativeUInt;
+    last_idx_: NativeUInt;
+    primes_: PUInt64;
+    primes_pimpl_: PUInt64;
+    start_: UInt64;
+    stop_: UInt64;
+    stop_hint_: UInt64;
+    tiny_cache_size_: UInt64;
+    is_error_: integer;
+  end;
+  {$ELSE}  
+  primesieve_iterator = record
+    i: NativeUInt;
+    last_idx: NativeUInt;
+    start: UInt64;
+    stop: UInt64;
+    stop_hint: UInt64;
+    dist: UInt64;
+    primes: PUInt64;
+    vector: Pointer;
+    primeGenerator: Pointer;
+    is_error: integer;
+  end; 
+  {$ENDIF}  
 
 (* Initialize the primesieve iterator before first using it *)
 procedure primesieve_init(var it: primesieve_iterator); cdecl;

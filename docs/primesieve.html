@@ -182,7 +182,12 @@ Get an array with the primes inside the interval <i>[start, stop]</i>.
 <p>
 Get an array with the first <i>n primes &gt;= start</i>.
 
-<p>@paran(ptype The type of the primes to generate, e.g. <code>INT_PRIMES32</code>)</p>
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>ptype</dt>
+<dd>The type of the primes to generate, e.g. <code>INT_PRIMES32</code></dd>
+</dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -195,7 +200,12 @@ Find the nth prime. By default all CPU cores are used, use <a class="normal" hre
 
 <p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
 
-<p>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</p>
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>n</dt>
+<dd>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</dd>
+</dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
