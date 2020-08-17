@@ -72,10 +72,10 @@ fpc -B -O3 -CX -XX examples/store_primes_in_array.pas
 
 Embarcadero Delphi compiler - 
 ```
-dcc64 -B -O+ -NSSystem examples/store_primes_in_array.pas
+dcc64 -B -$O+ -NSSystem examples/store_primes_in_array.pas
 ...
-dcc64 -B -O+ -NSSystem examples/printlets.pas
-dcc64 -B -O+ -NSSystem examples/countlets.pas
+dcc64 -B -$O+ -NSSystem examples/printlets.pas
+dcc64 -B -$O+ -NSSystem examples/countlets.pas
 ```
 
 Run - 
