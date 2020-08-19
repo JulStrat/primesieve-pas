@@ -24,42 +24,32 @@ unit primesieve;
 
 interface
 
+type
+  PUInt64 = ^UInt64;
+  PInt64 = ^Int64;
+
 const
-  {$IF Defined(FPC)}
-    (* FPC Compiler *)
-    {$IF Defined(Darwin)}
-      {$MESSAGE HINT 'Darwin platform'}
-      (* @exclude *)    
-      LIB_FNPFX = '';
-      (* @exclude *)    
-      LIB_PRIMESIEVE = 'primesieve';
-      {$linklib primesieve}
-    {$ELSEIF Defined(Unix)}
-      {$MESSAGE HINT 'Unix platform'}
-      (* @exclude *)    
-      LIB_FNPFX = '';
-      (* @exclude *)    
-      LIB_PRIMESIEVE = 'primesieve';
-    {$ELSEIF Defined(MSWindows)}
-      {$MESSAGE HINT 'Windows platform'}
-      (* @exclude *)    
-      LIB_FNPFX = '';
-      (* @exclude *)    
-      LIB_PRIMESIEVE = 'libprimesieve.dll';
-    {$ELSE}
-      {$MESSAGE Fatal 'Unsupported platform'}
-    {$ENDIF}
+  {$IF Defined(Darwin)}
+	{$MESSAGE HINT 'Darwin platform'}
+	(* @exclude *)    
+	LIB_FNPFX = '';
+	(* @exclude *)    
+	LIB_PRIMESIEVE = 'primesieve';
+	{$linklib primesieve}
+  {$ELSEIF Defined(Unix)}
+	{$MESSAGE HINT 'Unix platform'}
+	(* @exclude *)    
+	LIB_FNPFX = '';
+	(* @exclude *)    
+	LIB_PRIMESIEVE = 'primesieve';
+  {$ELSEIF Defined(MSWindows)}
+	{$MESSAGE HINT 'Windows platform'}
+	(* @exclude *)    
+	LIB_FNPFX = '';
+	(* @exclude *)    
+	LIB_PRIMESIEVE = 'libprimesieve.dll';
   {$ELSE}
-    (* Delphi Compiler *)
-    {$IF Defined(MSWindows)}
-    {$MESSAGE HINT 'Windows platform'}
-    (* @exclude *)    
-    LIB_FNPFX = '';
-    (* @exclude *)    
-    LIB_PRIMESIEVE = 'libprimesieve.dll';
-    {$ELSE}
-      {$MESSAGE Fatal 'Unsupported platform'}
-    {$ENDIF}
+	{$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
   
 {$REGION 'primesieve.h'}
