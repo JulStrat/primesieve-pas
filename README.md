@@ -4,17 +4,18 @@
 
 Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) library.
 
-## Pascal API documentation
-
-https://julstrat.github.io/primesieve-pas/
-
-Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+Repository structure - 
+- `primesieve.pas` - Pascal API unit.
+- `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) in HTML and LaTex 
+format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+- `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve).
+- `include` - C API v7.5 header files.
 
 ## Requirements
 
 Install ```primesieve``` library.
 
-- Ubuntu - ```sudo apt install libprimesieve-dev```.
+- Debian, Ubuntu, Raspbian - ```sudo apt install libprimesieve-dev```.
 - MacOS - ```brew install primesieve```.
 - Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve) built with MinGW.
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
