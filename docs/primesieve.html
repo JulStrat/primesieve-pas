@@ -12,7 +12,7 @@
 <h2>primesieve-pas</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
 <h1 class="unit">Unit primesieve</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Pascal bindings for primesieve library.
@@ -116,6 +116,15 @@ Pascal bindings for primesieve library.
 </tr>
 <tr class="list">
 <td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#PUInt64">PUInt64</a></b> = &circ;UInt64;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#PInt64">PInt64</a></b> = &circ;Int64;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
@@ -452,6 +461,21 @@ Get the previous prime.
 
 <p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns 0 for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p>
 </td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PUInt64"></span><code><b>PUInt64</b> = &circ;UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PInt64"></span><code><b>PInt64</b> = &circ;Int64;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail wide_list">
