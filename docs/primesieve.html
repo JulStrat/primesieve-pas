@@ -12,7 +12,7 @@
 <h2>primesieve-pas</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
 <h1 class="unit">Unit primesieve</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Pascal bindings for primesieve library.
@@ -118,6 +118,15 @@ Pascal bindings for primesieve library.
 <td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a></b>(var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a>): UInt64; inline;</code></td>
 </tr>
 </table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="primesieve.html#PUInt64">PUInt64</a></b> = &circ;UInt64;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="primesieve.html#PInt64">PInt64</a></b> = &circ;Int64;</code></td>
+</tr>
+</table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
 <tr class="list">
@@ -182,7 +191,12 @@ Get an array with the primes inside the interval <i>[start, stop]</i>.
 <p>
 Get an array with the first <i>n primes &gt;= start</i>.
 
-<p>@paran(ptype The type of the primes to generate, e.g. <code>INT_PRIMES32</code>)</p>
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>ptype</dt>
+<dd>The type of the primes to generate, e.g. <code>INT_PRIMES32</code></dd>
+</dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -193,9 +207,14 @@ Get an array with the first <i>n primes &gt;= start</i>.
 <p>
 Find the nth prime. By default all CPU cores are used, use <a class="normal" href="primesieve.html#primesieve_set_num_threads">primesieve_set_num_threads</a> to change the number of threads.
 
-<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
+<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if <i>n</i> is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
 
-<p>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</p>
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>n</dt>
+<dd>if <i>n = 0</i> finds the <i>1st prime &gt;= start</i>,<br> if <i>n &gt; 0</i> finds the <i>nth prime &gt; start</i>,<br> if <i>n &lt; 0</i> finds the <i>nth prime &lt; start</i> (backwards).</dd>
+</dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -417,7 +436,7 @@ Reset the primesieve iterator to start.
 <dt>start</dt>
 <dd>Generate <i>primes &gt; start (or &lt; start)</i></dd>
 <dt>stop_hint</dt>
-<dd>Stop number optimization hint. E.g. if you want to generate the primes below 1000 use <i>stop_hint = 1000</i>, if you don't know use <a class="normal" href="primesieve.html#primesieve_get_max_stop">primesieve_get_max_stop</a></dd>
+<dd>Stop number optimization hint. E.g. if you want to generate the primes below <i>1000</i> use <i>stop_hint = 1000</i>, if you don't know use <a class="normal" href="primesieve.html#primesieve_get_max_stop">primesieve_get_max_stop</a></dd>
 </dl>
 </td></tr>
 </table>
@@ -440,8 +459,23 @@ Get the next prime.
 <p>
 Get the previous prime.
 
-<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns 0 for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p>
+<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns <i>0</i> for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p>
 </td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PUInt64"></span><code><b>PUInt64</b> = &circ;UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PInt64"></span><code><b>PInt64</b> = &circ;Int64;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail wide_list">
@@ -489,7 +523,7 @@ primesieve functions return <i>PRIMESIEVE_ERROR (UINT64_MAX)</i> if any error oc
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of Int16 (c int16_t) type</p>
+Generate primes of <i>Int16 (c int16_t)</i> type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -498,7 +532,7 @@ Generate primes of Int16 (c int16_t) type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of UInt16 (c uint16_t) type</p>
+Generate primes of <i>UInt16 (c uint16_t)</i> type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -507,7 +541,7 @@ Generate primes of UInt16 (c uint16_t) type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of Int32 (c int32_t) type</p>
+Generate primes of <i>Int32 (c int32_t)</i> type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -516,7 +550,7 @@ Generate primes of Int32 (c int32_t) type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of UInt32 (c uint32_t) type</p>
+Generate primes of <i>UInt32 (c uint32_t)</i> type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -525,7 +559,7 @@ Generate primes of UInt32 (c uint32_t) type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of Int64 (c int64_t) type</p>
+Generate primes of <i>Int64 (c int64_t)</i> type</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -534,7 +568,7 @@ Generate primes of Int64 (c int64_t) type</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Generate primes of UInt64 (c uint64_t) type</p>
+Generate primes of <i>UInt64 (c uint64_t)</i> type</p>
 </td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a  href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>

@@ -1,14 +1,16 @@
 language: c
 dist: bionic
 
-arch:
-  - amd64
-  - arm64
-os:
-  - linux
-  - osx
-
-osx_image: xcode12
+matrix:
+  include:
+    - os: linux
+      arch: amd64
+    - os: linux
+      arch: arm64
+    - os: osx
+      osx_image: xcode12 
+    - os: osx
+      osx_image: xcode9.4 
 
 before_install:
     - if [[ $TRAVIS_OS_NAME == linux ]]; then
