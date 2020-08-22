@@ -6,8 +6,8 @@ Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) libra
 
 Repository structure - 
 - `primesieve.pas` - Pascal API unit.
-- `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) in HTML and LaTex 
-format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+- `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
+in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve).
 - `include` - C API v7.5 header files.
 
@@ -20,7 +20,12 @@ Install ```primesieve``` library.
 - Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve) built with MinGW.
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
 
-## Usage
+Linking against libprimesieve v6.x is also possible - 
+build your project with symbol `USE_ABI6` defined 
+(Free Pascal compiler command line switch `-dUSE_ABI6`).
+Details - https://github.com/kimwalisch/primesieve/releases/tag/v7.0.
+
+## Usage example
 
 ```
 program store_primes_in_array;

@@ -20,17 +20,17 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#INT16_PRIMES">INT16_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of Int16 (c int16_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>Int16 (c int16_t)</i> type</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#INT32_PRIMES">INT32_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of Int32 (c int32_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>Int32 (c int32_t)</i> type</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#INT64_PRIMES">INT64_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of Int64 (c int64_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>Int64 (c int64_t)</i> type</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#PInt64">PInt64</a></td>
@@ -130,7 +130,7 @@
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p><a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> allows to easily iterate over primes both forwards and backwards. Generating the first prime has a complexity of <i>O(r log log r)</i> operations with <i>r = n&circ;0.5</i>, after that any additional prime is generated in amortized <i>O(log n log log n)</i> operations. The memory usage is about <i>PrimePi(n&circ;0.5) * 8</i> bytes.
 
-<p>The <i>primesieve_iterator.pas</i> example shows how to use <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a>. If any error occurs <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> and @limk(primesieve_prev_prime) return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <i>primesieve_iterator.is_error</i> is initialized to 0 and set to 1 if any error occurs.</p></td>
+<p>The <i>primesieve_iterator.pas</i> example shows how to use <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a>. If any error occurs <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> and <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <i>primesieve_iterator.is_error</i> is initialized to <i>0</i> and set to <i>1</i> if any error occurs.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a></td>
@@ -144,7 +144,7 @@
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Find the nth prime. By default all CPU cores are used, use <a class="normal" href="primesieve.html#primesieve_set_num_threads">primesieve_set_num_threads</a> to change the number of threads.
 
-<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
+<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if <i>n</i> is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
 
 <p></p></td>
 </tr>
@@ -153,7 +153,7 @@
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Get the previous prime.
 
-<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns 0 for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p></td>
+<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns <i>0</i> for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_print_primes">primesieve_print_primes</a></td>
@@ -217,17 +217,17 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT16_PRIMES">UINT16_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of UInt16 (c uint16_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>UInt16 (c uint16_t)</i> type</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT32_PRIMES">UINT32_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of UInt32 (c uint32_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>UInt32 (c uint32_t)</i> type</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT64_PRIMES">UINT64_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p>Generate primes of UInt64 (c uint64_t) type</p></td>
+<td class="itemdesc"><p>Generate primes of <i>UInt64 (c uint64_t)</i> type</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a></td>

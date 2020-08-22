@@ -117,7 +117,7 @@
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Find the nth prime. By default all CPU cores are used, use <a class="normal" href="primesieve.html#primesieve_set_num_threads">primesieve_set_num_threads</a> to change the number of threads.
 
-<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if n is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
+<p>Note that each call to <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> incurs an initialization overhead of <i>O(sqrt(start))</i> even if <i>n</i> is tiny. Hence it is not a good idea to use <a class="normal" href="primesieve.html#primesieve_nth_prime">primesieve_nth_prime</a> repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> which needs to be initialized only once.
 
 <p></p></td>
 </tr>
@@ -126,7 +126,7 @@
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Get the previous prime.
 
-<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns 0 for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p></td>
+<p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns <i>0</i> for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#primesieve_print_primes">primesieve_print_primes</a></td>

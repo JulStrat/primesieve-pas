@@ -53,6 +53,7 @@ const
   {$ENDIF}
   
 {$REGION 'primesieve.h'}
+
 const
   _PRIMESIEVE_VERSION = '7.5';
   _PRIMESIEVE_VERSION_MAJOR = 7;
@@ -103,19 +104,18 @@ const
 
 { Platform independent types }
 const  
-  (* Generate primes of Int16 (c int16_t) type *)
+  (* Generate primes of @italic(Int16 (c int16_t)) type *)
   INT16_PRIMES = 8;
-  (* Generate primes of UInt16 (c uint16_t) type *)
+  (* Generate primes of @italic(UInt16 (c uint16_t)) type *)
   UINT16_PRIMES = 9;
-  (* Generate primes of Int32 (c int32_t) type *)
+  (* Generate primes of @italic(Int32 (c int32_t)) type *)
   INT32_PRIMES = 10;
-  (* Generate primes of UInt32 (c uint32_t) type *)
+  (* Generate primes of @italic(UInt32 (c uint32_t)) type *)
   UINT32_PRIMES = 11;
-  (* Generate primes of Int64 (c int64_t) type *)
+  (* Generate primes of @italic(Int64 (c int64_t)) type *)
   INT64_PRIMES = 12;
-  (* Generate primes of UInt64 (c uint64_t) type *)
+  (* Generate primes of @italic(UInt64 (c uint64_t)) type *)
   UINT64_PRIMES = 13;
-
 
 (*
   Get an array with the primes inside the interval @italic([start, stop]).
@@ -140,7 +140,7 @@ function primesieve_generate_n_primes(n: UInt64; start: UInt64; ptype: Integer):
   @link(primesieve_set_num_threads) to change the number of threads.
  
   Note that each call to @link(primesieve_nth_prime) incurs an
-  initialization overhead of @italic(O(sqrt(start))) even if n is tiny.
+  initialization overhead of @italic(O(sqrt(start))) even if @italic(n) is tiny.
   Hence it is not a good idea to use @link(primesieve_nth_prime)
   repeatedly in a loop to get the next (or previous) prime. For
   this use case it is better to use a @link(primesieve_iterator) which
@@ -312,9 +312,9 @@ function primesieve_version(): PAnsiChar; cdecl;
   The @italic(primesieve_iterator.pas)
   example shows how to use @link(primesieve_iterator).
   If any error occurs @link(primesieve_next_prime) and 
-  @limk(primesieve_prev_prime) return @link(_PRIMESIEVE_ERROR).
+  @link(primesieve_prev_prime) return @link(_PRIMESIEVE_ERROR).
   Furthermore @italic(primesieve_iterator.is_error) is initialized
-  to 0 and set to 1 if any error occurs.
+  to @italic(0) and set to @italic(1) if any error occurs.
  *)
 type 
   {$IF Defined(USE_ABI6)}
@@ -358,7 +358,7 @@ procedure primesieve_free_iterator(var it: primesieve_iterator); cdecl;
   @param(start Generate @italic(primes > start (or < start)))
   
   @param(stop_hint Stop number optimization hint. E.g. if you want
-         to generate the primes below 1000 use @italic(stop_hint = 1000), 
+         to generate the primes below @italic(1000) use @italic(stop_hint = 1000), 
 		 if you don't know use @link(primesieve_get_max_stop))
  *)
 procedure primesieve_skipto(var it: primesieve_iterator; start: UInt64;
@@ -375,7 +375,7 @@ function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
 (*
   Get the previous prime.
   
-  @link(primesieve_prev_prime) returns 0 for @italic(n <= 2).
+  @link(primesieve_prev_prime) returns @italic(0) for @italic(n <= 2).
   Note that @link(primesieve_next_prime) runs up to 2x faster than
   @link(primesieve_prev_prime). Hence if the same algorithm can be written
   using either @link(primesieve_prev_prime) or @link(primesieve_next_prime)

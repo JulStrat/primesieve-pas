@@ -99,7 +99,7 @@ This file is distributed under the BSD 2{-}Clause License.
 \subsubsection*{\large{\textbf{Description}}\normalsize\hspace{1ex}\hfill}
 \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}) allows to easily iterate over primes both forwards and backwards. Generating the first prime has a complexity of \textit{O(r log log r)} operations with \textit{r = n{\^{}}0.5}, after that any additional prime is generated in amortized \textit{O(log n log log n)} operations. The memory usage is about \textit{PrimePi(n{\^{}}0.5) * 8} bytes.
 
-The \textit{primesieve{\_}iterator.pas} example shows how to use \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}). If any error occurs \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) and @limk(primesieve{\_}prev{\_}prime) return \begin{ttfamily}{\_}PRIMESIEVE{\_}ERROR\end{ttfamily}(\ref{primesieve-_PRIMESIEVE_ERROR}). Furthermore \textit{primesieve{\_}iterator.is{\_}error} is initialized to 0 and set to 1 if any error occurs.\section{Functions and Procedures}
+The \textit{primesieve{\_}iterator.pas} example shows how to use \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}). If any error occurs \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) and \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) return \begin{ttfamily}{\_}PRIMESIEVE{\_}ERROR\end{ttfamily}(\ref{primesieve-_PRIMESIEVE_ERROR}). Furthermore \textit{primesieve{\_}iterator.is{\_}error} is initialized to \textit{0} and set to \textit{1} if any error occurs.\section{Functions and Procedures}
 \ifpdf
 \subsection*{\large{\textbf{primesieve{\_}generate{\_}primes}}\normalsize\hspace{1ex}\hrulefill}
 \else
@@ -213,7 +213,7 @@ function primesieve{\_}nth{\_}prime(n: Int64; start: UInt64): UInt64; cdecl; ext
 \item[\textbf{Description}]
 Find the nth prime. By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{\_}threads\end{ttfamily}(\ref{primesieve-primesieve_set_num_threads}) to change the number of threads.
 
-Note that each call to \begin{ttfamily}primesieve{\_}nth{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_nth_prime}) incurs an initialization overhead of \textit{O(sqrt(start))} even if n is tiny. Hence it is not a good idea to use \begin{ttfamily}primesieve{\_}nth{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_nth_prime}) repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}) which needs to be initialized only once.
+Note that each call to \begin{ttfamily}primesieve{\_}nth{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_nth_prime}) incurs an initialization overhead of \textit{O(sqrt(start))} even if \textit{n} is tiny. Hence it is not a good idea to use \begin{ttfamily}primesieve{\_}nth{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_nth_prime}) repeatedly in a loop to get the next (or previous) prime. For this use case it is better to use a \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}) which needs to be initialized only once.
 
 \par
 \item[\textbf{Parameters}]
@@ -968,7 +968,7 @@ Reset the primesieve iterator to start.
 \item[\textbf{Parameters}]
 \begin{description}
 \item[start] Generate \textit{primes {$>$} start (or {$<$} start)}
-\item[stop{\_}hint] Stop number optimization hint. E.g. if you want to generate the primes below 1000 use \textit{stop{\_}hint = 1000}, if you don't know use \begin{ttfamily}primesieve{\_}get{\_}max{\_}stop\end{ttfamily}(\ref{primesieve-primesieve_get_max_stop})
+\item[stop{\_}hint] Stop number optimization hint. E.g. if you want to generate the primes below \textit{1000} use \textit{stop{\_}hint = 1000}, if you don't know use \begin{ttfamily}primesieve{\_}get{\_}max{\_}stop\end{ttfamily}(\ref{primesieve-primesieve_get_max_stop})
 \end{description}
 
 
@@ -1040,7 +1040,7 @@ function primesieve{\_}prev{\_}prime(var it: primesieve{\_}iterator): UInt64; in
 \item[\textbf{Description}]
 Get the previous prime.
 
-\begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) returns 0 for \textit{n {$<$}= 2}. Note that \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) runs up to 2x faster than \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}). Hence if the same algorithm can be written using either \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) or \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) it is preferable to use \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}).
+\begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) returns \textit{0} for \textit{n {$<$}= 2}. Note that \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) runs up to 2x faster than \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}). Hence if the same algorithm can be written using either \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) or \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) it is preferable to use \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}).
 
 \end{list}
 \section{Types}
@@ -1286,7 +1286,7 @@ INT16{\_}PRIMES = 8;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of Int16 (c int16{\_}t) type
+Generate primes of \textit{Int16 (c int16{\_}t)} type
 
 \end{list}
 \ifpdf
@@ -1319,7 +1319,7 @@ UINT16{\_}PRIMES = 9;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of UInt16 (c uint16{\_}t) type
+Generate primes of \textit{UInt16 (c uint16{\_}t)} type
 
 \end{list}
 \ifpdf
@@ -1352,7 +1352,7 @@ INT32{\_}PRIMES = 10;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of Int32 (c int32{\_}t) type
+Generate primes of \textit{Int32 (c int32{\_}t)} type
 
 \end{list}
 \ifpdf
@@ -1385,7 +1385,7 @@ UINT32{\_}PRIMES = 11;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of UInt32 (c uint32{\_}t) type
+Generate primes of \textit{UInt32 (c uint32{\_}t)} type
 
 \end{list}
 \ifpdf
@@ -1418,7 +1418,7 @@ INT64{\_}PRIMES = 12;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of Int64 (c int64{\_}t) type
+Generate primes of \textit{Int64 (c int64{\_}t)} type
 
 \end{list}
 \ifpdf
@@ -1451,7 +1451,7 @@ UINT64{\_}PRIMES = 13;\end{ttfamily}
 
 \par
 \item[\textbf{Description}]
-Generate primes of UInt64 (c uint64{\_}t) type
+Generate primes of \textit{UInt64 (c uint64{\_}t)} type
 
 \end{list}
 \end{document}
