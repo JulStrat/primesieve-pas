@@ -71,4 +71,5 @@ script:
   - time examples/printlets 6 0 1000000
   - time examples/countlets 6 0 1000000000
   - examples/totient 1 69
-  - diff -w examples/totient 1 100000 examples/b000010.txt
+  - examples/totient 1 100000 > examples/totient.fpc.out
+  - diff -w examples/totient.fpc.out examples/b000010.txt
