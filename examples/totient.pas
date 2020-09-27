@@ -26,15 +26,15 @@ begin
 	  Result := Result div p * (p-1);
 	while x mod p = 0 do
       x := x div p;
-	p := primesieve_next_prime(it);  
+	p := primesieve_next_prime(it);
   end;
   if x > 1 then
-    Result := Result div x * (x-1);  
+    Result := Result div x * (x-1);
 end;
 
 var
   it: primesieve_iterator;
-  start, stop, x: UInt64;  
+  start, stop, x: UInt64;
 
 begin
   if ParamCount <> 2 then
@@ -49,7 +49,7 @@ begin
   primesieve_init(it);
   while x <= stop do
   begin
-    WriteLn(x, phi(x, it));
+    WriteLn(x, ' ', phi(x, it));
 	Inc(x);
   end;
   primesieve_free_iterator(it);
