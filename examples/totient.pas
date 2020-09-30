@@ -1,5 +1,5 @@
 (*  @example totient.pas
- *  Print Euler's totient function for given range. 
+ *  Prints Euler's totient function for given range.
  *  https://oeis.org/A000010 *)
 
 program totient;
@@ -17,16 +17,16 @@ var
   p: UInt64;
 
 begin
-  primesieve_skipto(it, 0,  primesieve_get_max_stop());
+  primesieve_skipto(it, 0, primesieve_get_max_stop());
   p := primesieve_next_prime(it);
   Result := x;
-  while p*p <= x do
+  while p * p <= x do
   begin
     if x mod p = 0 then
-	  Result := Result div p * (p-1);
-	while x mod p = 0 do
+      Result := Result div p * (p-1);
+    while x mod p = 0 do
       x := x div p;
-	p := primesieve_next_prime(it);
+    p := primesieve_next_prime(it);
   end;
   if x > 1 then
     Result := Result div x * (x-1);
@@ -40,7 +40,7 @@ begin
   if ParamCount <> 2 then
   begin
     WriteLn('Usage: totient start stop');
-	Halt(1);
+    Halt(1);
   end;
 
   start := UInt64.Parse(ParamStr(1));
@@ -50,7 +50,7 @@ begin
   while x <= stop do
   begin
     WriteLn(x, ' ', phi(x, it));
-	Inc(x);
+    Inc(x);
   end;
   primesieve_free_iterator(it);
 end.

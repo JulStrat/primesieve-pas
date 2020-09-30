@@ -13,7 +13,7 @@ uses primesieve;
 type
   PInt32 = ^Int32;
 
-var 
+var
   start, stop, n: UInt64;
   i, size: NativeUInt;
   primes: PInt32;

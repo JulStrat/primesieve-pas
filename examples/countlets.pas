@@ -17,20 +17,20 @@ begin
   if ParamCount <> 3 then
   begin
     WriteLn('Usage: countlets lets start stop');
-    WriteLn('Where lets - 1..6');	
-	Halt(1);
+    WriteLn('Where lets - 1..6');
+    Halt(1);
   end;
-  
+
   start := UInt64.Parse(ParamStr(2));
   stop := UInt64.Parse(ParamStr(3));
-  
+
   case Integer.Parse(ParamStr(1)) of
     1: num := primesieve_count_primes(start, stop);
     2: num := primesieve_count_twins(start, stop);
     3: num := primesieve_count_triplets(start, stop);
     4: num := primesieve_count_quadruplets(start, stop);
     5: num := primesieve_count_quintuplets(start, stop);
-    6: num := primesieve_count_sextuplets(start, stop);	
+    6: num := primesieve_count_sextuplets(start, stop);
   end;
   WriteLn(num);
 end.
