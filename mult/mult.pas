@@ -64,9 +64,10 @@ begin
     if x mod (p*p) = 0 then
       Exit(0);
     if x mod p = 0 then
+    begin
       Result := -Result;
-    while x mod p = 0 do
       x := x div p;
+    end;
     p := primesieve_next_prime(it);
   end;
   if x > 1 then
