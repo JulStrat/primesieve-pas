@@ -22,7 +22,7 @@ function Phi(x: UInt64): UInt64;
   mu(1) = 1; mu(n) = (-1)^k if n is the product of k different primes; otherwise mu(n) = 0. 
   OEIS: https://oeis.org/A008683
 *)
-function Mu(x: UInt64): UInt64;
+function Mu(x: UInt64): integer;
 
 implementation
 
@@ -50,7 +50,7 @@ begin
     Result := Result div x * (x-1);
 end;
 
-function Mu(x: UInt64): UInt64;
+function Mu(x: UInt64): integer;
 var
   p: UInt64;
 
