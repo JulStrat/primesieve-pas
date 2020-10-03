@@ -76,5 +76,6 @@ script:
   - examples/totient 1 100000 > examples/totient.fpc.out
   - diff -w examples/totient.fpc.out examples/b000010.txt
   - mult/mult_cli/mult_cli 10 1 100000 > mult/oeis/totient.fpc.out
-  - cat mult/oeis/totient.fpc.out  
   - diff -w mult/oeis/totient.fpc.out mult/oeis/b000010.txt
+  - mult/mult_cli/mult_cli 8683 1 100000 > mult/oeis/moebius.fpc.out
+  - diff -w mult/oeis/moebius.fpc.out mult/oeis/b008683.txt

@@ -24,6 +24,7 @@ begin
 
   case fun of
     10: while start <= stop do begin WriteLn(start, ' ', phi(start)); Inc(start); end;
+    8683: while start <= stop do begin WriteLn(start, ' ', mu(start)); Inc(start); end;
   end;
 
 end.
