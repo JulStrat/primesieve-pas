@@ -24,6 +24,12 @@ function Phi(x: UInt64): UInt64;
 *)
 function Mu(x: UInt64): integer;
 
+(*
+  tau(n), the number of divisors of n. 
+  OEIS: https://oeis.org/A000005
+*)
+function Tau(x: UInt64): UInt64;
+
 implementation
 
 var
@@ -72,6 +78,30 @@ begin
   end;
   if x > 1 then
     Result := -Result;
+end;
+
+function Tau(x: UInt64): UInt64;
+var
+  p: UInt64;
+  exp: UInt64;
+begin
+  primesieve_skipto(it, 0, primesieve_get_max_stop());
+  p := primesieve_next_prime(it);
+  Result := 1;
+
+  while p * p <= x do
+  begin
+    exp := 0;
+    while x mod p = 0 do
+    begin  	
+      Inc(exp);	
+      x := x div p;
+    end;
+    Result := (exp+1) * Result;
+    p := primesieve_next_prime(it);
+  end;
+  if x > 1 then
+    Result := 2 * Result;
 end;
 
 initialization
