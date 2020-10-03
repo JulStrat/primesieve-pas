@@ -1,5 +1,15 @@
 {
-  Multiplicative functions.
+  Multiplicative number theory functions.
+
+  primesieve - library for fast prime number generation.@br
+  Copyright (C) 2019 Kim Walisch, <kim.walisch@gmail.com>@br
+  https://github.com/kimwalisch/primesieve  
+  
+  primesieve-pas - FPC/Delphi API for primesieve library.@br
+  Copyright (C) 2020 I. Kakoulidis, <ioulianos.kakoulidis@hotmail.com>@br
+  https://github.com/JulStrat/primesieve-pas
+  
+  This file is distributed under the BSD 2-Clause License.
 }
 unit mult;
 {$IF Defined(FPC)}
@@ -84,6 +94,7 @@ function Tau(x: UInt64): UInt64;
 var
   p: UInt64;
   exp: UInt64;
+
 begin
   primesieve_skipto(it, 0, primesieve_get_max_stop());
   p := primesieve_next_prime(it);
