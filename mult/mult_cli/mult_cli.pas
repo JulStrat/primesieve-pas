@@ -26,6 +26,7 @@ begin
     10: while start <= stop do begin WriteLn(start, ' ', Phi(start)); Inc(start); end;
     8683: while start <= stop do begin WriteLn(start, ' ', Mu(start)); Inc(start); end;
     5: while start <= stop do begin WriteLn(start, ' ', Tau(start)); Inc(start); end;
+    7947: while start <= stop do begin WriteLn(start, ' ', Rad(start)); Inc(start); end;
   end;
 
 end.
