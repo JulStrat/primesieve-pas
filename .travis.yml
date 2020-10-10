@@ -82,4 +82,4 @@ script:
   - diff -w mult/oeis/moebius.fpc.out mult/oeis/b008683.txt
   - time mult/mult_cli/mult_cli 5 1 100000 > mult/oeis/tau.fpc.out
   - diff -w mult/oeis/tau.fpc.out mult/oeis/b000005.txt
-  - time mult/nth_t.pas
+  - time mult/nth_t
