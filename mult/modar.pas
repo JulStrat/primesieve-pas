@@ -12,7 +12,7 @@ unit modar;
 
 interface
 
-function AddMod(a, b: UInt64; m: UInt64): UInt64;
+function AddMod(a, b: UInt64; m: UInt64): UInt64; inline;
 function MulMod(a, b: UInt64; m: UInt64): UInt64;
 function PowMod(b, e: UInt64; m: UInt64): UInt64;
 

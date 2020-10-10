@@ -41,7 +41,7 @@ before_install:
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/prev_prime.pas;
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/primesieve_iterator.pas;
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/totient.pas;
-        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib mult/mult_cli/mult_cli.pas -Fumult/;        
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib mult/mult_cli/mult_cli.pas -Fumult/;
         cc primesieve_info.c -o primesieve_info_c -lprimesieve;
       fi
 
@@ -51,6 +51,7 @@ install:
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/store_primes_in_array.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/printlets.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/countlets.pas
+  - fpc -vh -B -O3 -CX -XX mult/nth_t.pas;
 
 script:
   - ./primesieve_info
@@ -81,3 +82,4 @@ script:
   - diff -w mult/oeis/moebius.fpc.out mult/oeis/b008683.txt
   - time mult/mult_cli/mult_cli 5 1 100000 > mult/oeis/tau.fpc.out
   - diff -w mult/oeis/tau.fpc.out mult/oeis/b000005.txt
+  - time mult/nth_t.pas
