@@ -11,6 +11,7 @@ Repository structure -
 - `primesieve.pas` - Pascal API unit.
 - `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
 in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+- `mult` - Number theory multiplicative functions.
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
 `countlets` - counts `lets`, `printlets` - prints `lets`, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
 - `include` - C API v7.5 header files.
