@@ -31,7 +31,10 @@ var
   witness: boolean;
 
 begin
-  if n in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] then Exit(True);
+  case n of
+    2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37: Exit(True);
+  end;
+  // if n in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] then Exit(True);
   if ((n and 1) = 0) or (n = 1) then Exit(False);
   d := n - 1;
   r := 0;
