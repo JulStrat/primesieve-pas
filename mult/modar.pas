@@ -12,8 +12,25 @@ unit modar;
 
 interface
 
+(*
+  Modular addition.
+
+  @returns(@italic((a + b) mod m))
+*)
 function AddMod(a, b: UInt64; m: UInt64): UInt64; inline;
+
+(*
+  Modular multiplication.
+
+  @returns(@italic((a * b) mod m))
+*)
 function MulMod(a, b: UInt64; m: UInt64): UInt64;
+
+(*
+  Modular exponentiation.
+
+  @returns(@italic((a ^ b) mod m))
+*)
 function PowMod(b, e: UInt64; m: UInt64): UInt64;
 
 implementation

@@ -6,7 +6,8 @@ var
 
 begin
   for i := 0 to 1000 do
-    WriteLn(i, ' - ', MillerRabin(i));
+    if MillerRabin(i) then
+      WriteLn(i, ' - prime number.');
 
   WriteLn(1000000007, ' - ', MillerRabin(1000000007));
   WriteLn(1000000009, ' - ', MillerRabin(1000000009));

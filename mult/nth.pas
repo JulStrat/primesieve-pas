@@ -13,6 +13,11 @@ unit nth;
 {$INLINE ON}
 interface
 
+(*
+  Miller–Rabin deterministic primality test.
+
+  @returns(@true if @italic(n) is prime number, @false otherwise)
+*)
 function MillerRabin(n: UInt64): boolean;
 
 implementation
@@ -21,18 +26,17 @@ uses modar;
 
 function MillerRabin(n: UInt64): boolean;
 var
-  d, x: UInt64;
+  a, d, x: UInt64;
   i, r: integer;
   witness: boolean;
-  a: UInt64;
 
 begin
   if n in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] then Exit(True);
-  if (n and 1 = 0) or (n = 1) then Exit(False);
+  if ((n and 1) = 0) or (n = 1) then Exit(False);
   d := n - 1;
   r := 0;
 
-  while (d > 0) and (d and 1 = 0) do
+  while (d and 1) = 0 do
   begin
     Inc(r);
     d := d shr 1;
