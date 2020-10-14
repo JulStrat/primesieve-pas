@@ -1,4 +1,8 @@
 program nth_t;
+{$IF Defined(FPC)}
+{$MODE Delphi}
+{$ENDIF}
+
 uses nth;
 
 var
@@ -11,6 +15,6 @@ begin
 
   WriteLn(1000000007, ' - ', MillerRabin(1000000007));
   WriteLn(1000000009, ' - ', MillerRabin(1000000009));
-  WriteLn(1000000011, ' - ', MillerRabin(1000000011));  
-  WriteLn(1000000021, ' - ', MillerRabin(1000000021));    
+  WriteLn(1000000011, ' - ', MillerRabin(1000000011));
+  WriteLn(1000000021, ' - ', MillerRabin(1000000021));
 end.

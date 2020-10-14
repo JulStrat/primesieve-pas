@@ -26,6 +26,7 @@ before_install:
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib mult/mult_cli/mult_cli.pas -Fumult/;
         cc primesieve_info.c -o primesieve_info_c -lprimesieve;
         fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib mult/miller_rabin_t.pas;
+        fpc -vh -B -O3 -CX -XX -dUSE_ABI6 -Fl/usr/local/lib mult/pollard_rho_t.pas;
       elif [[ $TRAVIS_OS_NAME == osx ]]; then
         brew update > /dev/null;
         brew install fpc > /dev/null;
@@ -45,6 +46,7 @@ before_install:
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib mult/mult_cli/mult_cli.pas -Fumult/;
         cc primesieve_info.c -o primesieve_info_c -lprimesieve;
         fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib mult/miller_rabin_t.pas;
+        fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib mult/pollard_rho_t.pas;
       fi
 
 install:
@@ -86,3 +88,4 @@ script:
   - diff -w mult/oeis/tau.fpc.out mult/oeis/b000005.txt
   - time mult/nth_t
   - time mult/miller_rabin_t
+  - time mult/pollard_rho_t

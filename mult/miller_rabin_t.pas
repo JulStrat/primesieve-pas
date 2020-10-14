@@ -1,10 +1,14 @@
 program miller_rabin_t;
+{$IF Defined(FPC)}
+{$MODE Delphi}
+{$ENDIF}
+
 uses nth, primesieve;
 
 var
   n: UInt64;
   it: primesieve_iterator;
-  prime: UInt64;  
+  prime: UInt64;
 
 begin
   primesieve_init(it);
@@ -22,7 +26,7 @@ begin
       if MillerRabin(n) then Halt(1);
     Inc(n);
   end;
-  
+
   n := 1000000000000000;
   primesieve_skipto(it, 1000000000000000, 1000000001000000);
   prime := primesieve_next_prime(it);

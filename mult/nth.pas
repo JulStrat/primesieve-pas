@@ -21,10 +21,10 @@ interface
 function MillerRabin(n: UInt64): boolean;
 
 (*
-  Pollard Rho factorization algorithm.
+  Pollard Rho (Greek ρ letter) factorization algorithm.
   https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
 *)
-function PollardRho(n: UInt64; x: UInt64 = 1; c: UInt64 = 1): UInt64;
+function PollardRho(n: UInt64; x: UInt64 = 2; c: UInt64 = 1): UInt64;
 
 implementation
 
@@ -71,7 +71,7 @@ begin
   Result := true;
 end;
 
-function PollardRho(n: UInt64; x: UInt64 = 1; c: UInt64 = 1): UInt64;
+function PollardRho(n: UInt64; x: UInt64 = 2; c: UInt64 = 1): UInt64;
 var
   y, d: UInt64;
 
@@ -84,8 +84,8 @@ begin
     x := AddMod(MulMod(x, x, n), c, n);
     y := AddMod(MulMod(y, y, n), c, n);
     y := AddMod(MulMod(y, y, n), c, n);
-    if y >= x then d := GCD(y - x, n)
-    else d := GCD(x - y, n);
+    if y >= x then d := GCD(n, y - x)
+    else d := GCD(n, x - y);
   end;
   Result := d;
 end;
