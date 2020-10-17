@@ -56,6 +56,7 @@ install:
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/printlets.pas
   - fpc -vh -B -O3 -CX -XX -Fl/usr/local/lib examples/countlets.pas
   - fpc -vh -B -O3 -CX -XX mult/nth_t.pas
+  - fpc -vh -B -O3 -CX -XX mult/se_t.pas
 
 script:
   - ./primesieve_info
@@ -89,3 +90,4 @@ script:
   - time mult/nth_t
   - time mult/miller_rabin_t
   - time mult/pollard_rho_t
+  - time mult/se_t

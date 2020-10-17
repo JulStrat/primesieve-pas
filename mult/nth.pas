@@ -13,6 +13,12 @@ unit nth;
 {$INLINE ON}
 interface
 
+const
+  LOW_PRIME_BOUND = 2642246;
+
+type
+  TPrimes = array of UInt64;
+
 (*
   Miller–Rabin deterministic primality test.
 
@@ -25,6 +31,8 @@ function MillerRabin(n: UInt64): boolean;
   https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
 *)
 function PollardRho(n: UInt64; x: UInt64 = 2; c: UInt64 = 1): UInt64;
+
+function SieveEratosthenes(n: UInt64): TPrimes;
 
 implementation
 
@@ -50,7 +58,7 @@ begin
     d := d shr 1;
   end;
 
-  for a in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] do 
+  for a in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] do
   begin
     x := PowMod(a, d, n);
     if (x = 1) or (x = n - 1) then continue;
@@ -88,6 +96,55 @@ begin
     else d := GCD(n, x - y);
   end;
   Result := d;
+end;
+
+function SieveEratosthenes(n: UInt64): TPrimes;
+var
+  primes: TPrimes;
+  sieve: array of byte;
+  i, j: UInt64;
+
+begin
+  SetLength(sieve, n + 1);
+  SetLength(primes, n + 1);
+
+  i := 0;
+  while i <= n do
+  begin
+    sieve[i] := 0;
+    Inc(i);
+  end;
+
+  i := 2;
+  while i <= Trunc(Sqrt(n)) do
+  begin
+    if sieve[i] = 0 then
+    begin
+      j := i * i;
+      while j <= n do
+      begin
+        sieve[j] := 1;
+        Inc(j, i);
+      end;
+    end;
+    Inc(i);
+  end;
+
+  i := 2;
+  j := 0;
+
+  while i <= n do
+  begin
+    if sieve[i] = 0 then
+    begin
+      primes[j] := i;
+      Inc(j);
+    end;
+    Inc(i);
+  end;
+
+  SetLength(primes, j);
+  Result := primes;
 end;
 
 end.
