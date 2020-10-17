@@ -25,7 +25,7 @@ end;
 begin
   primesieve_init(it);
 
-  start := 1000000;
+  start := 1000;
   while start <= 1000000000000000000 do
   begin
     WriteLn('Start - ', start);

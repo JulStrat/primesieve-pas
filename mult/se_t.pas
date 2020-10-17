@@ -11,7 +11,6 @@ var
 
 begin
   primes := SieveEratosthenes(LOW_PRIME_BOUND);
-  for i := 0 to Length(primes) - 1 do
-    WriteLn(i + 1, ' ', primes[i]);
+  WriteLn(Length(primes));
   SetLength(primes, 0);
 end.
