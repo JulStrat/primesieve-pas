@@ -7,7 +7,7 @@ uses nth;
 
 var
   primes: TPrimes;
-  start, n, p: UInt64;  
+  start, n, p: UInt64;
 
 function IsPerfSquare(n: UInt64): UInt64;
 var
@@ -28,7 +28,7 @@ begin
   begin
     f := PollardRho(n, x, 1);
     if f <> n then Exit(f);
-    Inc(x);	
+    Inc(x);
   end;
   Result := n;
 end;
@@ -39,7 +39,7 @@ var
   i: UInt64;
 begin
   i := 0;
-  while i < Length(primes) do 
+  while i < Length(primes) do
   begin
     p := primes[i];
     if p * p * p > n then break;
@@ -56,9 +56,9 @@ begin
 
     if n <= HIGH_PRIME_BOUND then
     begin
-      while i < Length(primes) do 
+      while i < Length(primes) do
       begin
-        p := primes[i];	  
+        p := primes[i];
         if (n mod p) = 0 then Exit(p);
         Inc(i);
       end;
@@ -66,7 +66,7 @@ begin
     else
     begin
       p := GetFactor(n);
-      (* WriteLn('P: ', p); *)
+
       if p < n then Exit(p)
       else Exit(0);
     end;
@@ -76,22 +76,21 @@ end;
 
 begin
   primes := SieveEratosthenes(LOW_PRIME_BOUND);
-  //WriteLn(Length(primes));
 
-  start := 1000000000000000;
+  start := 1000000000000000000;
   n := start;
-  // WriteLn(factorize(17*17*11));
+
   WriteLn(LOW_PRIME_BOUND);
   WriteLn(HIGH_PRIME_BOUND);
-  while n <= start + 1000000 do
+
+  while n <= start + 10000 do
   begin
     p := factorize(n);
-    if p = 0 then 
-    begin 
+    if p = 0 then
+    begin
       WriteLn(n, ' Failed.');
       Halt(1);
-    end;  
-    //else WriteLn(p);	
+    end;
     Inc(n);
   end;
 
