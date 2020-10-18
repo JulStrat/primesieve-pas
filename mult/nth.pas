@@ -16,6 +16,7 @@ interface
 const
   LOW_PRIME_BOUND = 2642246;
   HIGH_PRIME_BOUND = LOW_PRIME_BOUND * LOW_PRIME_BOUND;
+
 type
   TPrimes = array of UInt32;
 
