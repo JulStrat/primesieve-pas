@@ -6,17 +6,31 @@ program se_t;
 uses nth;
 
 var
-  i: integer;
   primes: TPrimes;
+  start, n, p: UInt64;  
 
-function IsPerfSquare(n: UInt64): boolean;
+function IsPerfSquare(n: UInt64): UInt64;
 var
   t: UInt64;
 
 begin
   t := Trunc(Sqrt(n));
-  if t * t = n then Result := true
-  else Result := false;
+  if t * t = n then Result := t
+  else Result := n;
+end;
+
+function GetFactor(n: UInt64): UInt64;
+var
+  x, f: UInt64;
+begin
+  x := 2;
+  while x <= 5 do
+  begin
+    f := PollardRho(n, x, 1);
+    if f <> n then Exit(f);
+    Inc(x);	
+  end;
+  Result := n;
 end;
 
 function factorize(n: UInt64): UInt64;
@@ -35,18 +49,51 @@ begin
   end;
   if n > 1 then
   begin
-    if IsPerfSquare(n) then Exit(Trunc(Sqrt(n)));
+    p := IsPerfSquare(n);
+    if p < n then Exit(p);
+
     if MillerRabin(n) then Exit(n);
-    Exit(n);
+
+    if n <= HIGH_PRIME_BOUND then
+    begin
+      while i < Length(primes) do 
+      begin
+        p := primes[i];	  
+        if (n mod p) = 0 then Exit(p);
+        Inc(i);
+      end;
+    end
+    else
+    begin
+      p := GetFactor(n);
+      (* WriteLn('P: ', p); *)
+      if p < n then Exit(p)
+      else Exit(0);
+    end;
   end;
-  Exit(n)
+  Exit(n);
 end;
 
 begin
   primes := SieveEratosthenes(LOW_PRIME_BOUND);
-  WriteLn(Length(primes));
+  //WriteLn(Length(primes));
 
-  WriteLn(factorize(3*2497349));
+  start := 1000000000000000;
+  n := start;
+  // WriteLn(factorize(17*17*11));
+  WriteLn(LOW_PRIME_BOUND);
+  WriteLn(HIGH_PRIME_BOUND);
+  while n <= start + 1000000 do
+  begin
+    p := factorize(n);
+    if p = 0 then 
+    begin 
+      WriteLn(n, ' Failed.');
+      Halt(1);
+    end;  
+    //else WriteLn(p);	
+    Inc(n);
+  end;
 
   SetLength(primes, 0);
 end.

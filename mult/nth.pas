@@ -15,9 +15,9 @@ interface
 
 const
   LOW_PRIME_BOUND = 2642246;
-
+  HIGH_PRIME_BOUND = LOW_PRIME_BOUND * LOW_PRIME_BOUND;
 type
-  TPrimes = array of UInt64;
+  TPrimes = array of UInt32;
 
 (*
   Miller–Rabin deterministic primality test.
@@ -102,7 +102,7 @@ function SieveEratosthenes(n: UInt64): TPrimes;
 var
   primes: TPrimes;
   sieve: array of byte;
-  i, j: UInt64;
+  i, j: UInt32;
 
 begin
   SetLength(sieve, n + 1);

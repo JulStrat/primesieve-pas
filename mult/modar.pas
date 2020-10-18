@@ -9,6 +9,7 @@ unit modar;
 {$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
+{$INLINE ON}
 
 interface
 
