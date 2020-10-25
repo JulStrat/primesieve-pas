@@ -9,6 +9,8 @@ interface
   Written in 2015 by Sebastiano Vigna (vigna@acm.org)
   http://prng.di.unimi.it/splitmix64.c
 
+  Onject Pascal port written in 2020 by I. Kakoulidis
+
   To the extent possible under law, the author has dedicated all copyright
   and related and neighboring rights to this software to the public domain
   worldwide. This software is distributed without any warranty.
