@@ -3,7 +3,7 @@ program se_t;
 {$MODE Delphi}
 {$ENDIF}
 
-uses nth;
+uses nth, prng;
 
 var
   primes: TPrimes;
@@ -26,7 +26,8 @@ begin
   x := 2;
   while x <= 5 do
   begin
-    f := PollardRho(n, x, 1);
+    f := PollardRho(n, 1 + RandRangeU64(n - 2), 1 + RandRangeU64(n - 2));
+    // f := PollardRho(n, x, 1);
     if f <> n then Exit(f);
     Inc(x);
   end;

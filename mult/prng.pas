@@ -34,7 +34,14 @@ type
     function Next(): UInt64; inline;
   end;
 
+function RandRangeU64(s: UInt64): UInt64;
+
 implementation
+
+uses modar;
+
+var
+  rg: TSplitMix64;
 
 procedure TSplitMix64.Init(seed: UInt64);
 begin
@@ -49,5 +56,19 @@ begin
   Result := (Result xor (Result shr 27)) * UInt64($94d049bb133111eb);
   Result := Result xor (Result shr 31);
 end;
+
+function RandRangeU64(s: UInt64): UInt64;
+var
+  t, x: UInt64;
+
+begin
+  t := ((UInt64($FFFFFFFFFFFFFFFF) - s) + 1) mod s;
+  x := rg.Next();
+  while x < t do x := rg.Next();
+  Result := x mod s;
+end;  
+
+initialization
+  rg.Init(1000000007);
 
 end.

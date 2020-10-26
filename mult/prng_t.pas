@@ -19,6 +19,11 @@ begin
   begin
     x := r.Next();
     if x < check then Inc(c);
-  end;    
+  end;
+  
   WriteLn(c, ' values < ', check);
+  
+  for i := 0 to 20 do
+    WriteLn(RandRangeU64(UInt64($FFFFFFFFFFFFFFFF)));
+
 end.

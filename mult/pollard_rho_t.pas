@@ -3,7 +3,7 @@ program pollard_rho_t;
 {$MODE Delphi}
 {$ENDIF}
 
-uses nth, primesieve;
+uses nth, prng, primesieve;
 
 var
   start, n, f: UInt64;
@@ -14,10 +14,12 @@ function GetFactor(n: UInt64): UInt64;
 var
   x, f: UInt64;
 begin
-  for x := 2 to 5 do
+  x := 2;
+  while x <= 5 do
   begin
-    f := PollardRho(n, x, 1);
+    f := PollardRho(n, 1 + RandRangeU64(n - 2), 1 + RandRangeU64(n - 2));
     if f <> n then Exit(f);
+    Inc(x);
   end;
   Result := n;
 end;
