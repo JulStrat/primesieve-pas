@@ -6,7 +6,12 @@
   This file is distributed under the BSD 2-Clause License.
 }
 unit modar;
-{$IF Defined(FPC)}{$MODE Delphi}{$ENDIF}
+{$IF Defined(FPC)}
+{$MODE Delphi}
+{$IF Defined(CPUX86_64)}
+{$ASMMODE Intel}
+{$ENDIF}
+{$ENDIF}
 {$INLINE ON}
 
 interface
