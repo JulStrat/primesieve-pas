@@ -7,7 +7,7 @@
 }
 unit modar;
 {$IF Defined(FPC)}
-{$MODE Delphi}
+{$MODE Delphi}{$ASMMODE Intel}
 {$ENDIF}
 {$INLINE ON}
 
@@ -56,6 +56,15 @@ begin
 end;
 
 function MulMod(a, b: UInt64; m: UInt64): UInt64;
+{$IF Defined(CPUX86_64)}
+asm
+  MOV RAX, a
+  MOV RCX, m
+  MUL b
+  DIV RCX
+  MOV @Result, RDX
+end;
+{$ELSE}
 begin
   if a >= m then a := a mod m;
   if b >= m then b := b mod m;
@@ -68,6 +77,7 @@ begin
     b := AddMod(b, b, m);
   end;
 end;
+{$ENDIF}
 
 function PowMod(b, e: UInt64; m: UInt64): UInt64;
 begin
