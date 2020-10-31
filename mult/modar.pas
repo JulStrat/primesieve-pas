@@ -8,9 +8,7 @@
 unit modar;
 {$IF Defined(FPC)}
 {$MODE Delphi}
-{$IF Defined(CPUX86_64)}
-{$ASMMODE Intel}
-{$ENDIF}
+{$IF Defined(CPUX86_64)}{$ASMMODE Intel}{$ENDIF}
 {$ENDIF}
 {$INLINE ON}
 
@@ -60,10 +58,31 @@ end;
 
 function MulMod(a, b: UInt64; m: UInt64): UInt64;
 {$IF Defined(CPUX86_64)}
+label
+  CHECK_B, MUL_MOD;
 asm
-  MOV RAX, a
+  (* if a >= m then a := a mod m; *)
   MOV RCX, m
-  MUL b
+  MOV RAX, a
+  CMP RAX, RCX
+  JB CHECK_B
+  XOR RDX, RDX
+  DIV RCX
+  MOV RAX, RDX
+
+CHECK_B:
+  (* if b >= m then b := b mod m; *)
+  MOV R8, RAX
+  MOV RAX, b
+  CMP RAX, RCX
+  JB MUL_MOD
+  XOR RDX, RDX
+  DIV RCX
+  MOV RAX, RDX
+
+MUL_MOD:
+  XOR RDX, RDX
+  MUL R8
   DIV RCX
   MOV @Result, RDX
 end;
