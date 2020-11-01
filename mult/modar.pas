@@ -59,21 +59,11 @@ end;
 function MulMod(a, b: UInt64; m: UInt64): UInt64;
 {$IF Defined(CPUX86_64)}
 label
-  CHECK_B, MUL_MOD;
+  MUL_MOD;
+
 asm
-  (* if a >= m then a := a mod m; *)
   MOV RCX, m
   MOV RAX, a
-  CMP RAX, RCX
-  JB CHECK_B
-  XOR RDX, RDX
-  DIV RCX
-  MOV RAX, RDX
-
-CHECK_B:
-  (* if b >= m then b := b mod m; *)
-  MOV R8, RAX
-  MOV RAX, b
   CMP RAX, RCX
   JB MUL_MOD
   XOR RDX, RDX
@@ -81,8 +71,7 @@ CHECK_B:
   MOV RAX, RDX
 
 MUL_MOD:
-  XOR RDX, RDX
-  MUL R8
+  MUL b
   DIV RCX
   MOV @Result, RDX
 end;
