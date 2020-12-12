@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/JulStrat/primesieve-pas.png?branch=master)](https://travis-ci.org/JulStrat/primesieve-pas)
+[![Build Status](https://travis-ci.org/JulStrat/primesieve-pas.png?branch=ui)](https://travis-ci.org/JulStrat/primesieve-pas)
 ![release](https://img.shields.io/github/v/release/JulStrat/primesieve-pas.svg)
 ![license](https://img.shields.io/github/license/JulStrat/primesieve-pas)
 
@@ -9,6 +9,7 @@ Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) libra
 
 Repository structure - 
 - `primesieve.pas` - Pascal API unit.
+- `ui` - Windows 64bit application.
 - `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
 in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
