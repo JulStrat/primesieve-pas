@@ -10,11 +10,11 @@ Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) libra
 Repository structure - 
 - `primesieve.pas` - Pascal API unit.
 - `ui` - Windows 64bit application.
-<img src="https://github.com/JulStrat/primesieve-pas/blob/gui/ui/PrimeSieve.png">
+  <img src="https://github.com/JulStrat/primesieve-pas/blob/gui/ui/PrimeSieve.png">
 - `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
-in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+  in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
-`countlets` - counts `lets`, `printlets` - prints `lets`, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
+  `countlets` - counts `lets`, `printlets` - prints `lets`, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
 - `include` - C API v7.5 header files.
 
 ## Requirements
@@ -23,7 +23,7 @@ Install ```primesieve``` library.
 
 - Debian, Ubuntu, Raspbian - ```sudo apt install libprimesieve-dev```.
 - MacOS - ```brew install primesieve```.
-- Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve) built with MinGW.
+- Windows - you can use [libprimesieve.dll, primesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/gui/libprimesieve).
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
 
 Linking against libprimesieve v6.x is also possible - 
