@@ -47,7 +47,7 @@ const
 	(* @exclude *)    
 	LIB_FNPFX = '';
 	(* @exclude *)    
-	LIB_PRIMESIEVE = 'libprimesieve.dll';
+	LIB_PRIMESIEVE = 'primesieve';
   {$ELSE}
 	{$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}

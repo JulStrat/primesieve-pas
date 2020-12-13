@@ -10,6 +10,7 @@ Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) libra
 Repository structure - 
 - `primesieve.pas` - Pascal API unit.
 - `ui` - Windows 64bit application.
+<img src="https://github.com/JulStrat/primesieve-pas/blob/gui/ui/PrimeSieve.png">
 - `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
 in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
