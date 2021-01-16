@@ -50,9 +50,9 @@
 \section{Description}
 Pascal bindings for primesieve library.
 
-primesieve {-} library for fast prime number generation.\\{} Copyright (C) 2019 Kim Walisch, {$<$}kim.walisch@gmail.com{$>$}\\{} \href{https://github.com/kimwalisch/primesieve}{https://github.com/kimwalisch/primesieve}
+primesieve {-} library for fast prime number generation.\\{} Copyright (C) 2010 {-} 2021 Kim Walisch, {$<$}kim.walisch@gmail.com{$>$}\\{} \href{https://github.com/kimwalisch/primesieve}{https://github.com/kimwalisch/primesieve}
 
-primesieve{-}pas {-} FPC/Delphi API for primesieve library.\\{} Copyright (C) 2020 I. Kakoulidis, {$<$}ioulianos.kakoulidis@hotmail.com{$>$}\\{} \href{https://github.com/JulStrat/primesieve-pas}{https://github.com/JulStrat/primesieve-pas}
+primesieve{-}pas {-} FPC/Delphi API for primesieve library.\\{} Copyright (C) 2020 {-} 2021 I. Kakoulidis, {$<$}ioulianos.kakoulidis@hotmail.com{$>$}\\{} \href{https://github.com/JulStrat/primesieve-pas}{https://github.com/JulStrat/primesieve-pas}
 
 This file is distributed under the BSD 2{-}Clause License.
 \section{Overview}
@@ -122,7 +122,7 @@ The \textit{primesieve{\_}iterator.pas} example shows how to use \begin{ttfamily
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}generate{\_}primes(start: UInt64; stop: UInt64; var size: NativeUInt; ptype: Integer): Pointer; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}generate{\_}primes';\end{ttfamily}
+function primesieve{\_}generate{\_}primes( start, stop: UInt64; var size: NativeUInt; ptype: Integer ): Pointer; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}generate{\_}primes';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -135,8 +135,8 @@ Get an array with the primes inside the interval \textit{[start, stop]}.
  \par
 \item[\textbf{Parameters}]
 \begin{description}
-\item[size] The size of the returned primes array
-\item[ptype] The type of the primes to generate, e.g. \begin{ttfamily}INT{\_}PRIMES32\end{ttfamily}
+\item[size] The size of the returned primes array.
+\item[ptype] The type of the primes to generate, e.g. \begin{ttfamily}INT{\_}PRIMES32\end{ttfamily}.
 \end{description}
 
 
@@ -163,7 +163,7 @@ Get an array with the primes inside the interval \textit{[start, stop]}.
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}generate{\_}n{\_}primes(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}generate{\_}n{\_}primes';\end{ttfamily}
+function primesieve{\_}generate{\_}n{\_}primes( n: UInt64; start: UInt64; ptype: Integer ): Pointer; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}generate{\_}n{\_}primes';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -176,7 +176,7 @@ Get an array with the first \textit{n primes {$>$}= start}.
 \par
 \item[\textbf{Parameters}]
 \begin{description}
-\item[ptype] The type of the primes to generate, e.g. \begin{ttfamily}INT{\_}PRIMES32\end{ttfamily}
+\item[ptype] The type of the primes to generate, e.g. \begin{ttfamily}INT{\_}PRIMES32\end{ttfamily}.
 \end{description}
 
 
@@ -203,7 +203,7 @@ Get an array with the first \textit{n primes {$>$}= start}.
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}nth{\_}prime(n: Int64; start: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}nth{\_}prime';\end{ttfamily}
+function primesieve{\_}nth{\_}prime( n: Int64; start: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}nth{\_}prime';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -245,7 +245,7 @@ Note that each call to \begin{ttfamily}primesieve{\_}nth{\_}prime\end{ttfamily}(
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}primes(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}primes';\end{ttfamily}
+function primesieve{\_}count{\_}primes( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}primes';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -280,7 +280,7 @@ Note that each call to \begin{ttfamily}primesieve{\_}count{\_}primes\end{ttfamil
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}twins(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}twins';\end{ttfamily}
+function primesieve{\_}count{\_}twins( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}twins';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -315,7 +315,7 @@ By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}triplets(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}triplets';\end{ttfamily}
+function primesieve{\_}count{\_}triplets( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}triplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -350,7 +350,7 @@ By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}quadruplets(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}quadruplets';\end{ttfamily}
+function primesieve{\_}count{\_}quadruplets( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}quadruplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -385,7 +385,7 @@ By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}quintuplets(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}quintuplets';\end{ttfamily}
+function primesieve{\_}count{\_}quintuplets( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}quintuplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -420,7 +420,7 @@ By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}count{\_}sextuplets(start: UInt64; stop: UInt64): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}sextuplets';\end{ttfamily}
+function primesieve{\_}count{\_}sextuplets( start, stop: UInt64 ): UInt64; cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}count{\_}sextuplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -455,7 +455,7 @@ By default all CPU cores are used, use \begin{ttfamily}primesieve{\_}set{\_}num{
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}primes(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}primes';\end{ttfamily}
+procedure primesieve{\_}print{\_}primes( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}primes';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -488,7 +488,7 @@ Print the primes within the interval \textit{[start, stop]} to the standard outp
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}twins(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}twins';\end{ttfamily}
+procedure primesieve{\_}print{\_}twins( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}twins';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -521,7 +521,7 @@ Print the twin primes within the interval \textit{[start, stop]} to the standard
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}triplets(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}triplets';\end{ttfamily}
+procedure primesieve{\_}print{\_}triplets( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}triplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -554,7 +554,7 @@ Print the prime triplets within the interval \textit{[start, stop]} to the stand
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}quadruplets(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}quadruplets';\end{ttfamily}
+procedure primesieve{\_}print{\_}quadruplets( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}quadruplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -587,7 +587,7 @@ Print the prime quadruplets within the interval \textit{[start, stop]} to the st
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}quintuplets(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}quintuplets';\end{ttfamily}
+procedure primesieve{\_}print{\_}quintuplets( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}quintuplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -620,7 +620,7 @@ Print the prime quintuplets within the interval \textit{[start, stop]} to the st
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}print{\_}sextuplets(start: UInt64; stop: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}sextuplets';\end{ttfamily}
+procedure primesieve{\_}print{\_}sextuplets( start, stop: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}print{\_}sextuplets';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -696,7 +696,7 @@ function primesieve{\_}get{\_}sieve{\_}size(): Integer; cdecl; external LIB{\_}P
 
 \par
 \item[\textbf{Description}]
-Get the current set sieve size in KiB
+Get the current set sieve size in KiB.
 
 \end{list}
 \ifpdf
@@ -729,7 +729,7 @@ function primesieve{\_}get{\_}num{\_}threads(): Integer; cdecl; external LIB{\_}
 
 \par
 \item[\textbf{Description}]
-Get the current set number of threads
+Get the current set number of threads.
 
 \end{list}
 \ifpdf
@@ -754,7 +754,7 @@ Get the current set number of threads
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}set{\_}sieve{\_}size(sieve{\_}size: Integer); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}set{\_}sieve{\_}size';\end{ttfamily}
+procedure primesieve{\_}set{\_}sieve{\_}size( sieve{\_}size: Integer ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}set{\_}sieve{\_}size';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -787,7 +787,7 @@ Set the sieve size in KiB (kibibyte). The best sieving performance is achieved w
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}set{\_}num{\_}threads(num{\_}threads: Integer); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}set{\_}num{\_}threads';\end{ttfamily}
+procedure primesieve{\_}set{\_}num{\_}threads( num{\_}threads: Integer ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}set{\_}num{\_}threads';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -820,7 +820,7 @@ Set the number of threads for use in \textit{primesieve{\_}count{\_}*()} and \be
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}free(primes: Pointer); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}free';\end{ttfamily}
+procedure primesieve{\_}free( primes: Pointer ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}free';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -886,7 +886,7 @@ Get the primesieve version number, in the form “i.j”
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}init(var it: primesieve{\_}iterator); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}init';\end{ttfamily}
+procedure primesieve{\_}init( var it: primesieve{\_}iterator ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}init';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -894,7 +894,7 @@ procedure primesieve{\_}init(var it: primesieve{\_}iterator); cdecl; external LI
 
 \par
 \item[\textbf{Description}]
-Initialize the primesieve iterator before first using it
+Initialize the primesieve iterator before first using it.
 
 \end{list}
 \ifpdf
@@ -919,7 +919,7 @@ Initialize the primesieve iterator before first using it
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}free{\_}iterator(var it: primesieve{\_}iterator); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}free{\_}iterator';\end{ttfamily}
+procedure primesieve{\_}free{\_}iterator( var it: primesieve{\_}iterator ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}free{\_}iterator';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -927,7 +927,7 @@ procedure primesieve{\_}free{\_}iterator(var it: primesieve{\_}iterator); cdecl;
 
 \par
 \item[\textbf{Description}]
-Free all iterator memory
+Free all iterator memory.
 
 \end{list}
 \ifpdf
@@ -952,7 +952,7 @@ Free all iterator memory
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-procedure primesieve{\_}skipto(var it: primesieve{\_}iterator; start: UInt64; stop{\_}hint: UInt64); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}skipto';\end{ttfamily}
+procedure primesieve{\_}skipto( var it: primesieve{\_}iterator; start, stop{\_}hint: UInt64 ); cdecl; external LIB{\_}PRIMESIEVE name LIB{\_}FNPFX + 'primesieve{\_}skipto';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -995,7 +995,7 @@ Reset the primesieve iterator to start.
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}next{\_}prime(var it: primesieve{\_}iterator): UInt64; inline;\end{ttfamily}
+function primesieve{\_}next{\_}prime( var it: primesieve{\_}iterator ): UInt64; inline;\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -1005,7 +1005,7 @@ function primesieve{\_}next{\_}prime(var it: primesieve{\_}iterator): UInt64; in
 \item[\textbf{Description}]
 Get the next prime.
 
-Returns \textit{UINT64{\_}MAX} if next \textit{prime {$>$} 2{\^{}}64}.
+Returns \textit{UINT64{\_}MAX} if next prime \textit{prime {$>$} 2{\^{}}64}.
 
 \end{list}
 \ifpdf
@@ -1030,7 +1030,7 @@ Returns \textit{UINT64{\_}MAX} if next \textit{prime {$>$} 2{\^{}}64}.
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-function primesieve{\_}prev{\_}prime(var it: primesieve{\_}iterator): UInt64; inline;\end{ttfamily}
+function primesieve{\_}prev{\_}prime( var it: primesieve{\_}iterator ): UInt64; inline;\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -1125,11 +1125,17 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}VERSION = '7.5';\end{ttfamily}
+{\_}PRIMESIEVE{\_}VERSION = '7.6';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
 \fi
+
+\par
+\item[\textbf{Description}]
+Warning: this symbol is deprecated.
+
+ 
 
 \end{list}
 \ifpdf
@@ -1160,6 +1166,12 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \end{flushleft}
 \fi
 
+\par
+\item[\textbf{Description}]
+Warning: this symbol is deprecated.
+
+ 
+
 \end{list}
 \ifpdf
 \subsection*{\large{\textbf{{\_}PRIMESIEVE{\_}VERSION{\_}MINOR}}\normalsize\hspace{1ex}\hrulefill}
@@ -1183,11 +1195,17 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}VERSION{\_}MINOR = 5;\end{ttfamily}
+{\_}PRIMESIEVE{\_}VERSION{\_}MINOR = 6;\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
 \fi
+
+\par
+\item[\textbf{Description}]
+Warning: this symbol is deprecated.
+
+ 
 
 \end{list}
 \ifpdf
@@ -1212,7 +1230,7 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.3';\end{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.4';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
