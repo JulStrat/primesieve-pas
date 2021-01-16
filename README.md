@@ -1,7 +1,5 @@
-[![Build Status](https://travis-ci.org/JulStrat/primesieve-pas.png?branch=master)](https://travis-ci.org/JulStrat/primesieve-pas)
 ![release](https://img.shields.io/github/v/release/JulStrat/primesieve-pas.svg)
 ![license](https://img.shields.io/github/license/JulStrat/primesieve-pas)
-
 
 # primesieve-pas
 
@@ -10,21 +8,23 @@ Pascal bindings for [PrimeSieve](https://github.com/kimwalisch/primesieve) libra
 Repository structure - 
 - `primesieve.pas` - Pascal API unit.
 - `docs` - [API documentation](https://julstrat.github.io/primesieve-pas/) 
-in HTML, LaTex and PDF format. Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc).
+in HTML, LaTex and PDF format. 
+Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc) and [TeXstudio](https://github.com/texstudio-org/texstudio).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
 `countlets` - counts `lets`, `printlets` - prints `lets`, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
-- `include` - C API v7.5 header files.
+- `include` - C API v7.6 header files.
+- `libprimesieve` - `primesieve` 64bit Windows dynamic libraries.
 
 ## Requirements
 
-Install ```primesieve``` library.
+Install `primesieve` library.
 
-- Debian, Ubuntu, Raspbian - ```sudo apt install libprimesieve-dev```.
-- MacOS - ```brew install primesieve```.
-- Windows - you can use [libprimesieve.dll](https://github.com/JulStrat/primesieve-pas/tree/loadlib/libprimesieve) built with MinGW.
+- Debian, Ubuntu, Raspbian - `sudo apt install libprimesieve-dev`.
+- MacOS - `brew install primesieve`.
+- Windows - you can use prebuilt libraries from the folder `libprimesieve`.
 - Or [build](https://github.com/kimwalisch/primesieve/blob/master/BUILD.md) library from source.
 
-Linking against libprimesieve v6.x is also possible - 
+Linking against `libprimesieve` v6.x is also possible - 
 build your project with symbol `USE_ABI6` defined 
 (Free Pascal compiler command line switch `-dUSE_ABI6`).
 Details - https://github.com/kimwalisch/primesieve/releases/tag/v7.0.

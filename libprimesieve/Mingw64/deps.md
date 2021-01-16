@@ -1,0 +1,7 @@
+	ntdll.dll => /c/Windows/SYSTEM32/ntdll.dll (0x7ffa2b0b0000)
+	KERNEL32.DLL => /c/Windows/System32/KERNEL32.DLL (0x7ffa291a0000)
+	KERNELBASE.dll => /c/Windows/System32/KERNELBASE.dll (0x7ffa27b50000)
+	msvcrt.dll => /c/Windows/System32/msvcrt.dll (0x7ffa28bf0000)
+	libwinpthread-1.dll => /mingw64/bin/libwinpthread-1.dll (0x64940000)
+	libstdc++-6.dll => /mingw64/bin/libstdc++-6.dll (0x6fc40000)
+	libgcc_s_seh-1.dll => /mingw64/bin/libgcc_s_seh-1.dll (0x61440000)

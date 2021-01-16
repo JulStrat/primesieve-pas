@@ -1,0 +1,7 @@
+	ntdll.dll => /c/Windows/SYSTEM32/ntdll.dll (0x7ffa2b0b0000)
+	KERNEL32.DLL => /c/Windows/System32/KERNEL32.DLL (0x7ffa291a0000)
+	KERNELBASE.dll => /c/Windows/System32/KERNELBASE.dll (0x7ffa27b50000)
+	ucrtbase.dll => /c/Windows/System32/ucrtbase.dll (0x7ffa27f80000)
+	VCRUNTIME140_1.dll => /c/Windows/SYSTEM32/VCRUNTIME140_1.dll (0x7ffa25340000)
+	VCRUNTIME140.dll => /c/Windows/SYSTEM32/VCRUNTIME140.dll (0x7ff9f8780000)
+	MSVCP140.dll => /c/Windows/SYSTEM32/MSVCP140.dll (0x7ffa19e90000)

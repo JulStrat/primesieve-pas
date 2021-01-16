@@ -1,12 +1,12 @@
 {
   Pascal bindings for primesieve library.
-
+  
   primesieve - library for fast prime number generation.@br
-  Copyright (C) 2019 Kim Walisch, <kim.walisch@gmail.com>@br
+  Copyright (C) 2021 Kim Walisch, <kim.walisch@gmail.com>@br
   https://github.com/kimwalisch/primesieve  
   
   primesieve-pas - FPC/Delphi API for primesieve library.@br
-  Copyright (C) 2020 I. Kakoulidis, <ioulianos.kakoulidis@hotmail.com>@br
+  Copyright (C) 2021 I. Kakoulidis, <ioulianos.kakoulidis@hotmail.com>@br
   https://github.com/JulStrat/primesieve-pas
   
   This file is distributed under the BSD 2-Clause License.
@@ -30,37 +30,40 @@ type
 
 const
   {$IF Defined(Darwin)}
-	{$MESSAGE HINT 'Darwin platform'}
-	(* @exclude *)    
-	LIB_FNPFX = '';
-	(* @exclude *)    
-	LIB_PRIMESIEVE = 'primesieve';
-	{$linklib primesieve}
+    {$MESSAGE HINT 'Darwin platform'}
+    (* @exclude *)    
+    LIB_FNPFX = '';
+    (* @exclude *)    
+    LIB_PRIMESIEVE = 'primesieve';
+    {$linklib primesieve}
   {$ELSEIF Defined(Unix)}
-	{$MESSAGE HINT 'Unix platform'}
-	(* @exclude *)    
-	LIB_FNPFX = '';
-	(* @exclude *)    
-	LIB_PRIMESIEVE = 'primesieve';
+    {$MESSAGE HINT 'Unix platform'}
+    (* @exclude *)    
+    LIB_FNPFX = '';
+    (* @exclude *)    
+    LIB_PRIMESIEVE = 'primesieve';
   {$ELSEIF Defined(MSWindows)}
-	{$MESSAGE HINT 'Windows platform'}
-	(* @exclude *)    
-	LIB_FNPFX = '';
-	(* @exclude *)    
-	LIB_PRIMESIEVE = 'libprimesieve.dll';
+    {$MESSAGE HINT 'Windows platform'}
+    (* @exclude *)    
+    LIB_FNPFX = '';
+    (* @exclude *)    
+    LIB_PRIMESIEVE = 'primesieve';
   {$ELSE}
-	{$MESSAGE Fatal 'Unsupported platform'}
+    {$MESSAGE Fatal 'Unsupported platform'}
   {$ENDIF}
   
 {$REGION 'primesieve.h'}
 
 const
-  _PRIMESIEVE_VERSION = '7.5';
+  (* @deprecated *)
+  _PRIMESIEVE_VERSION = '7.6';
+  (* @deprecated *)  
   _PRIMESIEVE_VERSION_MAJOR = 7;
-  _PRIMESIEVE_VERSION_MINOR = 5;
+  (* @deprecated *)  
+  _PRIMESIEVE_VERSION_MINOR = 6;
 
   (* Pascal API version *)
-  _PRIMESIEVE_PAS_VERSION = '0.3';
+  _PRIMESIEVE_PAS_VERSION = '0.4';
 
   (*
     primesieve functions return @italic(PRIMESIEVE_ERROR 
@@ -122,17 +125,23 @@ const
   
   @param(size The size of the returned primes array)
   @param(ptype The type of the primes to generate, e.g. @link(INT_PRIMES32))
- *)
-function primesieve_generate_primes(start: UInt64; stop: UInt64; var size: NativeUInt; ptype: Integer): Pointer; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_primes';
+*)
+function primesieve_generate_primes(
+  start, stop: UInt64;
+  var size: NativeUInt;
+  ptype: Integer): Pointer;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_primes';
 
 (*
   Get an array with the first @italic(n primes >= start).
   
   @param(ptype The type of the primes to generate, e.g. @link(INT_PRIMES32))
- *)
-function primesieve_generate_n_primes(n: UInt64; start: UInt64; ptype: Integer): Pointer; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_n_primes';
+*)
+function primesieve_generate_n_primes(
+  n: UInt64;
+  start: UInt64;
+  ptype: Integer): Pointer;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_n_primes';
 
 (*
   Find the nth prime.
@@ -149,9 +158,11 @@ function primesieve_generate_n_primes(n: UInt64; start: UInt64; ptype: Integer):
   @param(n if @italic(n = 0) finds the @italic(1st prime >= start),@br
            if @italic(n > 0) finds the @italic(nth prime > start),@br
            if @italic(n < 0) finds the @italic(nth prime < start) (backwards).)
- *)
-function primesieve_nth_prime(n: Int64; start: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_nth_prime';
+*)
+function primesieve_nth_prime(
+  n: Int64;
+  start: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_nth_prime';
 
 (*
   Count the primes within the interval @italic([start, stop]).
@@ -164,141 +175,156 @@ function primesieve_nth_prime(n: Int64; start: UInt64): UInt64; cdecl;
   that makes many calls to @link(primesieve_count_primes) it may be
   preferable to use a @link(primesieve_iterator) which needs to be
   initialized only once.
- *)
-function primesieve_count_primes(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_primes';
+*)
+function primesieve_count_primes(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_primes';
 
 (*
   Count the twin primes within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
   @link(primesieve_set_num_threads) to change the number of threads.
- *)
-function primesieve_count_twins(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_twins';
+*)
+function primesieve_count_twins(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_twins';
 
 (*
   Count the prime triplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
   @link(primesieve_set_num_threads) to change the number of threads.
- *)
-function primesieve_count_triplets(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_triplets';
+*)
+function primesieve_count_triplets(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_triplets';
 
 (*
   Count the prime quadruplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
   @link(primesieve_set_num_threads) to change the number of threads.
- *)
-function primesieve_count_quadruplets(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_quadruplets';
+*)
+function primesieve_count_quadruplets(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_quadruplets';
 
 (*
   Count the prime quintuplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
   @link(primesieve_set_num_threads) to change the number of threads.
- *)
-function primesieve_count_quintuplets(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_quintuplets';
+*)
+function primesieve_count_quintuplets(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_quintuplets';
 
 (*
   Count the prime sextuplets within the interval @italic([start, stop]).
   
   By default all CPU cores are used, use
   @link(primesieve_set_num_threads) to change the number of threads.
- *)
-function primesieve_count_sextuplets(start: UInt64; stop: UInt64): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_sextuplets';
+*)
+function primesieve_count_sextuplets(
+  start, stop: UInt64): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_count_sextuplets';
 
 (*
   Print the primes within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_primes(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_primes';
+*)
+procedure primesieve_print_primes(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_primes';
 
 (*
   Print the twin primes within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_twins(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_twins';
+*)
+procedure primesieve_print_twins(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_twins';
 
 (*
   Print the prime triplets within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_triplets(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_triplets';
+*)
+procedure primesieve_print_triplets(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_triplets';
 
 (*
   Print the prime quadruplets within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_quadruplets(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_quadruplets';
+*)
+procedure primesieve_print_quadruplets(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_quadruplets';
 
 (*
   Print the prime quintuplets within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_quintuplets(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_quintuplets';
+*)
+procedure primesieve_print_quintuplets(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_quintuplets';
 
 (*
   Print the prime sextuplets within the interval @italic([start, stop])
   to the standard output.
- *)
-procedure primesieve_print_sextuplets(start: UInt64; stop: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_sextuplets';
+*)
+procedure primesieve_print_sextuplets(
+  start, stop: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_print_sextuplets';
 
 (*
   Returns the largest valid stop number for primesieve.
   
   @italic(2^64-1 (UINT64_MAX))
- *)
-function primesieve_get_max_stop(): UInt64; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_max_stop';
+*)
+function primesieve_get_max_stop(): UInt64;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_max_stop';
 
 (* Get the current set sieve size in KiB *)
-function primesieve_get_sieve_size(): Integer; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_sieve_size';
+function primesieve_get_sieve_size(): Integer;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_sieve_size';
 
 (* Get the current set number of threads *)
-function primesieve_get_num_threads(): Integer; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_num_threads';
+function primesieve_get_num_threads(): Integer;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_get_num_threads';
 
 (*
   Set the sieve size in KiB (kibibyte).
   The best sieving performance is achieved with a sieve size
   of your CPU's L1 or L2 cache size (per core).
   @italic(sieve_size >= 8 and <= 4096)
- *)
-procedure primesieve_set_sieve_size(sieve_size: Integer); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_set_sieve_size';
+*)
+procedure primesieve_set_sieve_size(
+  sieve_size: Integer);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_set_sieve_size';
 
 (*
   Set the number of threads for use in
   @italic(primesieve_count_*()) and @link(primesieve_nth_prime).
   By default all CPU cores are used.
- *)
-procedure primesieve_set_num_threads(num_threads: Integer); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_set_num_threads';
+*)
+procedure primesieve_set_num_threads(
+  num_threads: Integer);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_set_num_threads';
 
 (*
   Deallocate a primes array created using the
   @link(primesieve_generate_primes) or @link(primesieve_generate_n_primes)
   functions.
- *)
-procedure primesieve_free(primes: Pointer); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_free';
+*)
+procedure primesieve_free(
+  primes: Pointer);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_free';
 
 (* Get the primesieve version number, in the form “i.j” *)
-function primesieve_version(): PAnsiChar; cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_version';
+function primesieve_version(): PAnsiChar;
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_version';
 
 {$REGION 'iterator.h'}
 (*
@@ -315,7 +341,7 @@ function primesieve_version(): PAnsiChar; cdecl;
   @link(primesieve_prev_prime) return @link(_PRIMESIEVE_ERROR).
   Furthermore @italic(primesieve_iterator.is_error) is initialized
   to @italic(0) and set to @italic(1) if any error occurs.
- *)
+*)
 type 
   {$IF Defined(USE_ABI6)}
   primesieve_iterator = record
@@ -345,12 +371,14 @@ type
   {$ENDIF}  
 
 (* Initialize the primesieve iterator before first using it *)
-procedure primesieve_init(var it: primesieve_iterator); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_init';
+procedure primesieve_init(
+  var it: primesieve_iterator);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_init';
 
 (* Free all iterator memory *)
-procedure primesieve_free_iterator(var it: primesieve_iterator); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_free_iterator';
+procedure primesieve_free_iterator(
+  var it: primesieve_iterator);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_free_iterator';
 
 (*
   Reset the primesieve iterator to start.
@@ -359,18 +387,20 @@ procedure primesieve_free_iterator(var it: primesieve_iterator); cdecl;
   
   @param(stop_hint Stop number optimization hint. E.g. if you want
          to generate the primes below @italic(1000) use @italic(stop_hint = 1000), 
-		 if you don't know use @link(primesieve_get_max_stop))
- *)
-procedure primesieve_skipto(var it: primesieve_iterator; start: UInt64;
-  stop_hint: UInt64); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_skipto';
+         if you don't know use @link(primesieve_get_max_stop))
+*)
+procedure primesieve_skipto(
+  var it: primesieve_iterator;
+  start, stop_hint: UInt64);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_skipto';
 
 (*
   Get the next prime.
   
   Returns @italic(UINT64_MAX) if next @italic(prime > 2^64).
- *)
-function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
+*)
+function primesieve_next_prime(
+  var it: primesieve_iterator): UInt64; inline;
 
 (*
   Get the previous prime.
@@ -380,18 +410,27 @@ function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
   @link(primesieve_prev_prime). Hence if the same algorithm can be written
   using either @link(primesieve_prev_prime) or @link(primesieve_next_prime)
   it is preferable to use @link(primesieve_next_prime).
- *)
-function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
+*)
+function primesieve_prev_prime(
+  var it: primesieve_iterator): UInt64; inline;
 
-(* Internal use *)
-(* @exclude *)
-procedure primesieve_generate_next_primes(var it: primesieve_iterator); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_next_primes';
+(*
+  @exclude Internal use.
+  Delphi -  E2441 Inline function declared 
+  in interface section must not use local symbol.
+*)
+procedure primesieve_generate_next_primes(
+  var it: primesieve_iterator);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_next_primes';
 
-(* Internal use *)
-(* @exclude *)
-procedure primesieve_generate_prev_primes(var it: primesieve_iterator); cdecl;
-  external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_prev_primes';
+(*
+  @exclude Internal use.
+  Delphi -  E2441 Inline function declared 
+  in interface section must not use local symbol.
+*)
+procedure primesieve_generate_prev_primes(
+  var it: primesieve_iterator);
+  cdecl; external LIB_PRIMESIEVE name LIB_FNPFX + 'primesieve_generate_prev_primes';
 
 {$ENDREGION}
 
