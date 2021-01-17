@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/github/JulStrat/primesieve-pas?svg=true)](https://ci.appveyor.com/project/JulStrat/primesieve-pas)
 ![release](https://img.shields.io/github/v/release/JulStrat/primesieve-pas.svg)
 ![license](https://img.shields.io/github/license/JulStrat/primesieve-pas)
 
