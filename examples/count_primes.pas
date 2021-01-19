@@ -1,5 +1,4 @@
-(*  @example count_primes.pas
- *  Pascal program that shows how to count primes. *)
+(*  Pascal program that shows how to count primes.  *)
 
 program count_primes;
 {$IF Defined(FPC)}

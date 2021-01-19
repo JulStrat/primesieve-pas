@@ -1,5 +1,4 @@
-(*  @example primesieve_iterator.pas
- *  Iterate over primes using primesieve_iterator. *)
+(*  Iterate over primes using primesieve_iterator.  *)
 
 program prime_iterator;
 {$IF Defined(FPC)}
@@ -13,15 +12,14 @@ uses SysUtils, primesieve;
 
 var
   it: primesieve_iterator;
-  sum: UInt64;
-  prime: UInt64;
+  prime, sum: UInt64;
 
 begin
   sum := 0;
   prime := 0;
 
   primesieve_init(it);
-  (* iterate over the primes below 10^9 *)
+  (*  iterate over the primes below 10^9  *)
   prime := primesieve_next_prime(it);
   while prime < 1000000000 do
   begin
@@ -30,7 +28,7 @@ begin
   end;
   WriteLn(Format('Sum of the primes below 10^9 = %d', [sum]));
 
-  (* generate primes > 1000 *)
+  (*  generate primes > 1000  *)
   primesieve_skipto(it, 1000, 1100);
   prime := primesieve_next_prime(it);
   while prime < 1100 do

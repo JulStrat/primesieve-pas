@@ -46,7 +46,7 @@ uses primesieve;
 type
   PInt32 = ^Int32;
 
-var 
+var
   start, stop, n: UInt64;
   i, size: NativeUInt;
   primes: PInt32;
@@ -55,7 +55,7 @@ begin
   start := 0;
   stop := 1000;
 
-  (* store the primes below 1000 *)
+  (*  store the primes below 1000  *)
   primes := primesieve_generate_primes(start, stop, size, INT32_PRIMES);
 
   for i := 0 to size-1 do
@@ -64,8 +64,8 @@ begin
   primesieve_free(primes);
   n := 1000;
 
-  (* store the first 1000 primes *)
-  primes := primesieve_generate_n_primes(n, start, INT_PRIMES);
+  (*  store the first 1000 primes  *)
+  primes := primesieve_generate_n_primes(n, start, INT32_PRIMES);
 
   for i := 0 to n-1 do
     WriteLn(primes[i]);
@@ -78,7 +78,7 @@ end.
 
 Free Pascal compiler - 
 ```
-fpc -B -O3 -CX -XX examples/store_primes_in_array.pas
+fpc -B -O2 -CX -XX examples/store_primes_in_array.pas
 ```
 
 Embarcadero Delphi compiler - 

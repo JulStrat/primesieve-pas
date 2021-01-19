@@ -1,14 +1,14 @@
 {
   Pascal bindings for primesieve library.
-  
+
   primesieve - library for fast prime number generation.@br
   Copyright (C) 2010 - 2021 Kim Walisch, <kim.walisch@gmail.com>@br
   https://github.com/kimwalisch/primesieve  
-  
+
   primesieve-pas - FPC/Delphi API for primesieve library.@br
   Copyright (C) 2020 - 2021 I. Kakoulidis, <ioulianos.kakoulidis@hotmail.com>@br
   https://github.com/JulStrat/primesieve-pas
-  
+
   This file is distributed under the BSD 2-Clause License.
 }
 
@@ -55,11 +55,8 @@ const
 {$REGION 'primesieve.h'}
 
 const
-  (* @deprecated *)
   _PRIMESIEVE_VERSION = '7.6';
-  (* @deprecated *)  
   _PRIMESIEVE_VERSION_MAJOR = 7;
-  (* @deprecated *)  
   _PRIMESIEVE_VERSION_MINOR = 6;
 
   (* Pascal API version *)
@@ -440,7 +437,7 @@ implementation
 
 {$POINTERMATH ON}
 
-function primesieve_next_prime(var it: primesieve_iterator): UInt64; inline;
+function primesieve_next_prime(var it: primesieve_iterator): UInt64;
 begin
   {$IF Defined(USE_ABI6)}
   if it.i_ = it.last_idx_ then  
@@ -457,7 +454,7 @@ begin
   {$ENDIF}  
 end;
 
-function primesieve_prev_prime(var it: primesieve_iterator): UInt64; inline;
+function primesieve_prev_prime(var it: primesieve_iterator): UInt64;
 begin
   {$IF Defined(USE_ABI6)}
   if it.i_ = 0 then  

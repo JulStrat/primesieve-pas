@@ -1,5 +1,5 @@
-(*  @example nth_prime.pas
- *  Pascal program that finds the nth prime. *)
+(*  Pascal program that finds the nth prime.  *)
+
 program nth_prime;
 {$IF Defined(FPC)}
 {$MODE Delphi}
