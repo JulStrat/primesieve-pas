@@ -43,8 +43,8 @@ begin
     Halt(1);
   end;
 
-  start := UInt64.Parse(ParamStr(1));
-  stop := UInt64.Parse(ParamStr(2));
+  UInt64.TryParse(ParamStr(1), start);
+  UInt64.TryParse(ParamStr(2), stop);
   x := start;
   primesieve_init(it);
   while x <= stop do

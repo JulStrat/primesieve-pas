@@ -433,6 +433,63 @@ procedure primesieve_generate_prev_primes(
 
 {$ENDREGION}
 
+{$REGION 'tuplets_iterator'}
+
+type
+  tuplets_iterator = record
+    tail: array[0..5] of UInt64;
+    iterator: primesieve_iterator;
+  end;  
+    
+procedure tuplets_init(
+  var it: tuplets_iterator );
+
+procedure tuplets_free(
+  var it: tuplets_iterator );
+
+procedure tuplets_skipto(
+  var it: tuplets_iterator;
+  start: UInt64 );
+
+(*
+  A sequence of two primes of the form 
+  (p, p+2)
+*)
+function tuplets_next_twin(
+  var it: tuplets_iterator ): UInt64;
+
+(*
+  A sequence of three primes of the form 
+  (p, p + 2, p + 6) or 
+  (p, p + 4, p + 6)
+*)
+function tuplets_next_triplet(
+  var it: tuplets_iterator ): UInt64;
+
+(*
+  A sequence of four primes of the form
+  (p, p+2, p+6, p+8)
+*)
+function tuplets_next_quadruplet(
+  var it: tuplets_iterator ): UInt64;
+
+(*
+  A sequence of five primes of the form 
+  (p, p+2, p+6, p+8,  p+12) or 
+  (p, p+4, p+6, p+10, p+12)
+*)
+function tuplets_next_quintuplet(
+  var it: tuplets_iterator ): UInt64;
+
+(*
+  A sequence of six primes of the form 
+  (p, p+4, p+6, p+10, p+12, p+16)
+*)
+function tuplets_next_sextuplet(
+  var it: tuplets_iterator ): UInt64;
+
+{$ENDREGION}
+
 implementation
 
 {$POINTERMATH ON}
@@ -469,6 +526,128 @@ begin
     Dec(it.i);  
   Result := it.primes[it.i];    
   {$ENDIF}
+end;
+
+procedure tuplets_init(var it: tuplets_iterator);
+begin
+  with it do
+  begin
+    tail[0] := 0;  tail[1] := 0;  tail[2] := 0;  
+    tail[3] := 0;  tail[4] := 0;  tail[5] := 0;
+  end;
+  primesieve_init(it.iterator);
+end;
+
+procedure tuplets_free(var it: tuplets_iterator);
+begin
+  with it do
+  begin
+    tail[0] := 0;  tail[1] := 0;  tail[2] := 0;  
+    tail[3] := 0;  tail[4] := 0;  tail[5] := 0;
+  end;
+  primesieve_free_iterator(it.iterator);
+end;
+
+procedure tuplets_skipto(var it: tuplets_iterator; start: UInt64);
+begin
+  with it do
+  begin
+    tail[0] := 0;  tail[1] := 0;  tail[2] := 0;  
+    tail[3] := 0;  tail[4] := 0;  tail[5] := 0;
+  end;
+  primesieve_skipto(it.iterator, start, primesieve_get_max_stop());
+end;
+
+function tuplets_next_twin(var it: tuplets_iterator): UInt64;
+var
+  prime: UInt64;
+begin
+  Result := _PRIMESIEVE_ERROR;
+  while True do
+  begin
+    prime := primesieve_next_prime(it.iterator);
+    if prime = _PRIMESIEVE_ERROR then break;
+    it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
+    it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
+    it.tail[1] := it.tail[0]; it.tail[0] := prime;
+
+    if it.tail[1] > 0 then
+      if it.tail[0] - it.tail[1] = 2 then
+        Exit(it.tail[1]);    
+  end;
+end;
+
+function tuplets_next_triplet(var it: tuplets_iterator): UInt64;
+var
+  prime: UInt64;
+begin
+  Result := _PRIMESIEVE_ERROR;
+  while True do
+  begin
+    prime := primesieve_next_prime(it.iterator);
+    if prime = _PRIMESIEVE_ERROR then break;
+    it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
+    it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
+    it.tail[1] := it.tail[0]; it.tail[0] := prime;
+
+    if it.tail[0] - it.tail[2] = 6 then
+      Exit(it.tail[2]);    
+  end;
+end;
+
+function tuplets_next_quadruplet(var it: tuplets_iterator): UInt64;
+var
+  prime: UInt64;
+begin
+  Result := _PRIMESIEVE_ERROR;
+  while True do
+  begin
+    prime := primesieve_next_prime(it.iterator);
+    if prime = _PRIMESIEVE_ERROR then break;
+    it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
+    it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
+    it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    
+    if prime > 11 then
+      if it.tail[0] - it.tail[3] = 8 then
+        Exit(it.tail[3]);    
+  end;
+end;
+
+function tuplets_next_quintuplet(var it: tuplets_iterator): UInt64;
+var
+  prime: UInt64;
+begin
+  Result := _PRIMESIEVE_ERROR;
+  while True do
+  begin
+    prime := primesieve_next_prime(it.iterator);
+    if prime = _PRIMESIEVE_ERROR then break;
+    it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
+    it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
+    it.tail[1] := it.tail[0]; it.tail[0] := prime;
+
+    if it.tail[0] - it.tail[4] = 12 then
+      Exit(it.tail[4]);    
+  end;
+end;
+
+function tuplets_next_sextuplet(var it: tuplets_iterator): UInt64;
+var
+  prime: UInt64;
+begin
+  Result := _PRIMESIEVE_ERROR;
+  while True do
+  begin
+    prime := primesieve_next_prime(it.iterator);
+    if prime = _PRIMESIEVE_ERROR then break;
+    it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
+    it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
+    it.tail[1] := it.tail[0]; it.tail[0] := prime;
+
+    if it.tail[0] - it.tail[5] = 16 then
+      Exit(it.tail[5]);    
+  end;
 end;
 
 end.

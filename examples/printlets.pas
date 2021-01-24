@@ -1,5 +1,4 @@
-(*  @example printlets.pas
- *  Pascal program that shows how to print primes, twins, ... *)
+(*  Pascal program that shows how to print primes, twins, ...  *)
 
 program printlets;
 {$IF Defined(FPC)}
@@ -21,8 +20,8 @@ begin
     Halt(1);
   end;
 
-  start := UInt64.Parse(ParamStr(2));
-  stop := UInt64.Parse(ParamStr(3));
+  UInt64.TryParse(ParamStr(2), start);
+  UInt64.TryParse(ParamStr(3), stop);
 
   case Integer.Parse(ParamStr(1)) of
     1: primesieve_print_primes(start, stop);

@@ -21,8 +21,8 @@ begin
     Halt(1);
   end;
 
-  start := UInt64.Parse(ParamStr(2));
-  stop := UInt64.Parse(ParamStr(3));
+  UInt64.TryParse(ParamStr(2), start);
+  UInt64.TryParse(ParamStr(3), stop);
 
   case Integer.Parse(ParamStr(1)) of
     1: num := primesieve_count_primes(start, stop);
