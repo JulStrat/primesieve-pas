@@ -566,13 +566,13 @@ begin
   while True do
   begin
     prime := primesieve_next_prime(it.iterator);
-    if prime = _PRIMESIEVE_ERROR then break;
     it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
     it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
     it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    if prime = _PRIMESIEVE_ERROR then break;
 
-    if it.tail[1] > 0 then
-      if it.tail[0] - it.tail[1] = 2 then
+    if it.tail[0] - it.tail[1] = 2 then
+      if it.tail[1] > 0 then
         Exit(it.tail[1]);    
   end;
 end;
@@ -585,10 +585,10 @@ begin
   while True do
   begin
     prime := primesieve_next_prime(it.iterator);
-    if prime = _PRIMESIEVE_ERROR then break;
     it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
     it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
     it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    if prime = _PRIMESIEVE_ERROR then break;
 
     if it.tail[0] - it.tail[2] = 6 then
       Exit(it.tail[2]);    
@@ -603,13 +603,13 @@ begin
   while True do
   begin
     prime := primesieve_next_prime(it.iterator);
-    if prime = _PRIMESIEVE_ERROR then break;
     it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
     it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
     it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    if prime = _PRIMESIEVE_ERROR then break;
     
-    if prime > 11 then
-      if it.tail[0] - it.tail[3] = 8 then
+    if it.tail[0] - it.tail[3] = 8 then
+      if prime > 11 then
         Exit(it.tail[3]);    
   end;
 end;
@@ -622,10 +622,10 @@ begin
   while True do
   begin
     prime := primesieve_next_prime(it.iterator);
-    if prime = _PRIMESIEVE_ERROR then break;
     it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
     it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
     it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    if prime = _PRIMESIEVE_ERROR then break;	
 
     if it.tail[0] - it.tail[4] = 12 then
       Exit(it.tail[4]);    
@@ -640,10 +640,10 @@ begin
   while True do
   begin
     prime := primesieve_next_prime(it.iterator);
-    if prime = _PRIMESIEVE_ERROR then break;
     it.tail[5] := it.tail[4]; it.tail[4] := it.tail[3];
     it.tail[3] := it.tail[2]; it.tail[2] := it.tail[1];
     it.tail[1] := it.tail[0]; it.tail[0] := prime;
+    if prime = _PRIMESIEVE_ERROR then break;
 
     if it.tail[0] - it.tail[5] = 16 then
       Exit(it.tail[5]);    
