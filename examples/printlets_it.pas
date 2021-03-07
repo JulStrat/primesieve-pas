@@ -21,7 +21,7 @@ var
 begin
   if ParamCount <> 3 then
   begin
-    WriteLn('Usage: printlets lets start stop');
+    WriteLn('Usage: printlets_it lets start stop');
     WriteLn('Where lets - 1..6');
     Halt(1);
   end;
@@ -45,63 +45,71 @@ begin
   case t of
     1:
       begin
-      prime := primesieve_next_prime(primes_it);
-      while prime <= stop do
-      begin
-        WriteLn(prime);
         prime := primesieve_next_prime(primes_it);
-      end;
+        while prime <= stop do
+        begin
+          WriteLn(prime);
+          prime := primesieve_next_prime(primes_it);
+        end;
       end;
     2:
       begin
-      prime := tuplets_next_twin(tuplets_it);
-      while tuplets_it.tail[0] <= stop do
-      begin
-        WriteLn(Format('(%d, %d)', [tuplets_it.tail[1], tuplets_it.tail[0]]));
         prime := tuplets_next_twin(tuplets_it);
-      end;
+        while tuplets_it.tail[0] <= stop do
+        begin
+          WriteLn(Format('(%d, %d)', [tuplets_it.tail[1], 
+            tuplets_it.tail[0]]));
+          prime := tuplets_next_twin(tuplets_it);
+        end;
       end;
     3:
       begin
-      prime := tuplets_next_triplet(tuplets_it);
-      while tuplets_it.tail[0] <= stop do
-      begin
-        WriteLn(Format('(%d, %d, %d)',
-          [tuplets_it.tail[2], tuplets_it.tail[1], tuplets_it.tail[0]]));
         prime := tuplets_next_triplet(tuplets_it);
-      end;
+        while tuplets_it.tail[0] <= stop do
+        begin
+          WriteLn(Format('(%d, %d, %d)',
+            [tuplets_it.tail[2], tuplets_it.tail[1], tuplets_it.tail[0]]));
+          prime := tuplets_next_triplet(tuplets_it);
+        end;
       end;
     4:
       begin
-      prime := tuplets_next_quadruplet(tuplets_it);
-      while tuplets_it.tail[0] <= stop do
-      begin
-        WriteLn(Format('(%d, %d, %d, %d)',
-          [tuplets_it.tail[3], tuplets_it.tail[2], tuplets_it.tail[1], tuplets_it.tail[0]]));
         prime := tuplets_next_quadruplet(tuplets_it);
-      end;
+        while tuplets_it.tail[0] <= stop do
+        begin
+          WriteLn(Format('(%d, %d, %d, %d)',
+            [tuplets_it.tail[3], tuplets_it.tail[2], tuplets_it.tail[1],
+            tuplets_it.tail[0]]));
+          prime := tuplets_next_quadruplet(tuplets_it);
+        end;
       end;
     5:
       begin
-      prime := tuplets_next_quintuplet(tuplets_it);
-      while tuplets_it.tail[0] <= stop do
-      begin
-        WriteLn(Format('(%d, %d, %d, %d, %d)',
-          [tuplets_it.tail[4], tuplets_it.tail[3], tuplets_it.tail[2],
-          tuplets_it.tail[1], tuplets_it.tail[0]]));
         prime := tuplets_next_quintuplet(tuplets_it);
-      end;
+        while tuplets_it.tail[0] <= stop do
+        begin
+          WriteLn(Format('(%d, %d, %d, %d, %d)',
+            [tuplets_it.tail[4], tuplets_it.tail[3], tuplets_it.tail[2],
+            tuplets_it.tail[1], tuplets_it.tail[0]]));
+          prime := tuplets_next_quintuplet(tuplets_it);
+        end;
       end;
     6:
       begin
-      prime := tuplets_next_sextuplet(tuplets_it);
-      while tuplets_it.tail[0] <= stop do
-      begin
-        WriteLn(Format('(%d, %d, %d, %d, %d, %d)',
-          [tuplets_it.tail[5], tuplets_it.tail[4], tuplets_it.tail[3],
-          tuplets_it.tail[2], tuplets_it.tail[1], tuplets_it.tail[0]]));
         prime := tuplets_next_sextuplet(tuplets_it);
-      end;
+        while tuplets_it.tail[0] <= stop do
+        begin
+          WriteLn(Format('(%d, %d, %d, %d, %d, %d)',
+            [tuplets_it.tail[5], tuplets_it.tail[4], tuplets_it.tail[3],
+            tuplets_it.tail[2], tuplets_it.tail[1], tuplets_it.tail[0]]));
+          prime := tuplets_next_sextuplet(tuplets_it);
+        end;
       end;
   end;
+
+  if t = 1 then
+    primesieve_free_iterator(primes_it)
+  else
+    tuplets_free(tuplets_it);
+
 end.

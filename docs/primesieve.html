@@ -33,6 +33,10 @@ Pascal bindings for primesieve library.
 <td class="itemname">Record&nbsp;<a class="bold" href="primesieve.primesieve_iterator.html"><code>primesieve_iterator</code></a></td>
 <td class="itemdesc">&nbsp;</td>
 </tr>
+<tr class="list2">
+<td class="itemname">Record&nbsp;<a class="bold" href="primesieve.tuplets_iterator.html"><code>tuplets_iterator</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
 </table>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
@@ -117,6 +121,30 @@ Pascal bindings for primesieve library.
 <tr class="list">
 <td class="itemcode"><code>function <b><a  href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a></b>( var it: <a  href="primesieve.primesieve_iterator.html">primesieve_iterator</a> ): UInt64; inline;</code></td>
 </tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#tuplets_init">tuplets_init</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> );</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#tuplets_free">tuplets_free</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>procedure <b><a  href="primesieve.html#tuplets_skipto">tuplets_skipto</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a>; start: UInt64 );</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#tuplets_next_twin">tuplets_next_twin</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#tuplets_next_triplet">tuplets_next_triplet</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#tuplets_next_quadruplet">tuplets_next_quadruplet</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#tuplets_next_quintuplet">tuplets_next_quintuplet</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <b><a  href="primesieve.html#tuplets_next_sextuplet">tuplets_next_sextuplet</a></b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
 <table class="summary wide_list">
@@ -139,7 +167,7 @@ Pascal bindings for primesieve library.
 <td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_VERSION_MINOR">_PRIMESIEVE_VERSION_MINOR</a></b> = 6;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></b> = '0.4';</code></td>
+<td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></b> = '0.5';</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><b><a  href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a></b> = not UInt64(0);</code></td>
@@ -462,6 +490,78 @@ Get the previous prime.
 <p><a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> returns <i>0</i> for <i>n &lt;= 2</i>. Note that <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> runs up to 2x faster than <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a>. Hence if the same algorithm can be written using either <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> or <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> it is preferable to use <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a>.</p>
 </td></tr>
 </table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_init"></span><code>procedure <b>tuplets_init</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Initialize the prime tuplets iterator before first using it.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_free"></span><code>procedure <b>tuplets_free</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Free all prime tuplets iterator memory.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_skipto"></span><code>procedure <b>tuplets_skipto</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a>; start: UInt64 );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Reset the prime tuplets iterator to start.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_next_twin"></span><code>function <b>tuplets_next_twin</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get next sequence of two primes of the form (p, p+2)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_next_triplet"></span><code>function <b>tuplets_next_triplet</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get next sequence of three primes of the form (p, p + 2, p + 6) or (p, p + 4, p + 6)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_next_quadruplet"></span><code>function <b>tuplets_next_quadruplet</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get next sequence of four primes of the form (p, p+2, p+6, p+8)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_next_quintuplet"></span><code>function <b>tuplets_next_quintuplet</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get next sequence of five primes of the form (p, p+2, p+6, p+8, p+12) or (p, p+4, p+6, p+10, p+12)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="tuplets_next_sextuplet"></span><code>function <b>tuplets_next_sextuplet</b>( var it: <a  href="primesieve.tuplets_iterator.html">tuplets_iterator</a> ): UInt64;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Get next sequence of six primes of the form (p, p+4, p+6, p+10, p+12, p+16)</p>
+</td></tr>
+</table>
 <h3 class="detail">Types</h3>
 <table class="detail wide_list">
 <tr class="list">
@@ -501,7 +601,7 @@ Get the previous prime.
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><b>_PRIMESIEVE_PAS_VERSION</b> = '0.4';</code></td>
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><b>_PRIMESIEVE_PAS_VERSION</b> = '0.5';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>

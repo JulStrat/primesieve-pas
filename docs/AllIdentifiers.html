@@ -215,41 +215,88 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_free">tuplets_free</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Free all prime tuplets iterator memory.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_init">tuplets_init</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Initialize the prime tuplets iterator before first using it.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="primesieve.tuplets_iterator.html">tuplets_iterator</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p><a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a> allows to iterate over prime tuplets. Functions <i>tuplets_next_twin, tuplets_next_triplet, ..., tuplets_next_sextuplet</i> can be called in any order. Each successful call to tuplets_next_* stores prime tuplet sequence into array <i>tuplets_iterator.tail</i> and returns last element of tuplet.
+
+<p>The <i>printlets_it.pas</i> example shows how to use <a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a>. If any error occurs tuplets_next_* functions return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <i>tuplets_iterator.iterator.is_error</i> is initialized to <i>0</i> and set to <i>1</i> if any error occurs.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_next_quadruplet">tuplets_next_quadruplet</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Get next sequence of four primes of the form (p, p+2, p+6, p+8)</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_next_quintuplet">tuplets_next_quintuplet</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Get next sequence of five primes of the form (p, p+2, p+6, p+8, p+12) or (p, p+4, p+6, p+10, p+12)</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_next_sextuplet">tuplets_next_sextuplet</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Get next sequence of six primes of the form (p, p+4, p+6, p+10, p+12, p+16)</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_next_triplet">tuplets_next_triplet</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Get next sequence of three primes of the form (p, p + 2, p + 6) or (p, p + 4, p + 6)</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_next_twin">tuplets_next_twin</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Get next sequence of two primes of the form (p, p+2)</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="primesieve.html#tuplets_skipto">tuplets_skipto</a></td>
+<td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
+<td class="itemdesc"><p>Reset the prime tuplets iterator to start.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT16_PRIMES">UINT16_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Generate primes of <i>UInt16 (c uint16_t)</i> type</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT32_PRIMES">UINT32_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Generate primes of <i>UInt32 (c uint32_t)</i> type</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#UINT64_PRIMES">UINT64_PRIMES</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Generate primes of <i>UInt64 (c uint64_t)</i> type</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>primesieve functions return <i>PRIMESIEVE_ERROR (UINT64_MAX)</i> if any error occurs.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>Pascal API version</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_VERSION">_PRIMESIEVE_VERSION</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_VERSION_MAJOR">_PRIMESIEVE_VERSION_MAJOR</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.html#_PRIMESIEVE_VERSION_MINOR">_PRIMESIEVE_VERSION_MINOR</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>

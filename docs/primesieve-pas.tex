@@ -58,6 +58,7 @@ This file is distributed under the BSD 2{-}Clause License.
 \section{Overview}
 \begin{description}
 \item[\texttt{\begin{ttfamily}primesieve{\_}iterator\end{ttfamily} Record}]
+\item[\texttt{\begin{ttfamily}tuplets{\_}iterator\end{ttfamily} Record}]
 \end{description}
 \begin{description}
 \item[\texttt{primesieve{\_}generate{\_}primes}]
@@ -87,6 +88,14 @@ This file is distributed under the BSD 2{-}Clause License.
 \item[\texttt{primesieve{\_}skipto}]
 \item[\texttt{primesieve{\_}next{\_}prime}]
 \item[\texttt{primesieve{\_}prev{\_}prime}]
+\item[\texttt{tuplets{\_}init}]
+\item[\texttt{tuplets{\_}free}]
+\item[\texttt{tuplets{\_}skipto}]
+\item[\texttt{tuplets{\_}next{\_}twin}]
+\item[\texttt{tuplets{\_}next{\_}triplet}]
+\item[\texttt{tuplets{\_}next{\_}quadruplet}]
+\item[\texttt{tuplets{\_}next{\_}quintuplet}]
+\item[\texttt{tuplets{\_}next{\_}sextuplet}]
 \end{description}
 \section{Classes, Interfaces, Objects and Records}
 \ifpdf
@@ -99,7 +108,17 @@ This file is distributed under the BSD 2{-}Clause License.
 \subsubsection*{\large{\textbf{Description}}\normalsize\hspace{1ex}\hfill}
 \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}) allows to easily iterate over primes both forwards and backwards. Generating the first prime has a complexity of \textit{O(r log log r)} operations with \textit{r = n{\^{}}0.5}, after that any additional prime is generated in amortized \textit{O(log n log log n)} operations. The memory usage is about \textit{PrimePi(n{\^{}}0.5) * 8} bytes.
 
-The \textit{primesieve{\_}iterator.pas} example shows how to use \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}). If any error occurs \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) and \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) return \begin{ttfamily}{\_}PRIMESIEVE{\_}ERROR\end{ttfamily}(\ref{primesieve-_PRIMESIEVE_ERROR}). Furthermore \textit{primesieve{\_}iterator.is{\_}error} is initialized to \textit{0} and set to \textit{1} if any error occurs.\section{Functions and Procedures}
+The \textit{primesieve{\_}iterator.pas} example shows how to use \begin{ttfamily}primesieve{\_}iterator\end{ttfamily}(\ref{primesieve.primesieve_iterator}). If any error occurs \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) and \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) return \begin{ttfamily}{\_}PRIMESIEVE{\_}ERROR\end{ttfamily}(\ref{primesieve-_PRIMESIEVE_ERROR}). Furthermore \textit{primesieve{\_}iterator.is{\_}error} is initialized to \textit{0} and set to \textit{1} if any error occurs.\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}iterator Record}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}iterator Record}
+\fi
+\label{primesieve.tuplets_iterator}
+\index{tuplets{\_}iterator}
+\subsubsection*{\large{\textbf{Description}}\normalsize\hspace{1ex}\hfill}
+\begin{ttfamily}tuplets{\_}iterator\end{ttfamily}(\ref{primesieve.tuplets_iterator}) allows to iterate over prime tuplets. Functions \textit{tuplets{\_}next{\_}twin, tuplets{\_}next{\_}triplet, ..., tuplets{\_}next{\_}sextuplet} can be called in any order. Each successful call to tuplets{\_}next{\_}* stores prime tuplet sequence into array \textit{tuplets{\_}iterator.tail} and returns last element of tuplet.
+
+The \textit{printlets{\_}it.pas} example shows how to use \begin{ttfamily}tuplets{\_}iterator\end{ttfamily}(\ref{primesieve.tuplets_iterator}). If any error occurs tuplets{\_}next{\_}* functions return \begin{ttfamily}{\_}PRIMESIEVE{\_}ERROR\end{ttfamily}(\ref{primesieve-_PRIMESIEVE_ERROR}). Furthermore \textit{tuplets{\_}iterator.iterator.is{\_}error} is initialized to \textit{0} and set to \textit{1} if any error occurs.\section{Functions and Procedures}
 \ifpdf
 \subsection*{\large{\textbf{primesieve{\_}generate{\_}primes}}\normalsize\hspace{1ex}\hrulefill}
 \else
@@ -1043,6 +1062,270 @@ Get the previous prime.
 \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) returns \textit{0} for \textit{n {$<$}= 2}. Note that \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) runs up to 2x faster than \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}). Hence if the same algorithm can be written using either \begin{ttfamily}primesieve{\_}prev{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_prev_prime}) or \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}) it is preferable to use \begin{ttfamily}primesieve{\_}next{\_}prime\end{ttfamily}(\ref{primesieve-primesieve_next_prime}).
 
 \end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}init}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}init}
+\fi
+\label{primesieve-tuplets_init}
+\index{tuplets{\_}init}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+procedure tuplets{\_}init( var it: tuplets{\_}iterator );\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Initialize the prime tuplets iterator before first using it.
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}free}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}free}
+\fi
+\label{primesieve-tuplets_free}
+\index{tuplets{\_}free}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+procedure tuplets{\_}free( var it: tuplets{\_}iterator );\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Free all prime tuplets iterator memory.
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}skipto}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}skipto}
+\fi
+\label{primesieve-tuplets_skipto}
+\index{tuplets{\_}skipto}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+procedure tuplets{\_}skipto( var it: tuplets{\_}iterator; start: UInt64 );\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Reset the prime tuplets iterator to start.
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}next{\_}twin}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}next{\_}twin}
+\fi
+\label{primesieve-tuplets_next_twin}
+\index{tuplets{\_}next{\_}twin}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+function tuplets{\_}next{\_}twin( var it: tuplets{\_}iterator ): UInt64;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Get next sequence of two primes of the form (p, p+2)
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}next{\_}triplet}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}next{\_}triplet}
+\fi
+\label{primesieve-tuplets_next_triplet}
+\index{tuplets{\_}next{\_}triplet}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+function tuplets{\_}next{\_}triplet( var it: tuplets{\_}iterator ): UInt64;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Get next sequence of three primes of the form (p, p + 2, p + 6) or (p, p + 4, p + 6)
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}next{\_}quadruplet}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}next{\_}quadruplet}
+\fi
+\label{primesieve-tuplets_next_quadruplet}
+\index{tuplets{\_}next{\_}quadruplet}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+function tuplets{\_}next{\_}quadruplet( var it: tuplets{\_}iterator ): UInt64;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Get next sequence of four primes of the form (p, p+2, p+6, p+8)
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}next{\_}quintuplet}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}next{\_}quintuplet}
+\fi
+\label{primesieve-tuplets_next_quintuplet}
+\index{tuplets{\_}next{\_}quintuplet}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+function tuplets{\_}next{\_}quintuplet( var it: tuplets{\_}iterator ): UInt64;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Get next sequence of five primes of the form (p, p+2, p+6, p+8, p+12) or (p, p+4, p+6, p+10, p+12)
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{tuplets{\_}next{\_}sextuplet}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{tuplets{\_}next{\_}sextuplet}
+\fi
+\label{primesieve-tuplets_next_sextuplet}
+\index{tuplets{\_}next{\_}sextuplet}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+function tuplets{\_}next{\_}sextuplet( var it: tuplets{\_}iterator ): UInt64;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\par
+\item[\textbf{Description}]
+Get next sequence of six primes of the form (p, p+4, p+6, p+10, p+12, p+16)
+
+\end{list}
 \section{Types}
 \ifpdf
 \subsection*{\large{\textbf{PUInt64}}\normalsize\hspace{1ex}\hrulefill}
@@ -1212,7 +1495,7 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.4';\end{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.5';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}

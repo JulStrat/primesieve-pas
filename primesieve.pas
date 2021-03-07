@@ -60,7 +60,7 @@ const
   _PRIMESIEVE_VERSION_MINOR = 6;
 
   (* Pascal API version *)
-  _PRIMESIEVE_PAS_VERSION = '0.4';
+  _PRIMESIEVE_PAS_VERSION = '0.5';
 
   (*
     primesieve functions return @italic(PRIMESIEVE_ERROR 
@@ -132,7 +132,8 @@ function primesieve_generate_primes(
 (*
   Get an array with the first @italic(n primes >= start).
   
-  @param(ptype The type of the primes to generate, e.g. @link(INT_PRIMES32).)
+  @param(ptype The type of the primes to generate,
+    e.g. @link(INT_PRIMES32).)
 *)
 function primesieve_generate_n_primes(
   n: UInt64;
@@ -435,31 +436,46 @@ procedure primesieve_generate_prev_primes(
 
 {$REGION 'tuplets_iterator'}
 
+(*
+  @link(tuplets_iterator) allows to iterate over prime tuplets.
+  Functions @italic(tuplets_next_twin, tuplets_next_triplet, 
+  ..., tuplets_next_sextuplet) can be called in any order.
+  Each successful call to tuplets_next_* stores prime tuplet sequence  
+  into array @italic(tuplets_iterator.tail) and returns last element of tuplet.
+  
+  The @italic(printlets_it.pas) example shows how to use @link(tuplets_iterator).
+  If any error occurs tuplets_next_* functions return @link(_PRIMESIEVE_ERROR).
+  Furthermore @italic(tuplets_iterator.iterator.is_error) is initialized
+  to @italic(0) and set to @italic(1) if any error occurs.
+*)
 type
   tuplets_iterator = record
     tail: array[0..5] of UInt64;
     iterator: primesieve_iterator;
   end;  
-    
+
+(* Initialize the prime tuplets iterator before first using it. *)
 procedure tuplets_init(
   var it: tuplets_iterator );
 
+(* Free all prime tuplets iterator memory. *)
 procedure tuplets_free(
   var it: tuplets_iterator );
 
+(* Reset the prime tuplets iterator to start. *)
 procedure tuplets_skipto(
   var it: tuplets_iterator;
   start: UInt64 );
 
 (*
-  A sequence of two primes of the form 
+  Get next sequence of two primes of the form 
   (p, p+2)
 *)
 function tuplets_next_twin(
   var it: tuplets_iterator ): UInt64;
 
 (*
-  A sequence of three primes of the form 
+  Get next sequence of three primes of the form 
   (p, p + 2, p + 6) or 
   (p, p + 4, p + 6)
 *)
@@ -467,14 +483,14 @@ function tuplets_next_triplet(
   var it: tuplets_iterator ): UInt64;
 
 (*
-  A sequence of four primes of the form
+  Get next sequence of four primes of the form
   (p, p+2, p+6, p+8)
 *)
 function tuplets_next_quadruplet(
   var it: tuplets_iterator ): UInt64;
 
 (*
-  A sequence of five primes of the form 
+  Get next sequence of five primes of the form 
   (p, p+2, p+6, p+8,  p+12) or 
   (p, p+4, p+6, p+10, p+12)
 *)
@@ -482,7 +498,7 @@ function tuplets_next_quintuplet(
   var it: tuplets_iterator ): UInt64;
 
 (*
-  A sequence of six primes of the form 
+  Get next sequence of six primes of the form 
   (p, p+4, p+6, p+10, p+12, p+16)
 *)
 function tuplets_next_sextuplet(
