@@ -3,13 +3,13 @@
 <head>
 <title>primesieve-pas: All Classes, Interfaces, Objects and Records</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.15.0">
+<meta name="generator" content="PasDoc 0.16.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<table class="container"><tr><td class="navigation">
-<h2>primesieve-pas</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<div class="container"><div class="navigation">
+<h2><a href="index.html">primesieve-pas</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
 <h1 class="allitems">All Classes, Interfaces, Objects and Records</h1>
 <table class="itemstable wide_list">
 <tr class="listheader">
@@ -20,18 +20,18 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="primesieve.primesieve_iterator.html">primesieve_iterator</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p><a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> allows to easily iterate over primes both forwards and backwards. Generating the first prime has a complexity of <i>O(r log log r)</i> operations with <i>r = n&circ;0.5</i>, after that any additional prime is generated in amortized <i>O(log n log log n)</i> operations. The memory usage is about <i>PrimePi(n&circ;0.5) * 8</i> bytes.
+<td class="itemdesc"><p><a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a> allows to easily iterate over primes both forwards and backwards. Generating the first prime has a complexity of <em>O(r log log r)</em> operations with <em>r = n&circ;0.5</em>, after that any additional prime is generated in amortized <em>O(log n log log n)</em> operations. The memory usage is about <em>PrimePi(n&circ;0.5) * 8</em> bytes.
 
-<p>The <i>primesieve_iterator.pas</i> example shows how to use <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a>. If any error occurs <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> and <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <i>primesieve_iterator.is_error</i> is initialized to <i>0</i> and set to <i>1</i> if any error occurs.</p></td>
+<p>The <em>primesieve_iterator.pas</em> example shows how to use <a class="normal" href="primesieve.primesieve_iterator.html">primesieve_iterator</a>. If any error occurs <a class="normal" href="primesieve.html#primesieve_next_prime">primesieve_next_prime</a> and <a class="normal" href="primesieve.html#primesieve_prev_prime">primesieve_prev_prime</a> return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <em>primesieve_iterator.is_error</em> is initialized to <em>0</em> and set to <em>1</em> if any error occurs.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="primesieve.tuplets_iterator.html">tuplets_iterator</a></td>
 <td class="itemunit"><a class="bold" href="primesieve.html">primesieve</a></td>
-<td class="itemdesc"><p><a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a> allows to iterate over prime tuplets. Functions <i>tuplets_next_twin, tuplets_next_triplet, ..., tuplets_next_sextuplet</i> can be called in any order. Each successful call to tuplets_next_* stores prime tuplet sequence into array <i>tuplets_iterator.tail</i> and returns last element of tuplet.
+<td class="itemdesc"><p><a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a> allows to iterate over prime tuplets. Functions <em>tuplets_next_twin, tuplets_next_triplet, ..., tuplets_next_sextuplet</em> can be called in any order. Each successful call to tuplets_next_* stores prime tuplet sequence into array <em>tuplets_iterator.tail</em> and returns last element of tuplet.
 
-<p>The <i>printlets_it.pas</i> example shows how to use <a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a>. If any error occurs tuplets_next_* functions return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <i>tuplets_iterator.iterator.is_error</i> is initialized to <i>0</i> and set to <i>1</i> if any error occurs.</p></td>
+<p>The <em>printlets_it.pas</em> example shows how to use <a class="normal" href="primesieve.tuplets_iterator.html">tuplets_iterator</a>. If any error occurs tuplets_next_* functions return <a class="normal" href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a>. Furthermore <em>tuplets_iterator.iterator.is_error</em> is initialized to <em>0</em> and set to <em>1</em> if any error occurs.</p></td>
 </tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a  href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
 </span>
-</td></tr></table></body></html>
+</div></div></body></html>
