@@ -55,12 +55,15 @@ const
 {$REGION 'primesieve.h'}
 
 const
-  _PRIMESIEVE_VERSION = '7.6';
+  _PRIMESIEVE_VERSION = '7.7';
   _PRIMESIEVE_VERSION_MAJOR = 7;
-  _PRIMESIEVE_VERSION_MINOR = 6;
+  _PRIMESIEVE_VERSION_MINOR = 7;
 
   (* Pascal API version *)
-  _PRIMESIEVE_PAS_VERSION = '0.5';
+  _PRIMESIEVE_PAS_VERSION = '0.5.1';
+  _PRIMESIEVE_PAS_VERSION_MAJOR = 0;
+  _PRIMESIEVE_PAS_VERSION_MINOR = 5;
+  _PRIMESIEVE_PAS_VERSION_PATCH = 1;
 
   (*
     primesieve functions return @italic(PRIMESIEVE_ERROR 
@@ -296,7 +299,7 @@ function primesieve_get_num_threads(): Integer;
   Set the sieve size in KiB (kibibyte).
   The best sieving performance is achieved with a sieve size
   of your CPU's L1 or L2 cache size (per core).
-  @italic(sieve_size >= 8 and <= 4096)
+  @italic(sieve_size >= 16 and <= 4096)
 *)
 procedure primesieve_set_sieve_size(
   sieve_size: Integer );
