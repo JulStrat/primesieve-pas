@@ -822,7 +822,7 @@ procedure primesieve{\_}set{\_}sieve{\_}size( sieve{\_}size: Integer ); cdecl; e
 
 \par
 \item[\textbf{Description}]
-Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). \textit{sieve{\_}size {$>$}= 8 and {$<$}= 4096}
+Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). \textit{sieve{\_}size {$>$}= 16 and {$<$}= 4096}
 
 \end{list}
 \ifpdf
@@ -1449,7 +1449,7 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}VERSION = '7.6';\end{ttfamily}
+{\_}PRIMESIEVE{\_}VERSION = '7.7';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -1507,7 +1507,7 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}VERSION{\_}MINOR = 6;\end{ttfamily}
+{\_}PRIMESIEVE{\_}VERSION{\_}MINOR = 7;\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -1536,7 +1536,7 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \begin{flushleft}
 \fi
 \begin{ttfamily}
-{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.5';\end{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION = '0.5.1';\end{ttfamily}
 
 \ifpdf
 \end{flushleft}
@@ -1545,6 +1545,93 @@ PInt64 = {\^{}}Int64;\end{ttfamily}
 \par
 \item[\textbf{Description}]
 Pascal API version
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MAJOR}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MAJOR}
+\fi
+\label{primesieve-_PRIMESIEVE_PAS_VERSION_MAJOR}
+\index{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MAJOR}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MAJOR = 0;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MINOR}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MINOR}
+\fi
+\label{primesieve-_PRIMESIEVE_PAS_VERSION_MINOR}
+\index{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MINOR}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}MINOR = 5;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
+
+\end{list}
+\ifpdf
+\subsection*{\large{\textbf{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}PATCH}}\normalsize\hspace{1ex}\hrulefill}
+\else
+\subsection*{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}PATCH}
+\fi
+\label{primesieve-_PRIMESIEVE_PAS_VERSION_PATCH}
+\index{{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}PATCH}
+\begin{list}{}{
+\settowidth{\tmplength}{\textbf{Description}}
+\setlength{\itemindent}{0cm}
+\setlength{\listparindent}{0cm}
+\setlength{\leftmargin}{\evensidemargin}
+\addtolength{\leftmargin}{\tmplength}
+\settowidth{\labelsep}{X}
+\addtolength{\leftmargin}{\labelsep}
+\setlength{\labelwidth}{\tmplength}
+}
+\item[\textbf{Declaration}\hfill]
+\ifpdf
+\begin{flushleft}
+\fi
+\begin{ttfamily}
+{\_}PRIMESIEVE{\_}PAS{\_}VERSION{\_}PATCH = 1;\end{ttfamily}
+
+\ifpdf
+\end{flushleft}
+\fi
 
 \end{list}
 \ifpdf

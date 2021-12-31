@@ -158,36 +158,45 @@ Pascal bindings for primesieve library.
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_VERSION">_PRIMESIEVE_VERSION</a></strong> = '7.6';</code></td>
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_VERSION">_PRIMESIEVE_VERSION</a></strong> = '7.7';</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_VERSION_MAJOR">_PRIMESIEVE_VERSION_MAJOR</a></strong> = 7;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_VERSION_MINOR">_PRIMESIEVE_VERSION_MINOR</a></strong> = 6;</code></td>
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_VERSION_MINOR">_PRIMESIEVE_VERSION_MINOR</a></strong> = 7;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></strong> = '0.5';</code></td>
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_PAS_VERSION">_PRIMESIEVE_PAS_VERSION</a></strong> = '0.5.1';</code></td>
 </tr>
 <tr class="list">
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_PAS_VERSION_MAJOR">_PRIMESIEVE_PAS_VERSION_MAJOR</a></strong> = 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_PAS_VERSION_MINOR">_PRIMESIEVE_PAS_VERSION_MINOR</a></strong> = 5;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_PAS_VERSION_PATCH">_PRIMESIEVE_PAS_VERSION_PATCH</a></strong> = 1;</code></td>
+</tr>
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="primesieve.html#_PRIMESIEVE_ERROR">_PRIMESIEVE_ERROR</a></strong> = not UInt64(0);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="primesieve.html#INT16_PRIMES">INT16_PRIMES</a></strong> = 8;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="primesieve.html#UINT16_PRIMES">UINT16_PRIMES</a></strong> = 9;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="primesieve.html#INT32_PRIMES">INT32_PRIMES</a></strong> = 10;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="primesieve.html#UINT32_PRIMES">UINT32_PRIMES</a></strong> = 11;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemcode"><code><strong><a href="primesieve.html#INT64_PRIMES">INT64_PRIMES</a></strong> = 12;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemcode"><code><strong><a href="primesieve.html#UINT64_PRIMES">UINT64_PRIMES</a></strong> = 13;</code></td>
 </tr>
 </table>
@@ -400,7 +409,7 @@ Get the current set number of threads.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). <em>sieve_size &gt;= 8 and &lt;= 4096</em></p>
+Set the sieve size in KiB (kibibyte). The best sieving performance is achieved with a sieve size of your CPU's L1 or L2 cache size (per core). <em>sieve_size &gt;= 16 and &lt;= 4096</em></p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -580,7 +589,7 @@ Get next sequence of six primes of the form (p, p+4, p+6, p+10, p+12, p+16)</p>
 <h3 class="detail">Constants</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="_PRIMESIEVE_VERSION"></span><code><strong>_PRIMESIEVE_VERSION</strong> = '7.6';</code></td>
+<td class="itemcode"><span id="_PRIMESIEVE_VERSION"></span><code><strong>_PRIMESIEVE_VERSION</strong> = '7.7';</code></td>
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
@@ -594,19 +603,40 @@ Get next sequence of six primes of the form (p, p+4, p+6, p+10, p+12, p+16)</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="_PRIMESIEVE_VERSION_MINOR"></span><code><strong>_PRIMESIEVE_VERSION_MINOR</strong> = 6;</code></td>
+<td class="itemcode"><span id="_PRIMESIEVE_VERSION_MINOR"></span><code><strong>_PRIMESIEVE_VERSION_MINOR</strong> = 7;</code></td>
 </tr>
 <tr><td colspan="1">
 &nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><strong>_PRIMESIEVE_PAS_VERSION</strong> = '0.5';</code></td>
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION"></span><code><strong>_PRIMESIEVE_PAS_VERSION</strong> = '0.5.1';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Pascal API version</p>
 </td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION_MAJOR"></span><code><strong>_PRIMESIEVE_PAS_VERSION_MAJOR</strong> = 0;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION_MINOR"></span><code><strong>_PRIMESIEVE_PAS_VERSION_MINOR</strong> = 5;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="_PRIMESIEVE_PAS_VERSION_PATCH"></span><code><strong>_PRIMESIEVE_PAS_VERSION_PATCH</strong> = 1;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
