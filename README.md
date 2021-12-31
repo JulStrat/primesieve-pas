@@ -12,9 +12,9 @@ Repository structure -
 in HTML, LaTex and PDF format. 
 Documentation generated with [PasDoc](https://github.com/pasdoc/pasdoc) and [TeXstudio](https://github.com/texstudio-org/texstudio).
 - `examples` - Pascal port of original C examples from [PrimeSieve](https://github.com/kimwalisch/primesieve), 
-`countlets` - counts `lets`, `printlets` - prints `lets`, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
-- `include` - C API v7.6 header files.
-- `libprimesieve` - `primesieve` 64bit Windows dynamic libraries.
+`countlets` - counts prime tuplets, `printlets` - prints prime tuplets, `totient` - prints [Euler's totient](https://en.wikipedia.org/wiki/Euler%27s_totient_function) for range.
+- `include` - C API v7.7 header files.
+- `libprimesieve` - v7.7 64bit Windows dynamic libraries.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Install `primesieve` library.
 Linking against `libprimesieve` v6.x is also possible - 
 build your project with symbol `USE_ABI6` defined 
 (Free Pascal compiler command line switch `-dUSE_ABI6`).
-Details - https://github.com/kimwalisch/primesieve/releases/tag/v7.0.
+ABI changes details - https://github.com/kimwalisch/primesieve/releases/tag/v7.0.
 
 ## Usage example
 
@@ -94,7 +94,7 @@ $ dcc64 -B -$O+ -NSSystem examples/countlets.pas
 Run - 
 
 ```Shell
-$ time ./examples/printlets.exe 6 0 1000000
+$ time examples/printlets.exe 6 0 1000000
 (7, 11, 13, 17, 19, 23)
 (97, 101, 103, 107, 109, 113)
 (16057, 16061, 16063, 16067, 16069, 16073)
