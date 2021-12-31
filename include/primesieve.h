@@ -1,10 +1,13 @@
 /**
  * @file   primesieve.h
- * @brief  primesieve C API. primesieve is a library for fast prime
- *         number generation. In case an error occurs errno is set to
- *         EDOM and PRIMESIEVE_ERROR is returned.
+ * @brief  primesieve C API. primesieve is a library for quickly
+ *         generating prime numbers. If an error occurs, primesieve
+ *         functions with a uint64_t return type return PRIMESIEVE_ERROR
+ *         and the corresponding error message is printed to the
+ *         standard error stream. libprimesieve also sets the C errno
+ *         variable to EDOM if an error occurs.
  * 
- * Copyright (C) 2020 Kim Walisch, <kim.walisch@gmail.com>
+ * Copyright (C) 2021 Kim Walisch, <kim.walisch@gmail.com>
  * 
  * This file is distributed under the BSD License.
  */
@@ -12,9 +15,9 @@
 #ifndef PRIMESIEVE_H
 #define PRIMESIEVE_H
 
-#define PRIMESIEVE_VERSION "7.6"
+#define PRIMESIEVE_VERSION "7.7"
 #define PRIMESIEVE_VERSION_MAJOR 7
-#define PRIMESIEVE_VERSION_MINOR 6
+#define PRIMESIEVE_VERSION_MINOR 7
 
 #include <primesieve/iterator.h>
 
@@ -201,7 +204,7 @@ int primesieve_get_num_threads();
  * Set the sieve size in KiB (kibibyte).
  * The best sieving performance is achieved with a sieve size
  * of your CPU's L1 or L2 cache size (per core).
- * @pre sieve_size >= 8 && <= 4096.
+ * @pre sieve_size >= 16 && <= 4096.
  */
 void primesieve_set_sieve_size(int sieve_size);
 

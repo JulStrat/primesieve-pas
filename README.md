@@ -32,7 +32,7 @@ Details - https://github.com/kimwalisch/primesieve/releases/tag/v7.0.
 
 ## Usage example
 
-```
+```Pascal
 program store_primes_in_array;
 {$IF Defined(FPC)}
 {$MODE Delphi}
@@ -77,20 +77,23 @@ end.
 ## Building example
 
 Free Pascal compiler - 
-```
-fpc -B -O2 -CX -XX examples/store_primes_in_array.pas
+
+```Shell
+$ fpc -B -O2 -CX -XX examples/store_primes_in_array.pas
 ```
 
 Embarcadero Delphi compiler - 
-```
-dcc64 -B -$O+ -NSSystem examples/store_primes_in_array.pas
+
+```Shell
+$ dcc64 -B -$O+ -NSSystem examples/store_primes_in_array.pas
 ...
-dcc64 -B -$O+ -NSSystem examples/printlets.pas
-dcc64 -B -$O+ -NSSystem examples/countlets.pas
+$ dcc64 -B -$O+ -NSSystem examples/printlets.pas
+$ dcc64 -B -$O+ -NSSystem examples/countlets.pas
 ```
 
 Run - 
-```
+
+```Shell
 $ time ./examples/printlets.exe 6 0 1000000
 (7, 11, 13, 17, 19, 23)
 (97, 101, 103, 107, 109, 113)
